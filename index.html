@@ -78,10 +78,8 @@
             overflow: hidden;
         }
 
-        /* ซ่อนแถบเลื่อน (Scrollbar) สำหรับทุกเบราว์เซอร์ */
         html::-webkit-scrollbar, body::-webkit-scrollbar, .wrapper::-webkit-scrollbar { display: none; }
 
-        /* แก้ไข iOS: กำหนดให้ wrapper เป็นกล่องเนื้อหาที่ทำหน้าที่เลื่อนหน้าจอแทน */
         .wrapper { 
             -ms-overflow-style: none; 
             scrollbar-width: none;
@@ -168,8 +166,8 @@
         .target-btn:active { transform: scale(0.95); }
         .target-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
         
-        .sv-map { width: 100%; height: 100px; position: relative; border-radius: 8px; cursor: crosshair; touch-action: none; background: linear-gradient(to bottom, transparent, #000), linear-gradient(to right, #fff, transparent); margin-bottom: 10px; border: 1.5px solid #000000; }
-        .hue-slider { width: 100%; height: 18px; border-radius: 8px; position: relative; background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); touch-action: none; cursor: pointer; margin-bottom: 10px; border: 1.5px solid #000000; }
+        .sv-map { width: 100%; height: 100px; position: relative; border-radius: 8px; cursor: crosshair; touch-action: none; overscroll-behavior: contain; background: linear-gradient(to bottom, transparent, #000), linear-gradient(to right, #fff, transparent); margin-bottom: 10px; border: 1.5px solid #000000; }
+        .hue-slider { width: 100%; height: 18px; border-radius: 8px; position: relative; background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); touch-action: none; overscroll-behavior: contain; cursor: pointer; margin-bottom: 10px; border: 1.5px solid #000000; }
         .pointer { position: absolute; width: 16px; height: 16px; border: 2.5px solid white; border-radius: 50%; box-shadow: 0 0 4px rgba(0,0,0,0.4); transform: translate(-50%, -50%); pointer-events: none; }
         .hex-info { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 10px; }
         .picker-label { font-size: 12px; font-weight: 700; color: #000000; }
@@ -184,15 +182,16 @@
             padding: 50px 10px; background: #fbfbfb; 
             border: 1.5px dashed #000; border-radius: 12px; 
             margin-bottom: 24px; background-size: cover; background-position: center; 
-            min-height: 120px; /* ปล่อยให้ความสูงยืดได้ */
-            height: auto; 
+            min-height: 120px; 
+            height: auto; /* <--- สำคัญ: ปล่อยให้ยืดได้ เข็มกลัดจะไม่โดนบีบ */
             width: 100%;
         }
         
         #sampleTextLan { 
-            font-size: 34px; font-weight: bold; text-align: center; 
+            font-size: 42px; /* เพิ่มขนาดเริ่มต้น */
+            font-weight: bold; text-align: center; 
             line-height: 1.2; color: #000000; padding: 0 10px; 
-            white-space: nowrap; /* บังคับอักษรให้อยู่บรรทัดเดียว */
+            white-space: nowrap; 
         }
         #sampleTextLan span { color: inherit; }
 
@@ -200,7 +199,7 @@
         .shoe-tag { background-color: #1a1a1a; border-radius: 8px; padding: 10px 15px; width: 250px; min-width: 250px; max-width: 250px; height: 85px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 6px 16px rgba(0,0,0,0.2); position: relative; transition: background 0.3s; margin: 0 auto; }
         .shoe-tag.white-tag { background-color: #ffffff; border: 2px solid #ddd; }
         .hole { width: 18px; height: 55px; background-color: #fbfbfb; border-radius: 8px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.25); flex-shrink: 0; }
-        .shoe-tag-text { font-size: 34px; font-weight: bold; color: Silver; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); text-align: center; line-height: 1; padding: 0 10px; white-space: nowrap; overflow: hidden; flex: 1; min-width: 0; transition: font-size 0.2s ease; }
+        .shoe-tag-text { font-size: 40px; font-weight: bold; color: Silver; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); text-align: center; line-height: 1; padding: 0 10px; white-space: nowrap; overflow: hidden; flex: 1; min-width: 0; transition: font-size 0.2s ease; }
         .shoe-tag-text span { color: inherit; }
 
         /* ================= CSS เข็มกลัด (Badge) ================= */
@@ -208,21 +207,14 @@
         .badge-ring { width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
         .badge-middle { width: 130px; height: 130px; border-radius: 50%; background-color: #ffffff; position: absolute; z-index: 2; overflow: hidden; }
         .badge-cartoon { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 160px; height: 160px; object-fit: contain; z-index: 3; }
-        .badge-text { position: absolute; bottom: 18%; left: 50%; transform: translateX(-50%); font-size: 20px; font-weight: 800; text-align: center; line-height: 1.1; z-index: 4; text-transform: uppercase; width: 140px; word-wrap: break-word; text-shadow: 0 0 4px rgba(255,255,255,0.8), 0 0 2px rgba(255,255,255,0.9); }
+        .badge-text { position: absolute; bottom: 18%; left: 50%; transform: translateX(-50%); font-size: 28px; font-weight: 800; text-align: center; line-height: 1.1; z-index: 4; text-transform: uppercase; width: 140px; word-wrap: break-word; text-shadow: 0 0 4px rgba(255,255,255,0.8), 0 0 2px rgba(255,255,255,0.9); }
         .badge-text span { color: inherit; }
 
         /* ================= CSS สายพิมพ์ลาย (Print Lanyard) ================= */
         .preview-container-print { display: flex; justify-content: center; align-items: center; padding: 0 10px; background: #fbfbfb; border: 1.5px dashed #000; border-radius: 12px; margin-bottom: 24px; width: 100%; aspect-ratio: 3 / 1; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; overflow: hidden; }
-        #sampleTextPrint { font-size: 55px; font-weight: bold; text-align: center; line-height: 1.2; color: #000000; padding: 0 10px; white-space: nowrap; }
+        #sampleTextPrint { font-size: 70px; font-weight: bold; text-align: center; line-height: 1.2; color: #000000; padding: 0 10px; white-space: nowrap; }
         
-        /* สไตล์สำหรับรูปตัวอย่างฟอนต์ */
-        .font-gallery-img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 1.5px solid #000;
-            background-color: #fff;
-        }
+        .font-gallery-img { width: 100%; height: auto; border-radius: 12px; border: 1.5px solid #000; background-color: #fff; }
     </style>
 </head>
 <body>
@@ -294,6 +286,10 @@
         <div class="header-title">✦ ตัวอย่างสายคล้องแมส ✦</div>
         <div class="warning-banner">⚠️ รบกวนกดปุ่มด้านล่างเพื่อคัดลอกข้อความส่งให้แอดมิน<br>แทนการแคปรูปภาพนะคะ (เพื่อความถูกต้องของชื่อค่ะ)</div>
 
+        <div class="preview-container" id="sampleBoxLan">
+            <p id="sampleTextLan">น้องปั้นหยา Panyah</p>
+        </div>
+
         <div class="card">
             <div class="card-title">รายละเอียดสายคล้องแมส</div>
             <div class="form-row">
@@ -343,10 +339,6 @@
             </div>
         </div>
 
-        <div class="preview-container" id="sampleBoxLan">
-            <p id="sampleTextLan">น้องปั้นหยา Panyah</p>
-        </div>
-
         <div class="card">
             <div class="card-title">สรุปรายการสั่งทำ</div>
             <button class="btn-add" onclick="addToListLanyard()">✅ กดตรงนี้ ยืนยันแบบ (เส้นที่ <span id="btnCounterLan">1</span>)</button>
@@ -376,7 +368,6 @@
             
             <div class="form-row">
                 <label class="form-label">พิมพ์ชื่อตรงนี้ ♥</label>
-                <span style="font-size: 11px; color: #e91e8c; margin-top: -6px; margin-left: 2px;">(อิโมจิใส่ได้เลยค่ะ)</span>
                 <input type="text" id="textInputPrint" class="form-input" placeholder="พิมพ์ชื่อที่นี่..." oninput="updateAllPrint()">
             </div>
             
@@ -456,15 +447,11 @@
             </div>
 
             <div id="customPrintColorArea" style="display: none; margin-top: 10px; border-top: 1.5px dashed #000; padding-top: 15px;">
-                <label class="form-label">🎨 ปรับแต่งสีที่เลือกเอง</label>
-                <span style="font-size: 11px; color: #000000; margin-top: -6px; margin-left: 2px;">(สีบนจออาจแสดงแตกต่างจากสีจริงนะคะ)</span>
-
                 <div style="display: flex; gap: 8px; margin-bottom: 12px; margin-top: 10px;">
                     <button class="target-btn active" id="btnTargetTextPrint" style="display:none; flex:1;" onclick="setPrintPickerTarget('text', this)">สีอักษร</button>
                     <button class="target-btn" id="btnTargetOutlinePrint" style="display:none; flex:1;" onclick="setPrintPickerTarget('outline', this)">สีขอบ</button>
                     <button class="target-btn" id="btnTargetBgPrint" style="display:none; flex:1;" onclick="setPrintPickerTarget('bg', this)">สีพื้นหลัง</button>
                 </div>
-
                 <div class="sv-map" id="svMapPrint"><div class="pointer" id="svPointerPrint" style="top:0; left:100%"></div></div>
                 <div class="hue-slider" id="hueSliderPrint"><div class="pointer" id="huePointerPrint" style="top:50%; left:0"></div></div>
                 <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:bold;">
@@ -477,7 +464,7 @@
         <div class="card">
             <div class="card-title">สรุปรายการสั่งทำ</div>
             <button class="btn-add" onclick="addToListPrint()">✅ กดตรงนี้ ยืนยันแบบ (เส้นที่ <span id="btnCounterPrint">1</span>)</button>
-            <textarea id="orderSummaryPrint" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่...พิมพ์แก้ไขได้ที่นี่ค่ะ"></textarea>
+            <textarea id="orderSummaryPrint" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่..."></textarea>
             <div class="action-buttons">
                 <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryPrint')">📋 คัดลอกข้อความ</button>
                 <button class="btn-action btn-clear" onclick="clearOrder('orderSummaryPrint', 'btnCounterPrint', 'print')">🗑️ ล้างข้อมูลใหม่</button>
@@ -509,8 +496,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <label class="form-label">พิมพ์ชื่อตรงนี้ <span style="font-weight: normal; color: #555;">(6-8ตัวอักษร)</span></label>
-                <span style="font-size: 11px; color: #555555; margin-top: -6px; margin-left: 2px;">(ยิ่งยาว ตัวอักษรจะยิ่งเล็กนะคะ)</span>
+                <label class="form-label">พิมพ์ชื่อตรงนี้ ♥</label>
                 <input type="text" id="textInputShoe" class="form-input" placeholder="ใส่ชื่อที่ต้องการ" maxlength="15" oninput="updateShoeTag()">
             </div>
             <div class="dual-row">
@@ -536,7 +522,6 @@
         <div class="card">
             <div class="card-title">สรุปรายการสั่งทำ</div>
             <button class="btn-add" onclick="addToListShoe()">✅ กดตรงนี้ ยืนยันแบบ (คู่ที่ <span id="btnCounterShoe">1</span>)</button>
-            <p class="instruction-text">ตรวจสอบข้อมูลแล้ว <br>กดคัดลอกด้านล่างส่งให้แอดมินในแชทได้เลยค่ะ 👇</p>
             <textarea id="orderSummaryShoe" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่..."></textarea>
             <div class="action-buttons">
                 <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryShoe')">📋 คัดลอกข้อความ</button>
@@ -548,7 +533,7 @@
     <div id="page-badge" class="app-page">
         <button class="back-btn" onclick="navigateTo('page-home')">◁ กลับหน้าเมนู</button>
         <div class="header-title">✦ ตัวอย่างเข็มกลัด ✦</div>
-        <div class="warning-banner">⚠️ รบกวนกดปุ่มด้านล่างเพื่อคัดลอกข้อความส่งให้แอดมิน<br>แทนการแคปรูปภาพนะคะ (เพื่อความถูกต้องของชื่อค่ะ)</div>
+        <div class="warning-banner">⚠️ รบกวนกดปุ่มด้านล่างเพื่อคัดลอกข้อความส่งให้แอดมิน<br>แทนการแคปรูปภาพนะคะ</div>
 
         <div class="preview-container" style="background:#ffffff; padding: 40px 10px;">
             <div class="badge-outer">
@@ -573,7 +558,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <label class="form-label">พิมพ์ชื่อตรงนี้ (กด Enter ขึ้นบรรทัดใหม่ได้)</label>
+                <label class="form-label">พิมพ์ชื่อตรงนี้ ♥</label>
                 <textarea id="textInputBadge" class="form-textarea" placeholder="NAME" style="min-height: 60px;" oninput="updateBadge()"></textarea>
             </div>
             <div class="dual-row">
@@ -632,99 +617,55 @@
 <div id="toast">แจ้งเตือน</div>
 
 <script>
-    // iOS Scroll Fix — ป้องกัน touchmove ที่ไม่ได้อยู่บน color picker ไม่ให้บล็อก scroll
+    // iOS Scroll Fix — ป้องกัน touchmove บน color picker ไม่ให้บล็อก scroll หน้าจอหลัก
     (function() {
         var pickerSelectors = ['.sv-map', '.hue-slider'];
         var isDraggingPicker = false;
-
         document.addEventListener('touchstart', function(e) {
             var el = e.target;
-            isDraggingPicker = pickerSelectors.some(function(sel) {
-                return el.closest ? el.closest(sel) : false;
-            });
+            isDraggingPicker = pickerSelectors.some(function(sel) { return el.closest ? el.closest(sel) : false; });
         }, { passive: true });
-
-        document.addEventListener('touchmove', function(e) {
-            if (!isDraggingPicker) return; // ถ้าไม่ได้แตะ picker ปล่อยให้ scroll ตามปกติ
-        }, { passive: true });
+        document.addEventListener('touchmove', function(e) { if (!isDraggingPicker) return; }, { passive: true });
     })();
-</script>
-<script>
-    // =====================================
+
     // ระบบนำทาง (Navigation) SPA
-    // =====================================
     function navigateTo(pageId) {
-        // 1. ซ่อนทุกหน้า
         document.querySelectorAll('.app-page').forEach(page => page.classList.remove('active-page'));
-        
-        // 2. แสดงหน้าที่กำลังจะเปิด
         const targetPage = document.getElementById(pageId);
         targetPage.classList.add('active-page');
-        
-        // 3. บังคับดึงแถบเลื่อนกลับขึ้นบนสุดทันที (ครอบคลุมทั้งเบราว์เซอร์ปกติและมือถือ)
         const wrapper = document.querySelector('.wrapper');
         if (wrapper) wrapper.scrollTop = 0;
-        window.scrollTo(0, 0);
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-
-        // 4. หน่วงเวลาเล็กน้อยให้บราวเซอร์วาดหน้าใหม่ให้เสร็จ แล้วบังคับโฟกัสขอบบนสุดซ้ำอีกรอบ
-        setTimeout(() => {
-            if (wrapper) wrapper.scrollTop = 0;
-            window.scrollTo(0, 0);
-            // คำสั่งนี้จะบังคับให้ Google Sites เลื่อนหน้าจอมาที่ขอบบนของหน้าใหม่เสมอ
-            targetPage.scrollIntoView({ behavior: 'auto', block: 'start' });
-        }, 80); 
+        setTimeout(() => { targetPage.scrollIntoView({ behavior: 'auto', block: 'start' }); }, 80); 
     }
-  
-    // =====================================
-    // ระบบกลาง (DRY Utilities - ใช้ร่วมกันทุกหน้า)
-    // =====================================
+
     let counts = { lan: 1, shoe: 1, badge: 1, print: 1 };
 
     function showToast(msg) {
         const t = document.getElementById("toast");
-        t.innerHTML = msg;
-        t.className = "show";
+        t.innerHTML = msg; t.className = "show";
         setTimeout(() => t.className = "", 3000);
     }
 
     function copyOrder(summaryId) {
         const summaryBox = document.getElementById(summaryId);
-        if(!summaryBox.value) {
-            showToast("⚠️ ยังไม่มีรายการสั่งซื้อค่ะ");
-            return;
-        }
-        summaryBox.select();
-        summaryBox.setSelectionRange(0, 99999); // สำหรับมือถือ
-        try {
-            document.execCommand("copy");
-            showToast("📋 คัดลอกรายการแล้ว!<br><span style='font-size: 12px; font-weight: normal;'>นำไปวางในแชทได้เลยค่ะ</span>");
-        } catch(e) {
-            showToast("⚠️ กดค้างเพื่อก๊อปปี้");
-        }
+        if(!summaryBox.value) { showToast("⚠️ ยังไม่มีรายการสั่งซื้อค่ะ"); return; }
+        summaryBox.select(); summaryBox.setSelectionRange(0, 99999);
+        try { document.execCommand("copy"); showToast("📋 คัดลอกรายการแล้ว!"); } catch(e) { showToast("⚠️ กดค้างเพื่อก๊อปปี้"); }
     }
 
-    // ล้างข้อมูลโดยไม่เด้ง confirm() ให้กวนใจ
     function clearOrder(summaryId, counterId, type) {
         document.getElementById(summaryId).value = "";
-        counts[type] = 1;
-        document.getElementById(counterId).innerText = 1;
+        counts[type] = 1; document.getElementById(counterId).innerText = 1;
         showToast("🗑️ ล้างข้อมูลเรียบร้อยแล้วค่ะ");
     }
 
-    // ฟังก์ชันจัดการฟอนต์ภาษาไทยและอังกฤษผสมกัน (รวมถึงขึ้นบรรทัดใหม่ \n)
     function buildMixedFontHTML(text, thaiFont, engFont) {
         let resultHTML = "", currentType = null, currentChunk = "";
         for (let i = 0; i < text.length; i++) {
             let char = text[i];
             if (char === '\n') {
-                if (currentChunk !== "") {
-                    resultHTML += `<span style="font-family: ${currentType === 'thai' ? thaiFont : engFont};">${currentChunk}</span>`;
-                    currentChunk = "";
-                }
-                resultHTML += `<br>`;
-                currentType = null; continue;
+                if (currentChunk !== "") resultHTML += `<span style="font-family: ${currentType === 'thai' ? thaiFont : engFont};">${currentChunk}</span>`;
+                resultHTML += `<br>`; currentChunk = ""; currentType = null; continue;
             }
             let type = /[\u0E00-\u0E7F]/.test(char) ? 'thai' : 'eng';
             if (currentType === null) { currentType = type; currentChunk = char; }
@@ -738,7 +679,6 @@
         return resultHTML;
     }
 
-    // ฟังก์ชันแปลงสีสำหรับ Color Picker
     function hsvToHex(h, s, v) {
         v /= 100; s /= 100; let f = (n, k = (n + h / 60) % 6) => v * (1 - s * Math.max(Math.min(k, 4 - k, 1), 0));
         let rgb = [f(5), f(3), f(1)].map(x => Math.round(x * 255).toString(16).padStart(2, '0'));
@@ -753,14 +693,12 @@
         return { h: h * 360, s: s * 100, v: v * 100 };
     }
     function rgbToHex(c) {
-        if (c.startsWith('#')) return c;
+        if (!c) return '#000000'; if (c.startsWith('#')) return c;
         const rgb = c.match(/\d+/g); if (!rgb) return '#000000';
         return '#' + rgb.slice(0, 3).map(x => parseInt(x).toString(16).padStart(2, '0')).join('').toUpperCase();
     }
 
-    // =====================================
-    // 1. สคริปต์สายคล้องแมส (Lanyard)
-    // =====================================
+    // --- Lanyard ---
     function updateAllLanyard() {
         const text = document.getElementById("textInputLan").value || "น้องปั้นหยา Panyah";
         const thaiF = document.getElementById("thaiFontLan").value;
@@ -768,472 +706,160 @@
         const bg = document.getElementById("bgSelectorLan").value;
         const color = document.getElementById("colorSelectorLan").value;
         const sampleText = document.getElementById("sampleTextLan");
-        
-        // วาดตัวอักษร
         sampleText.innerHTML = buildMixedFontHTML(text, thaiF, engF);
-        
-        // --- ระบบ Auto-resize ลดขนาดอักษรเมื่อชนขอบ ---
         const container = sampleText.parentElement;
-        let fontSize = 34; // ขนาดเริ่มต้น
-        sampleText.style.fontSize = fontSize + "px"; // รีเซ็ตขนาดกลับไปที่ใหญ่สุดก่อน
-        
-        // ถ้าข้อความกว้างเกินกล่อง ให้ลดขนาดลงเรื่อยๆ
+        let fontSize = 42; // ขนาดเริ่มต้นที่ใหญ่ขึ้น
+        sampleText.style.fontSize = fontSize + "px";
         while (sampleText.scrollWidth > container.clientWidth - 20 && fontSize > 10) {
-            fontSize--;
-            sampleText.style.fontSize = fontSize + "px";
+            fontSize--; sampleText.style.fontSize = fontSize + "px";
         }
-        
-        // จัดการสีอักษร (สีปกติ / สีโฮโลแกรม)
         if (color.startsWith('url')) {
-            sampleText.style.color = "transparent";
-            sampleText.style.backgroundImage = color;
-            sampleText.style.backgroundClip = "text";
-            sampleText.style.webkitBackgroundClip = "text";
-        } else {
-            sampleText.style.backgroundImage = "none";
-            sampleText.style.color = color;
-        }
-        
-        // เปลี่ยนพื้นหลังสาย
+            sampleText.style.color = "transparent"; sampleText.style.backgroundImage = color;
+            sampleText.style.backgroundClip = "text"; sampleText.style.webkitBackgroundClip = "text";
+        } else { sampleText.style.backgroundImage = "none"; sampleText.style.color = color; }
         document.getElementById("sampleBoxLan").style.backgroundImage = bg !== "none" ? bg : "none";
     }
 
     function addToListLanyard() {
         const rawText = document.getElementById("textInputLan").value || "-";
         const cartoonText = document.getElementById("cartoonInputLan").value || "-";
-        
-        const thaiEl = document.getElementById("thaiFontLan");
-        const engEl = document.getElementById("engFontLan");
-        const thaiFontName = thaiEl.options[thaiEl.selectedIndex].text;
-        const engFontName = engEl.options[engEl.selectedIndex].text;
+        const thaiFontName = document.getElementById("thaiFontLan").options[document.getElementById("thaiFontLan").selectedIndex].text;
+        const engFontName = document.getElementById("engFontLan").options[document.getElementById("engFontLan").selectedIndex].text;
         const colorName = document.getElementById("colorSelectorLan").options[document.getElementById("colorSelectorLan").selectedIndex].text;
         const bgName = document.getElementById("bgSelectorLan").options[document.getElementById("bgSelectorLan").selectedIndex].text;
-
-        let fontSummary = "";
-        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);     
-        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
-        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`; 
-        else fontSummary = `ฟอนต์ : ${engFontName}`;
-        const newOrder = `เส้นที่ ${counts.lan}\nการ์ตูน : ${cartoonText}\nพิมพ์ชื่อ : ${rawText}\nสีสาย : ${bgName}\nสีตัวอักษร : ${colorName}\n${fontSummary}\n\n`;
-
-        const summaryBox = document.getElementById("orderSummaryLan");
-        summaryBox.value += newOrder;
-        summaryBox.scrollTop = summaryBox.scrollHeight;
-        
-        counts.lan++;
-        document.getElementById("btnCounterLan").innerText = counts.lan;
+        let fontSummary = /[\u0E00-\u0E7F]/.test(rawText) && /[a-zA-Z0-9]/.test(rawText) ? `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}` : `ฟอนต์ : ${/[\u0E00-\u0E7F]/.test(rawText) ? thaiFontName : engFontName}`;
+        document.getElementById("orderSummaryLan").value += `เส้นที่ ${counts.lan}\nการ์ตูน : ${cartoonText}\nพิมพ์ชื่อ : ${rawText}\nสีสาย : ${bgName}\nสีตัวอักษร : ${colorName}\n${fontSummary}\n\n`;
+        counts.lan++; document.getElementById("btnCounterLan").innerText = counts.lan;
     }
-    updateAllLanyard();
 
-    // =====================================
-    // 2. สคริปต์ป้ายรองเท้า (Shoe Tag)
-    // =====================================
+    // --- Shoe Tag ---
     function updateShoeTag() {
         const text = document.getElementById("textInputShoe").value || "PUNN";
         const thaiF = document.getElementById("thaiFontShoe").value;
         const engF = document.getElementById("engFontShoe").value;
         const color = document.getElementById("tagColorShoe").value;
-        
         const tagText = document.getElementById("shoeTagText");
         const tagBg = document.getElementById("shoeTagBg");
-
-        if(color === 'white') tagBg.classList.add('white-tag');
-        else tagBg.classList.remove('white-tag');
-
-        const len = text.length;
-        if (len <= 4) tagText.style.fontSize = "34px";
-        else if (len <= 7) tagText.style.fontSize = "26px";  
-        else if (len <= 10) tagText.style.fontSize = "20px"; 
-        else tagText.style.fontSize = "16px";
-        
+        if(color === 'white') tagBg.classList.add('white-tag'); else tagBg.classList.remove('white-tag');
         tagText.innerHTML = buildMixedFontHTML(text, thaiF, engF);
+        let fontSize = 40; // ขนาดเริ่มต้นที่ใหญ่ขึ้น
+        tagText.style.fontSize = fontSize + "px";
+        while (tagText.scrollWidth > tagBg.clientWidth - 50 && fontSize > 10) { fontSize--; tagText.style.fontSize = fontSize + "px"; }
     }
 
     function addToListShoe() {
         const rawText = document.getElementById("textInputShoe").value || "PUNN";
-        const thaiEl = document.getElementById("thaiFontShoe");
-        const engEl = document.getElementById("engFontShoe");
-        const thaiFontName = thaiEl.options[thaiEl.selectedIndex].text;
-        const engFontName = engEl.options[engEl.selectedIndex].text;
+        const thaiFontName = document.getElementById("thaiFontShoe").options[document.getElementById("thaiFontShoe").selectedIndex].text;
+        const engFontName = document.getElementById("engFontShoe").options[document.getElementById("engFontShoe").selectedIndex].text;
         const colorName = document.getElementById("tagColorShoe").options[document.getElementById("tagColorShoe").selectedIndex].text;
-
-        let fontSummary = ""; 
-        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);
-        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
-        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`;
-        else fontSummary = `ฟอนต์ : ${engFontName}`;
-
-        const newOrder = `ป้ายรองเท้า คู่ที่ ${counts.shoe}\nสีป้าย : ${colorName}\nพิมพ์ชื่อ : ${rawText}\n${fontSummary}\n\n`;
-
-        const summaryBox = document.getElementById("orderSummaryShoe");
-        summaryBox.value += newOrder;
-        summaryBox.scrollTop = summaryBox.scrollHeight;
-        
-        counts.shoe++;
-        document.getElementById("btnCounterShoe").innerText = counts.shoe;
+        let fontSummary = /[\u0E00-\u0E7F]/.test(rawText) && /[a-zA-Z0-9]/.test(rawText) ? `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}` : `ฟอนต์ : ${/[\u0E00-\u0E7F]/.test(rawText) ? thaiFontName : engFontName}`;
+        document.getElementById("orderSummaryShoe").value += `ป้ายรองเท้า คู่ที่ ${counts.shoe}\nสีป้าย : ${colorName}\nพิมพ์ชื่อ : ${rawText}\n${fontSummary}\n\n`;
+        counts.shoe++; document.getElementById("btnCounterShoe").innerText = counts.shoe;
     }
-    updateShoeTag();
 
-    // =====================================
-    // 3. สคริปต์เข็มกลัด (Badge)
-    // =====================================
+    // --- Badge ---
     let cTargetBadge = 'ringBadge', hBadge = 330, sBadge = 24, vBadge = 97;
-    const quickColorSetBadge = ['#FF0000', '#FF6B6B', '#FFA500', '#FFD700', '#4CAF50', '#2196F3', '#9C27B0', '#FF1493', '#00BCD4', '#FF6347', '#32CD32', '#4169E1'];
-    
     function initBadge() {
         if (document.getElementById('quickColorsBadge').innerHTML !== "") return;
-        quickColorSetBadge.forEach(color => {
+        ['#FF0000', '#FF6B6B', '#FFA500', '#FFD700', '#4CAF50', '#2196F3', '#9C27B0', '#FF1493', '#00BCD4', '#FF6347', '#32CD32', '#4169E1'].forEach(color => {
             let btn = document.createElement('div'); btn.className = 'quick-color'; btn.style.backgroundColor = color;
-            btn.onclick = () => applyQCBadge(color);
-            document.getElementById('quickColorsBadge').appendChild(btn);
+            btn.onclick = () => applyQCBadge(color); document.getElementById('quickColorsBadge').appendChild(btn);
         });
-        document.getElementById('svPointerBadge').style.left = '24%'; document.getElementById('svPointerBadge').style.top = '3%';
-        document.getElementById('huePointerBadge').style.left = (330 / 360) * 100 + '%';
-        document.getElementById('svMapBadge').style.backgroundColor = `hsl(330, 100%, 50%)`;
         const hueEl = document.getElementById('hueSliderBadge'), svEl = document.getElementById('svMapBadge');
-        
-        const handleH = (e) => {
-            const rect = hueEl.getBoundingClientRect();
-            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left; x = Math.max(0, Math.min(x, rect.width));
-            hBadge = (x / rect.width) * 360; document.getElementById('huePointerBadge').style.left = x + 'px'; svEl.style.backgroundColor = `hsl(${hBadge},100%,50%)`; updateColBadge();
-        };
-        const handleSV = (e) => {
-            const rect = svEl.getBoundingClientRect();
-            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left, y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-            x = Math.max(0, Math.min(x, rect.width)); y = Math.max(0, Math.min(y, rect.height));
-            sBadge = (x / rect.width) * 100;
-            vBadge = 100 - (y / rect.height) * 100; document.getElementById('svPointerBadge').style.left = x + 'px'; document.getElementById('svPointerBadge').style.top = y + 'px'; updateColBadge();
-        };
+        const handleH = (e) => { const rect = hueEl.getBoundingClientRect(); let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left; x = Math.max(0, Math.min(x, rect.width)); hBadge = (x / rect.width) * 360; document.getElementById('huePointerBadge').style.left = x + 'px'; svEl.style.backgroundColor = `hsl(${hBadge},100%,50%)`; updateColBadge(); };
+        const handleSV = (e) => { const rect = svEl.getBoundingClientRect(); let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left, y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top; x = Math.max(0, Math.min(x, rect.width)); y = Math.max(0, Math.min(y, rect.height)); sBadge = (x / rect.width) * 100; vBadge = 100 - (y / rect.height) * 100; document.getElementById('svPointerBadge').style.left = x + 'px'; document.getElementById('svPointerBadge').style.top = y + 'px'; updateColBadge(); };
         hueEl.addEventListener('mousedown', e => { handleH(e); window.addEventListener('mousemove', handleH); });
-        hueEl.addEventListener('touchstart', e => { e.preventDefault(); handleH(e); window.addEventListener('touchmove', handleH, { passive: false }); }, { passive: false });
+        hueEl.addEventListener('touchstart', e => { handleH(e); window.addEventListener('touchmove', handleH); }, { passive: false });
         svEl.addEventListener('mousedown', e => { handleSV(e); window.addEventListener('mousemove', handleSV); });
-        svEl.addEventListener('touchstart', e => { e.preventDefault(); handleSV(e); window.addEventListener('touchmove', handleSV, { passive: false }); }, { passive: false });
+        svEl.addEventListener('touchstart', e => { handleSV(e); window.addEventListener('touchmove', handleSV); }, { passive: false });
         window.addEventListener('mouseup', () => { window.removeEventListener('mousemove', handleH); window.removeEventListener('mousemove', handleSV); });
         window.addEventListener('touchend', () => { window.removeEventListener('touchmove', handleH); window.removeEventListener('touchmove', handleSV); });
-
         updateBadge();
     }
-
-    function resetBadgeColors() {
-        document.getElementById('ringBadge').style.backgroundColor = '#f8bbd9';
-        document.getElementById('bgBadge').style.backgroundColor = '#ffffff';
-        document.getElementById('badgeText').style.color = '#000000';
-        updatePickFromElBadge();
-        showToast("🔄 คืนค่าสีเริ่มต้นเรียบร้อยค่ะ");
-    }
-
-    function setTargetBadge(id, btn) {
-        cTargetBadge = id;
-        document.querySelectorAll('#page-badge .target-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active'); updatePickFromElBadge();
-    }
-    function applyQCBadge(hex) {
-        let hsv = hexToHsv(hex);
-        hBadge = hsv.h; sBadge = hsv.s; vBadge = hsv.v;
-        document.getElementById('huePointerBadge').style.left = (hBadge / 360) * 100 + '%';
-        document.getElementById('svPointerBadge').style.left = sBadge + '%'; document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%';
-        document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; updateColBadge();
-    }
-    function updateColBadge() {
-        const color = hsvToHex(hBadge, sBadge, vBadge);
-        document.getElementById('hexValBadge').textContent = color;
-        const el = document.getElementById(cTargetBadge);
-        if (cTargetBadge === 'badgeText') el.style.color = color; else el.style.backgroundColor = color;
-    }
-    function updatePickFromElBadge() {
-        const el = document.getElementById(cTargetBadge);
-        const color = cTargetBadge === 'badgeText' ? el.style.color : el.style.backgroundColor;
-        if (!color) return; const hsv = hexToHsv(rgbToHex(color)); hBadge = hsv.h;
-        sBadge = hsv.s; vBadge = hsv.v;
-        document.getElementById('huePointerBadge').style.left = (hBadge / 360) * 100 + '%';
-        document.getElementById('svPointerBadge').style.left = sBadge + '%';
-        document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%';
-        document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; document.getElementById('hexValBadge').textContent = hsvToHex(hBadge, sBadge, vBadge);
-    }
-
-    function updateBadge() {
-        document.getElementById("badgeCartoon").src = `https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${document.getElementById("cartoonSelectorBadge").value}.png`;
-        const userInput = document.getElementById("textInputBadge").value;
-        const thaiFont = document.getElementById("thaiFontSelectorBadge").value;
-        const engFont = document.getElementById("engFontSelectorBadge").value;
-        const displayText = userInput || "NAME";
-        document.getElementById("badgeText").innerHTML = buildMixedFontHTML(displayText, thaiFont, engFont);
-    }
-
+    function resetBadgeColors() { document.getElementById('ringBadge').style.backgroundColor = '#f8bbd9'; document.getElementById('bgBadge').style.backgroundColor = '#ffffff'; document.getElementById('badgeText').style.color = '#000000'; updatePickFromElBadge(); showToast("🔄 คืนค่าสีเริ่มต้นแล้ว"); }
+    function setTargetBadge(id, btn) { cTargetBadge = id; document.querySelectorAll('#page-badge .target-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); updatePickFromElBadge(); }
+    function applyQCBadge(hex) { let hsv = hexToHsv(hex); hBadge = hsv.h; sBadge = hsv.s; vBadge = hsv.v; document.getElementById('huePointerBadge').style.left = (hBadge / 360) * 100 + '%'; document.getElementById('svPointerBadge').style.left = sBadge + '%'; document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%'; document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; updateColBadge(); }
+    function updateColBadge() { const color = hsvToHex(hBadge, sBadge, vBadge); document.getElementById('hexValBadge').textContent = color; const el = document.getElementById(cTargetBadge); if (cTargetBadge === 'badgeText') el.style.color = color; else el.style.backgroundColor = color; }
+    function updatePickFromElBadge() { const el = document.getElementById(cTargetBadge); const color = cTargetBadge === 'badgeText' ? el.style.color : el.style.backgroundColor; const hsv = hexToHsv(rgbToHex(color)); hBadge = hsv.h; sBadge = hsv.s; vBadge = hsv.v; document.getElementById('huePointerBadge').style.left = (hPrint / 360 * 100) + '%'; document.getElementById('svPointerBadge').style.left = sBadge + '%'; document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%'; document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; document.getElementById('hexValBadge').textContent = hsvToHex(hBadge, sBadge, vBadge); }
+    function updateBadge() { document.getElementById("badgeCartoon").src = `https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${document.getElementById("cartoonSelectorBadge").value}.png`; const displayText = document.getElementById("textInputBadge").value || "NAME"; document.getElementById("badgeText").innerHTML = buildMixedFontHTML(displayText, document.getElementById("thaiFontSelectorBadge").value, document.getElementById("engFontSelectorBadge").value); }
     function addToListBadge() {
         const rawText = document.getElementById("textInputBadge").value || "NAME";
-        const cartoon = document.getElementById("cartoonSelectorBadge").options[document.getElementById("cartoonSelectorBadge").selectedIndex].text;
-        const thaiEl = document.getElementById("thaiFontSelectorBadge");
-        const engEl = document.getElementById("engFontSelectorBadge");
-        const thaiFontName = thaiEl.options[thaiEl.selectedIndex].text;
-        const engFontName = engEl.options[engEl.selectedIndex].text;
-        
         const ringColor = rgbToHex(document.getElementById('ringBadge').style.backgroundColor || 'rgb(248, 187, 217)');
         const bgColor = rgbToHex(document.getElementById('bgBadge').style.backgroundColor || 'rgb(255, 255, 255)');
         const textColor = rgbToHex(document.getElementById('badgeText').style.color || 'rgb(0, 0, 0)');
-        
-        let fontSummary = "";
-        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);
-        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
-        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`;
-        else fontSummary = `ฟอนต์ : ${engFontName}`;
-        
-        const newOrder = `เข็มกลัด ชิ้นที่ ${counts.badge}\nลาย : ${cartoon}\nพิมพ์ชื่อ : \n${rawText}\n\nสีวงขอบ : ${ringColor}\nสีพื้นหลัง : ${bgColor}\nสีอักษร : ${textColor}\n${fontSummary}\n\n`;
-        const summaryBox = document.getElementById("orderSummaryBadge");
-        summaryBox.value += newOrder; summaryBox.scrollTop = summaryBox.scrollHeight;
-        
-        counts.badge++;
-        document.getElementById("btnCounterBadge").innerText = counts.badge;
+        let fontSummary = /[\u0E00-\u0E7F]/.test(rawText) && /[a-zA-Z0-9]/.test(rawText) ? `ฟอนต์ไทย : ${document.getElementById("thaiFontSelectorBadge").options[document.getElementById("thaiFontSelectorBadge").selectedIndex].text}\nฟอนต์อังกฤษ : ${document.getElementById("engFontSelectorBadge").options[document.getElementById("engFontSelectorBadge").selectedIndex].text}` : `ฟอนต์ : ${/[\u0E00-\u0E7F]/.test(rawText) ? document.getElementById("thaiFontSelectorBadge").options[document.getElementById("thaiFontSelectorBadge").selectedIndex].text : document.getElementById("engFontSelectorBadge").options[document.getElementById("engFontSelectorBadge").selectedIndex].text}`;
+        document.getElementById("orderSummaryBadge").value += `เข็มกลัด ชิ้นที่ ${counts.badge}\nลาย : ${document.getElementById("cartoonSelectorBadge").options[document.getElementById("cartoonSelectorBadge").selectedIndex].text}\nพิมพ์ชื่อ : \n${rawText}\n\nสีวงขอบ : ${ringColor}\nสีพื้นหลัง : ${bgColor}\nสีอักษร : ${textColor}\n${fontSummary}\n\n`;
+        counts.badge++; document.getElementById("btnCounterBadge").innerText = counts.badge;
     }
 
-    // =====================================
-    // 4. สคริปต์สายพิมพ์ลาย (Print Lanyard)
-    // =====================================
-    const rainbowColors = ["#E91E63", "#FF9800", "#2196F3", "#4CAF50", "#FFEB3B"];
+    // --- Print Lanyard ---
     const funColors = ["#f065a1", "#fba919", "#fae36c", "#a4cf57", "#4dc2f0", "#be8cbf"];
-    
-    let customPrintColors = { text: "#FF0000", outline: "#FFFFFF", bg: "#F8BBD9" };
-    let currentPrintTarget = 'text'; 
-    let hPrint = 0, sPrint = 100, vPrint = 100;
-
-    function resetAllPrintColors() {
-        document.getElementById("colorSelectorPrint").value = "FUN_COLORS";
-        document.getElementById("bgSelectorPrint").value = "space.png";
-        document.getElementById("toggleOutlinePrint").checked = false;
-        document.getElementById("outlineColorSelectorPrint").value = "#FFFFFF";
-        customPrintColors = { text: "#FF0000", outline: "#FFFFFF", bg: "#F8BBD9" };
-        checkCustomPrintColor();
-    }
-
+    let customPrintColors = { text: "#FF0000", outline: "#FFFFFF", bg: "#F8BBD9" }, currentPrintTarget = 'text', hPrint = 0, sPrint = 100, vPrint = 100;
+    function resetAllPrintColors() { document.getElementById("colorSelectorPrint").value = "FUN_COLORS"; document.getElementById("bgSelectorPrint").value = "space.png"; document.getElementById("toggleOutlinePrint").checked = false; checkCustomPrintColor(); showToast("🔄 คืนค่าสีเริ่มต้นแล้ว"); }
     function checkCustomPrintColor() {
-        const textC = document.getElementById("colorSelectorPrint").value;
-        const bgC = document.getElementById("bgSelectorPrint").value;
-        const outlineEnabled = document.getElementById("toggleOutlinePrint").checked;
-        const outlineC = document.getElementById("outlineColorSelectorPrint").value;
-
+        const textC = document.getElementById("colorSelectorPrint").value, bgC = document.getElementById("bgSelectorPrint").value, outlineEnabled = document.getElementById("toggleOutlinePrint").checked, outlineC = document.getElementById("outlineColorSelectorPrint").value;
         document.getElementById("outlineRowPrint").style.display = outlineEnabled ? "flex" : "none";
-
-        let needPicker = false;
-
         document.getElementById("btnTargetTextPrint").style.display = (textC === "CUSTOM") ? "block" : "none";
         document.getElementById("btnTargetOutlinePrint").style.display = (outlineEnabled && outlineC === "CUSTOM") ? "block" : "none";
         document.getElementById("btnTargetBgPrint").style.display = (bgC === "CUSTOM") ? "block" : "none";
-
-        if (textC === "CUSTOM") { needPicker = true; currentPrintTarget = 'text'; }
-        if (outlineEnabled && outlineC === "CUSTOM") { needPicker = true; currentPrintTarget = 'outline'; }
-        if (bgC === "CUSTOM") { needPicker = true; currentPrintTarget = 'bg'; }
-
-        if (needPicker) {
-            document.getElementById("customPrintColorArea").style.display = "block";
-            document.querySelectorAll('#customPrintColorArea .target-btn').forEach(b => b.classList.remove('active'));
-            if (currentPrintTarget === 'text') document.getElementById("btnTargetTextPrint").classList.add('active');
-            if (currentPrintTarget === 'outline') document.getElementById("btnTargetOutlinePrint").classList.add('active');
-            if (currentPrintTarget === 'bg') document.getElementById("btnTargetBgPrint").classList.add('active');
-            syncPrintPickerToCustomColor();
-        } else {
-            document.getElementById("customPrintColorArea").style.display = "none";
-        }
+        if (textC === "CUSTOM" || (outlineEnabled && outlineC === "CUSTOM") || bgC === "CUSTOM") { document.getElementById("customPrintColorArea").style.display = "block"; syncPrintPickerToCustomColor(); }
+        else document.getElementById("customPrintColorArea").style.display = "none";
         updateAllPrint();
     }
-
-    function setPrintPickerTarget(target, btn) {
-        currentPrintTarget = target;
-        document.querySelectorAll('#customPrintColorArea .target-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        syncPrintPickerToCustomColor();
-    }
-
-    function syncPrintPickerToCustomColor() {
-        let hex = customPrintColors[currentPrintTarget];
-        let hsv = hexToHsv(hex);
-        hPrint = hsv.h; sPrint = hsv.s; vPrint = hsv.v;
-        document.getElementById('huePointerPrint').style.left = (hPrint / 360 * 100) + '%';
-        document.getElementById('svPointerPrint').style.left = sPrint + '%';
-        document.getElementById('svPointerPrint').style.top = (100 - vPrint) + '%';
-        document.getElementById('svMapPrint').style.backgroundColor = `hsl(${hPrint},100%,50%)`;
-        document.getElementById('hexValDisplayPrint').textContent = hex;
-    }
-
+    function setPrintPickerTarget(target, btn) { currentPrintTarget = target; document.querySelectorAll('#customPrintColorArea .target-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); syncPrintPickerToCustomColor(); }
+    function syncPrintPickerToCustomColor() { let hsv = hexToHsv(customPrintColors[currentPrintTarget]); hPrint = hsv.h; sPrint = hsv.s; vPrint = hsv.v; document.getElementById('huePointerPrint').style.left = (hPrint / 360 * 100) + '%'; document.getElementById('svPointerPrint').style.left = sPrint + '%'; document.getElementById('svPointerPrint').style.top = (100 - vPrint) + '%'; document.getElementById('svMapPrint').style.backgroundColor = `hsl(${hPrint},100%,50%)`; document.getElementById('hexValDisplayPrint').textContent = customPrintColors[currentPrintTarget]; }
     function updateAllPrint() {
-        const text = document.getElementById("textInputPrint").value || "PUNN";
-        const thaiF = document.getElementById("thaiFontPrint").value;
-        const engF = document.getElementById("engFontPrint").value;
-        
-        const colorVal = document.getElementById("colorSelectorPrint").value;
-        const bgVal = document.getElementById("bgSelectorPrint").value;
-        
-        const outlineEnabled = document.getElementById("toggleOutlinePrint").checked;
-        const outlineVal = document.getElementById("outlineColorSelectorPrint").value;
-
-        const sampleText = document.getElementById("sampleTextPrint");
-        const sampleBox = document.getElementById("sampleBoxPrint");
-
-        // จัดการพื้นหลัง
-        if (bgVal === "CUSTOM") {
-            sampleBox.style.backgroundImage = "none";
-            sampleBox.style.backgroundColor = customPrintColors.bg;
-        } else {
-            sampleBox.style.backgroundColor = "transparent";
-            sampleBox.style.backgroundImage = `url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${bgVal}')`;
-        }
-
-        // จัดการขอบ
+        const text = document.getElementById("textInputPrint").value || "PUNN", thaiF = document.getElementById("thaiFontPrint").value, engF = document.getElementById("engFontPrint").value, colorVal = document.getElementById("colorSelectorPrint").value, bgVal = document.getElementById("bgSelectorPrint").value, outlineEnabled = document.getElementById("toggleOutlinePrint").checked, outlineVal = document.getElementById("outlineColorSelectorPrint").value, sampleText = document.getElementById("sampleTextPrint"), sampleBox = document.getElementById("sampleBoxPrint");
+        if (bgVal === "CUSTOM") { sampleBox.style.backgroundImage = "none"; sampleBox.style.backgroundColor = customPrintColors.bg; }
+        else { sampleBox.style.backgroundColor = "transparent"; sampleBox.style.backgroundImage = `url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${bgVal}')`; }
         const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
-        if (lockedWhiteOutlines.includes(colorVal)) {
-            sampleText.style.textShadow = `
-                2px 2px 0 #FFFFFF, -2px -2px 0 #FFFFFF, 
-                2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, 
-                0px 2px 0 #FFFFFF, 0px -2px 0 #FFFFFF, 
-                2px 0px 0 #FFFFFF, -2px 0px 0 #FFFFFF
-            `;
-        } else if (outlineEnabled) {
-            let oColor = (outlineVal === "CUSTOM") ? customPrintColors.outline : outlineVal;
-            sampleText.style.textShadow = `
-                2px 2px 0 ${oColor}, -2px -2px 0 ${oColor}, 
-                2px -2px 0 ${oColor}, -2px 2px 0 ${oColor}, 
-                0px 2px 0 ${oColor}, 0px -2px 0 ${oColor}, 
-                2px 0px 0 ${oColor}, -2px 0px 0 ${oColor}
-            `;
-        } else {
-            sampleText.style.textShadow = "none";
-        }
-    
-        // จัดการอักษร
-        let html = "";
-        let colorIndex = 0;
-        
+        if (lockedWhiteOutlines.includes(colorVal)) { sampleText.style.textShadow = `2px 2px 0 #FFFFFF, -2px -2px 0 #FFFFFF, 2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, 0px 2px 0 #FFFFFF, 0px -2px 0 #FFFFFF, 2px 0px 0 #FFFFFF, -2px 0px 0 #FFFFFF`; }
+        else if (outlineEnabled) { let oColor = (outlineVal === "CUSTOM") ? customPrintColors.outline : outlineVal; sampleText.style.textShadow = `2px 2px 0 ${oColor}, -2px -2px 0 ${oColor}, 2px -2px 0 ${oColor}, -2px 2px 0 ${oColor}, 0px 2px 0 ${oColor}, 0px -2px 0 ${oColor}, 2px 0px 0 ${oColor}, -2px 0px 0 ${oColor}`; }
+        else { sampleText.style.textShadow = "none"; }
+        let html = "", colorIndex = 0;
         for (let char of text) {
             if (char === " ") { html += " "; continue; }
-            let isThai = /[\u0E00-\u0E7F]/.test(char);
-            let currentFont = isThai ? thaiF : engF;
             let currentColor = "";
-
-            if (colorVal === "FUN_COLORS") {
-                currentColor = funColors[colorIndex % funColors.length];
-                colorIndex++;
-            } else if (colorVal === "RAINBOW") {
-                currentColor = rainbowColors[colorIndex % rainbowColors.length];
-                colorIndex++;
-            } else if (colorVal === "BLACK_WHITE") {
-                currentColor = "#000000";
-            } else if (colorVal === "SKY") {
-                currentColor = "#f04898";
-            } else if (colorVal === "CHASE") {
-                currentColor = "#255dac";
-            } else if (colorVal === "RUBBLE") {
-                currentColor = "#aa6429";
-            } else if (colorVal === "ROCKY") {
-                currentColor = "#196f39";
-            } else if (colorVal === "ZUMA") {
-                currentColor = "#e95b2a";
-            } else if (colorVal === "EVEREST") {
-                currentColor = "#4f2e89";
-            } else if (colorVal === "CUSTOM") {
-                currentColor = customPrintColors.text;
-            } else {
-                currentColor = colorVal;
-            }
-
-            html += `<span style="font-family: ${currentFont}; color: ${currentColor};">${char}</span>`;
+            if (colorVal === "FUN_COLORS") { currentColor = funColors[colorIndex % funColors.length]; colorIndex++; }
+            else if (colorVal === "BLACK_WHITE") currentColor = "#000000";
+            else if (colorVal === "SKY") currentColor = "#f04898";
+            else if (colorVal === "CHASE") currentColor = "#255dac";
+            else if (colorVal === "RUBBLE") currentColor = "#aa6429";
+            else if (colorVal === "ROCKY") currentColor = "#196f39";
+            else if (colorVal === "ZUMA") currentColor = "#e95b2a";
+            else if (colorVal === "EVEREST") currentColor = "#4f2e89";
+            else if (colorVal === "CUSTOM") currentColor = customPrintColors.text;
+            else currentColor = colorVal;
+            html += `<span style="font-family: ${/[\u0E00-\u0E7F]/.test(char) ? thaiF : engF}; color: ${currentColor};">${char}</span>`;
         }
-
         sampleText.innerHTML = html;
-
-        // Auto-resize
-        const container = sampleText.parentElement;
-        let fontSize = 55;
+        let fontSize = 70; // ขนาดเริ่มต้นที่ใหญ่ขึ้น
         sampleText.style.fontSize = fontSize + "px";
-        while (sampleText.scrollWidth > container.clientWidth - 20 && fontSize > 10) {
-            fontSize--;
-            sampleText.style.fontSize = fontSize + "px";
-        }
+        while (sampleText.scrollWidth > sampleText.parentElement.clientWidth - 20 && fontSize > 10) { fontSize--; sampleText.style.fontSize = fontSize + "px"; }
     }
-
     function setupPrintPicker() {
         const hueElP = document.getElementById('hueSliderPrint'), svElP = document.getElementById('svMapPrint');
-        
-        const handleHP = (e) => {
-            const rect = hueElP.getBoundingClientRect(); 
-            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-            x = Math.max(0, Math.min(x, rect.width)); hPrint = (x / rect.width) * 360;
-            document.getElementById('huePointerPrint').style.left = (x / rect.width * 100) + '%';
-            svElP.style.backgroundColor = `hsl(${hPrint},100%,50%)`; updatePrintPickerColor();
-        };
-        const handleSVP = (e) => {
-            const rect = svElP.getBoundingClientRect(); 
-            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-            let y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-            x = Math.max(0, Math.min(x, rect.width)); y = Math.max(0, Math.min(y, rect.height));
-            sPrint = (x / rect.width) * 100; vPrint = 100 - (y / rect.height) * 100;
-            document.getElementById('svPointerPrint').style.left = (x / rect.width * 100) + '%';
-            document.getElementById('svPointerPrint').style.top = (y / rect.height * 100) + '%'; updatePrintPickerColor();
-        };
-
-        function updatePrintPickerColor() {
-            let hex = hsvToHex(hPrint, sPrint, vPrint);
-            customPrintColors[currentPrintTarget] = hex;
-            document.getElementById('hexValDisplayPrint').textContent = hex;
-            updateAllPrint();
-        }
-
-        hueElP.addEventListener('mousedown', (e) => { handleHP(e); window.addEventListener('mousemove', handleHP); });
-        svElP.addEventListener('mousedown', (e) => { handleSVP(e); window.addEventListener('mousemove', handleSVP); });
+        const handleHP = (e) => { const rect = hueElP.getBoundingClientRect(); let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left; hPrint = (Math.max(0, Math.min(x, rect.width)) / rect.width) * 360; document.getElementById('huePointerPrint').style.left = (Math.max(0, Math.min(x, rect.width)) / rect.width * 100) + '%'; svElP.style.backgroundColor = `hsl(${hPrint},100%,50%)`; updateColP(); };
+        const handleSVP = (e) => { const rect = svElP.getBoundingClientRect(); let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left, y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top; sPrint = (Math.max(0, Math.min(x, rect.width)) / rect.width) * 100; vPrint = 100 - (Math.max(0, Math.min(y, rect.height)) / rect.height) * 100; document.getElementById('svPointerPrint').style.left = (Math.max(0, Math.min(x, rect.width)) / rect.width * 100) + '%'; document.getElementById('svPointerPrint').style.top = (Math.max(0, Math.min(y, rect.height)) / rect.height * 100) + '%'; updateColP(); };
+        function updateColP() { customPrintColors[currentPrintTarget] = hsvToHex(hPrint, sPrint, vPrint); document.getElementById('hexValDisplayPrint').textContent = customPrintColors[currentPrintTarget]; updateAllPrint(); }
+        hueElP.addEventListener('mousedown', e => { handleHP(e); window.addEventListener('mousemove', handleHP); });
+        svElP.addEventListener('mousedown', e => { handleSVP(e); window.addEventListener('mousemove', handleSVP); });
         hueElP.addEventListener('touchstart', e => { handleHP(e); window.addEventListener('touchmove', handleHP); }, {passive:false});
         svElP.addEventListener('touchstart', e => { handleSVP(e); window.addEventListener('touchmove', handleSVP); }, {passive:false});
         window.addEventListener('mouseup', () => { window.removeEventListener('mousemove', handleHP); window.removeEventListener('mousemove', handleSVP); });
         window.addEventListener('touchend', () => { window.removeEventListener('touchmove', handleHP); window.removeEventListener('touchmove', handleSVP); });
     }
-
     function addToListPrint() {
-        const rawText = document.getElementById("textInputPrint").value || "PUNN";
-        
-        let colorSelector = document.getElementById("colorSelectorPrint");
-        let colorName = colorSelector.options[colorSelector.selectedIndex].text;
-        if (colorSelector.value === "CUSTOM") colorName = `เลือกสีเอง (${customPrintColors.text})`;
-
-        let bgSelector = document.getElementById("bgSelectorPrint");
-        let bgName = bgSelector.options[bgSelector.selectedIndex].text;
-        if (bgSelector.value === "CUSTOM") bgName = `สีพื้นหลังล้วน (${customPrintColors.bg})`;
-
-        const thaiFontEl = document.getElementById("thaiFontPrint");
-        const engFontEl = document.getElementById("engFontPrint");
-        const thaiFontName = thaiFontEl.options[thaiFontEl.selectedIndex].text;
-        const engFontName = engFontEl.options[engFontEl.selectedIndex].text;
-
-        let fontSummary = "";
-        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);
-        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
-        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`;
-        else fontSummary = `ฟอนต์ : ${engFontName}`;
-
-        let outlineInfo = "ไม่มีขอบ";
-        const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
-        
-        if (lockedWhiteOutlines.includes(colorSelector.value)) {
-            outlineInfo = "มีขอบ (สีขาว)";
-        } else if (document.getElementById("toggleOutlinePrint").checked) {
-            let outlineSelector = document.getElementById("outlineColorSelectorPrint");
-            let outlineColorName = outlineSelector.options[outlineSelector.selectedIndex].text;
-            if (outlineSelector.value === "CUSTOM") outlineColorName = `เลือกสีเอง (${customPrintColors.outline})`;
-            outlineInfo = `มีขอบ (${outlineColorName})`;
-        }
-
-        const newOrder = `สายพิมพ์ลาย เส้นที่ ${counts.print}\nพิมพ์ชื่อ : ${rawText}\nลายสาย : ${bgName}\nสีอักษร : ${colorName}\nขอบอักษร : ${outlineInfo}\n${fontSummary}\n\n`;
-        const summaryBox = document.getElementById("orderSummaryPrint");
-        summaryBox.value += newOrder;
-        summaryBox.scrollTop = summaryBox.scrollHeight;
-        
-        counts.print++;
-        document.getElementById("btnCounterPrint").innerText = counts.print;
+        const rawText = document.getElementById("textInputPrint").value || "PUNN", colorSelector = document.getElementById("colorSelectorPrint");
+        let colorName = colorSelector.value === "CUSTOM" ? `เลือกเอง (${customPrintColors.text})` : colorSelector.options[colorSelector.selectedIndex].text;
+        let bgName = document.getElementById("bgSelectorPrint").value === "CUSTOM" ? `พื้นหลังล้วน (${customPrintColors.bg})` : document.getElementById("bgSelectorPrint").options[document.getElementById("bgSelectorPrint").selectedIndex].text;
+        let fontSummary = /[\u0E00-\u0E7F]/.test(rawText) && /[a-zA-Z0-9]/.test(rawText) ? `ฟอนต์ไทย : ${document.getElementById("thaiFontPrint").options[document.getElementById("thaiFontPrint").selectedIndex].text}\nฟอนต์อังกฤษ : ${document.getElementById("engFontPrint").options[document.getElementById("engFontPrint").selectedIndex].text}` : `ฟอนต์ : ${/[\u0E00-\u0E7F]/.test(rawText) ? document.getElementById("thaiFontPrint").options[document.getElementById("thaiFontPrint").selectedIndex].text : document.getElementById("engFontPrint").options[document.getElementById("engFontPrint").selectedIndex].text}`;
+        let outlineInfo = (["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"].includes(colorSelector.value)) ? "มีขอบ (สีขาว)" : (document.getElementById("toggleOutlinePrint").checked ? `มีขอบ (${document.getElementById("outlineColorSelectorPrint").value === "CUSTOM" ? customPrintColors.outline : document.getElementById("outlineColorSelectorPrint").options[document.getElementById("outlineColorSelectorPrint").selectedIndex].text})` : "ไม่มีขอบ");
+        document.getElementById("orderSummaryPrint").value += `สายพิมพ์ลาย เส้นที่ ${counts.print}\nพิมพ์ชื่อ : ${rawText}\nลายสาย : ${bgName}\nสีอักษร : ${colorName}\nขอบอักษร : ${outlineInfo}\n${fontSummary}\n\n`;
+        counts.print++; document.getElementById("btnCounterPrint").innerText = counts.print;
     }
 
-    // =====================================
-    // เริ่มทำงานเมื่อโหลดหน้าเสร็จ
-    // =====================================
-    window.onload = function() {
-        setupPrintPicker();
-        resetAllPrintColors();
-    };
+    window.onload = function() { setupPrintPicker(); resetAllPrintColors(); updateShoeTag(); updateAllLanyard(); };
 </script>
 </body>
 </html>
