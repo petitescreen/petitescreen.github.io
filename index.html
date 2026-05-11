@@ -73,20 +73,28 @@
             background: #ffffff; 
             color: #000000;
             line-height: 1.6;
-            min-height: 100vh;
-            height: auto;
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
-        html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+        /* ซ่อนแถบเลื่อน (Scrollbar) สำหรับทุกเบราว์เซอร์ */
+        html::-webkit-scrollbar, body::-webkit-scrollbar, .wrapper::-webkit-scrollbar { display: none; }
 
+        /* แก้ไข iOS: กำหนดให้ wrapper เป็นกล่องเนื้อหาที่ทำหน้าที่เลื่อนหน้าจอแทน */
         .wrapper { 
+            -ms-overflow-style: none; 
+            scrollbar-width: none;
             position: relative; 
             z-index: 1; 
             max-width: 480px; 
             margin: 0 auto; 
             padding: 20px 16px 60px; 
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; 
         }
 
         .app-page { display: none; animation: floatIn 0.3s ease-out forwards; }
@@ -161,8 +169,8 @@
         .target-btn:active { transform: scale(0.95); }
         .target-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
         
-        .sv-map { width: 100%; height: 100px; position: relative; border-radius: 8px; cursor: crosshair; touch-action: none; overscroll-behavior: contain; background: linear-gradient(to bottom, transparent, #000), linear-gradient(to right, #fff, transparent); margin-bottom: 10px; border: 1.5px solid #000000; }
-        .hue-slider { width: 100%; height: 18px; border-radius: 8px; position: relative; background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); touch-action: none; overscroll-behavior: contain; cursor: pointer; margin-bottom: 10px; border: 1.5px solid #000000; }
+        .sv-map { width: 100%; height: 100px; position: relative; border-radius: 8px; cursor: crosshair; touch-action: none; background: linear-gradient(to bottom, transparent, #000), linear-gradient(to right, #fff, transparent); margin-bottom: 10px; border: 1.5px solid #000000; }
+        .hue-slider { width: 100%; height: 18px; border-radius: 8px; position: relative; background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); touch-action: none; cursor: pointer; margin-bottom: 10px; border: 1.5px solid #000000; }
         .pointer { position: absolute; width: 16px; height: 16px; border: 2.5px solid white; border-radius: 50%; box-shadow: 0 0 4px rgba(0,0,0,0.4); transform: translate(-50%, -50%); pointer-events: none; }
         .hex-info { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 10px; }
         .picker-label { font-size: 12px; font-weight: 700; color: #000000; }
@@ -177,13 +185,14 @@
             padding: 50px 10px; background: #fbfbfb; 
             border: 1.5px dashed #000; border-radius: 12px; 
             margin-bottom: 24px; background-size: cover; background-position: center; 
-            min-height: 120px; /* <--- ใช้ min-height เพื่อให้ยืดตามเข็มกลัดได้ */
+            height: 120px; /* ล็อคความสูงกล่องตายตัว */
+            overflow: hidden; /* ป้องกันเนื้อหาล้น */
             width: 100%;
         }
         #sampleTextLan { 
             font-size: 34px; font-weight: bold; text-align: center; 
             line-height: 1.2; color: #000000; padding: 0 10px; 
-            white-space: nowrap; 
+            white-space: nowrap; /* บังคับอักษรให้อยู่บรรทัดเดียว */
         }
         #sampleTextLan span { color: inherit; }
 
@@ -191,13 +200,7 @@
         .shoe-tag { background-color: #1a1a1a; border-radius: 8px; padding: 10px 15px; width: 250px; min-width: 250px; max-width: 250px; height: 85px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 6px 16px rgba(0,0,0,0.2); position: relative; transition: background 0.3s; margin: 0 auto; }
         .shoe-tag.white-tag { background-color: #ffffff; border: 2px solid #ddd; }
         .hole { width: 18px; height: 55px; background-color: #fbfbfb; border-radius: 8px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.25); flex-shrink: 0; }
-        .shoe-tag-text { 
-            font-size: 34px; font-weight: bold; color: Silver; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); text-align: center; 
-            line-height: 1; padding: 0 10px; 
-            white-space: nowrap; 
-            overflow: hidden; flex: 1; min-width: 0; transition: font-size 0.2s ease; 
-        }
+        .shoe-tag-text { font-size: 34px; font-weight: bold; color: Silver; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); text-align: center; line-height: 1; padding: 0 10px; white-space: nowrap; overflow: hidden; flex: 1; min-width: 0; transition: font-size 0.2s ease; }
         .shoe-tag-text span { color: inherit; }
 
         /* ================= CSS เข็มกลัด (Badge) ================= */
@@ -209,18 +212,16 @@
         .badge-text span { color: inherit; }
 
         /* ================= CSS สายพิมพ์ลาย (Print Lanyard) ================= */
-        .preview-container-print { 
-            display: flex; justify-content: center; align-items: center; 
-            padding: 0 10px; background: #fbfbfb; border: 1.5px dashed #000; 
-            border-radius: 12px; margin-bottom: 24px; width: 100%; 
-            aspect-ratio: 3 / 1; background-size: 100% 100%; 
-            background-position: center; background-repeat: no-repeat; 
-            overflow: hidden; 
-        }
-        #sampleTextPrint { 
-            font-size: 55px; font-weight: bold; text-align: center; 
-            line-height: 1.2; color: #000000; padding: 0 10px; 
-            white-space: nowrap; 
+        .preview-container-print { display: flex; justify-content: center; align-items: center; padding: 0 10px; background: #fbfbfb; border: 1.5px dashed #000; border-radius: 12px; margin-bottom: 24px; width: 100%; aspect-ratio: 3 / 1; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; }
+        #sampleTextPrint { font-size: 55px; font-weight: bold; text-align: center; line-height: 1.2; color: #000000; padding: 0 10px; word-break: break-word; }
+        
+        /* สไตล์สำหรับรูปตัวอย่างฟอนต์ */
+        .font-gallery-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1.5px solid #000;
+            background-color: #fff;
         }
     </style>
 </head>
@@ -228,7 +229,7 @@
 <div class="wrapper">
 
     <div class="ios-warning">
-            📱 ** IOS ก้อบลิงค์วางในซาฟารีหรือกูเกิ้ลนะคะ <br>พยายามเลื่อนตรงพื้นที่ว่างด้านข้าง เพื่อการเลื่อนหน้าที่ดีที่สุดค่า ✨<br> ถ้าไม่ได้จริงๆทักแชทร้านขอฟอนต์ปกติได้เลยค่ะ<br>ขออภัยในความไม่สะดวกค่า
+            📱 ** IOS ก้อบลิงค์วางในกูเกิ้ลนะคะ <br>ถ้าเลื่อนจอไม่ได้ ให้ลองเลื่อนแถบข้างๆจอก่อนนะคะ <br> ถ้าไม่ได้จริงๆทักแชทร้านขอฟอนต์ปกติได้เลยค่ะ<br>ขออภัยในความไม่สะดวกค่า
     </div>
 
     <div id="page-home" class="app-page active-page">
@@ -274,6 +275,22 @@
         <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/สายคล้องแมสพิมพ์ลาย.png" class="menu-image-btn" onclick="navigateTo('page-print')" alt="สายคล้องแมสพิมพ์ลาย">
         <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ป้ายรองเท้า.png" class="menu-image-btn" onclick="navigateTo('page-shoe')" alt="ป้ายรองเท้า">
         <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/เข็มกลัด.png" class="menu-image-btn" onclick="navigateTo('page-badge'); initBadge();" alt="เข็มกลัด">
+        
+        <div class="section-title" style="margin-top: 30px;">✦ ตัวอย่างฟอนต์ทั้งหมด ✦</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/2222.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/3333.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/4444.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/5555.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/6666.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/7777.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/8888.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/9999.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/10000.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/11111.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/12222.jpg" class="font-gallery-img">
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/13333.jpg" class="font-gallery-img">
+        </div>
     </div>
 
     <div id="page-lanyard" class="app-page">
@@ -330,7 +347,7 @@
             </div>
         </div>
 
-        <div class="preview-container" id="sampleBoxLan">
+        <div class="preview-container" id="sampleBoxLan" style="min-height: 120px; height: auto;">
             <p id="sampleTextLan">น้องปั้นหยา Panyah</p>
         </div>
 
@@ -464,7 +481,7 @@
         <div class="card">
             <div class="card-title">สรุปรายการสั่งทำ</div>
             <button class="btn-add" onclick="addToListPrint()">✅ กดตรงนี้ ยืนยันแบบ (เส้นที่ <span id="btnCounterPrint">1</span>)</button>
-            <textarea id="orderSummaryPrint" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่..."></textarea>
+            <textarea id="orderSummaryPrint" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่..พิมพ์แก้ไขได้ที่นี่ค่ะ."></textarea>
             <div class="action-buttons">
                 <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryPrint')">📋 คัดลอกข้อความ</button>
                 <button class="btn-action btn-clear" onclick="clearOrder('orderSummaryPrint', 'btnCounterPrint', 'print')">🗑️ ล้างข้อมูลใหม่</button>
@@ -641,11 +658,29 @@
     // ระบบนำทาง (Navigation) SPA
     // =====================================
     function navigateTo(pageId) {
+        // 1. ซ่อนทุกหน้า
         document.querySelectorAll('.app-page').forEach(page => page.classList.remove('active-page'));
-        document.getElementById(pageId).classList.add('active-page');
+        
+        // 2. แสดงหน้าที่กำลังจะเปิด
+        const targetPage = document.getElementById(pageId);
+        targetPage.classList.add('active-page');
+        
+        // 3. บังคับดึงแถบเลื่อนกลับขึ้นบนสุดทันที (ครอบคลุมทั้งเบราว์เซอร์ปกติและมือถือ)
+        const wrapper = document.querySelector('.wrapper');
+        if (wrapper) wrapper.scrollTop = 0;
         window.scrollTo(0, 0);
-    }
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
 
+        // 4. หน่วงเวลาเล็กน้อยให้บราวเซอร์วาดหน้าใหม่ให้เสร็จ แล้วบังคับโฟกัสขอบบนสุดซ้ำอีกรอบ
+        setTimeout(() => {
+            if (wrapper) wrapper.scrollTop = 0;
+            window.scrollTo(0, 0);
+            // คำสั่งนี้จะบังคับให้ Google Sites เลื่อนหน้าจอมาที่ขอบบนของหน้าใหม่เสมอ
+            targetPage.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }, 80); 
+    }
+  
     // =====================================
     // ระบบกลาง (DRY Utilities - ใช้ร่วมกันทุกหน้า)
     // =====================================
@@ -728,6 +763,7 @@
     }
 
     // =====================================
+    /// =====================================
     // 1. สคริปต์สายคล้องแมส (Lanyard)
     // =====================================
     function updateAllLanyard() {
@@ -737,8 +773,22 @@
         const bg = document.getElementById("bgSelectorLan").value;
         const color = document.getElementById("colorSelectorLan").value;
         const sampleText = document.getElementById("sampleTextLan");
+        
+        // วาดตัวอักษร
         sampleText.innerHTML = buildMixedFontHTML(text, thaiF, engF);
         
+        // --- ระบบ Auto-resize ลดขนาดอักษรเมื่อชนขอบ ---
+        const container = sampleText.parentElement;
+        let fontSize = 34; // ขนาดเริ่มต้น
+        sampleText.style.fontSize = fontSize + "px"; // รีเซ็ตขนาดกลับไปที่ใหญ่สุดก่อน
+        
+        // ถ้าข้อความกว้างเกินกล่อง ให้ลดขนาดลงเรื่อยๆ
+        while (sampleText.scrollWidth > container.clientWidth - 20 && fontSize > 10) {
+            fontSize--;
+            sampleText.style.fontSize = fontSize + "px";
+        }
+        
+        // จัดการสีอักษร (สีปกติ / สีโฮโลแกรม)
         if (color.startsWith('url')) {
             sampleText.style.color = "transparent";
             sampleText.style.backgroundImage = color;
@@ -749,6 +799,7 @@
             sampleText.style.color = color;
         }
         
+        // เปลี่ยนพื้นหลังสาย
         document.getElementById("sampleBoxLan").style.backgroundImage = bg !== "none" ? bg : "none";
     }
 
@@ -1031,7 +1082,7 @@
             sampleBox.style.backgroundImage = `url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${bgVal}')`;
         }
 
-        // จัดการขอบ
+       // จัดการขอบ
         const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
         if (lockedWhiteOutlines.includes(colorVal)) {
             sampleText.style.textShadow = `
@@ -1051,7 +1102,7 @@
         } else {
             sampleText.style.textShadow = "none";
         }
-
+    
         // จัดการอักษร
         let html = "";
         let colorIndex = 0;
@@ -1062,7 +1113,7 @@
             let currentFont = isThai ? thaiF : engF;
             let currentColor = "";
 
-            if (colorVal === "FUN_COLORS") {
+   if (colorVal === "FUN_COLORS") {
                 currentColor = funColors[colorIndex % funColors.length];
                 colorIndex++;
             } else if (colorVal === "RAINBOW") {
@@ -1092,7 +1143,7 @@
         }
 
         sampleText.innerHTML = html;
-        
+
         // Auto-resize
         const container = sampleText.parentElement;
         let fontSize = 55;
@@ -1132,8 +1183,8 @@
 
         hueElP.addEventListener('mousedown', (e) => { handleHP(e); window.addEventListener('mousemove', handleHP); });
         svElP.addEventListener('mousedown', (e) => { handleSVP(e); window.addEventListener('mousemove', handleSVP); });
-        hueElP.addEventListener('touchstart', e => { e.preventDefault(); handleHP(e); window.addEventListener('touchmove', handleHP, {passive:false}); }, {passive:false});
-        svElP.addEventListener('touchstart', e => { e.preventDefault(); handleSVP(e); window.addEventListener('touchmove', handleSVP, {passive:false}); }, {passive:false});
+        hueElP.addEventListener('touchstart', e => { handleHP(e); window.addEventListener('touchmove', handleHP); }, {passive:false});
+        svElP.addEventListener('touchstart', e => { handleSVP(e); window.addEventListener('touchmove', handleSVP); }, {passive:false});
         window.addEventListener('mouseup', () => { window.removeEventListener('mousemove', handleHP); window.removeEventListener('mousemove', handleSVP); });
         window.addEventListener('touchend', () => { window.removeEventListener('touchmove', handleHP); window.removeEventListener('touchmove', handleSVP); });
     }
@@ -1160,7 +1211,7 @@
         else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`;
         else fontSummary = `ฟอนต์ : ${engFontName}`;
 
-       let outlineInfo = "ไม่มีขอบ";
+        let outlineInfo = "ไม่มีขอบ";
         const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
         
         if (lockedWhiteOutlines.includes(colorSelector.value)) {
