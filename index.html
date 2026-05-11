@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Petite.screen App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* ================= โหลดฟอนต์ทั้งหมด (ห้ามตัดทอน) ================= */
+        @font-face { font-family: 'ฟอนต์ไทย1'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/fluffyfriday.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย2'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/sundaeplseditver.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย3'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/HappyMayna.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย4'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/maaja%20ver%201.00.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย5'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Home%20Regular%20ver%201.01.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย7'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/supermarket.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย8'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/upcll.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย9'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Muffin%20Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย10'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Knomphing%20Bold.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย11'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/polareverland.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย12'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ImmageForyou1.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ฟอนต์ไทย14'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/howareyoutoday.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        
+        @font-face { font-family: 'ฟอนต์อังกฤษ1'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/fluffyfriday.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ2'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/sundaeplseditver.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ3'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Home%20Regular%20ver%201.01.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ4'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/upcdb.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ6'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/AniTypewriter.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ7'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Impact.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ8'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/HappyMayna.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ9'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ARIALBD.TTF') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ10'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/CHERI___.TTF') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ11'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Minnie.TTF') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ12'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/VarsityTeam-Bold.otf') format('opentype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ14'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ADELIA.otf') format('opentype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ15'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/BLACK%20BUBBLE.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ16'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Bubblegum.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ17'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Candy%20Beans.otf') format('opentype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ18'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Caramel%20Sweets.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ19'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Cheeky%20Rabbit.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ20'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Subscribe.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ21'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Hoollidday.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ22'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Thank%20you.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ23'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Hilton-Bold.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ24'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Cream%20Cake%20Bold.otf') format('opentype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ25'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Amatemora.otf') format('opentype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ26'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Chocolate%20Cookies.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ27'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/polareverland.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ28'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ImmageForyou1.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ29'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/howareyoutoday.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ30'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/CODE%20Bold.otf') format('opentype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ31'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Huggable%20Hedgehogs%20Demo.otf') format('opentype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ32'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Quick%20Love.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ33'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Starborn.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ34'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Milk%20Mango.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ35'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/CHICKEN%20Pie%20Height.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ36'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Chocolate%20Cookies.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ37'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Super%20Peach.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ38'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Stopbuck.ttf') format('truetype'); }
+        @font-face { font-family: 'ฟอนต์อังกฤษ39'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Vanilla%20Caramel.otf') format('opentype'); }
+
+        /* ================= Reset & Global Variables ================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
+        :root {
+            --pink-light: #fce4ec; --pink-mid: #f8bbd9; --pink-deep: #e91e8c; --pink-accent: #ff4fa7;
+            --purple-mid: #ce93d8; --text-dark: #3d2a3a; --text-mid: #6d4c6a; --border-soft: #f3c6df;
+            --badge-primary: #e91e8c; --badge-bg: #fff8fb; --badge-border: #f3c6df;
+        }
+
+        /* ---------------- แก้ไข iOS เลื่อนลื่น ---------------- */
+        html, body {
+            font-family: 'Sarabun', sans-serif;
+            background: #ffffff; 
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            height: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+
+        .wrapper { 
+            position: relative; 
+            z-index: 1; 
+            max-width: 480px; 
+            margin: 0 auto; 
+            padding: 20px 16px 60px; 
+        }
+
+        .app-page { display: none; animation: floatIn 0.3s ease-out forwards; }
+        .active-page { display: block; }
+        @keyframes floatIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ================= Shared UI Components ================= */
+        .header { text-align: center; margin-bottom: 24px; }
+        .header h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+        .header-title { text-align: center; font-size: 20px; font-weight: 800; margin-bottom: 20px; letter-spacing: 1px; color: #000000; }
+        .header-subtitle { color: #555555; font-size: 13px; font-weight: bold; }
+        .section-title { text-align: center; font-size: 16px; font-weight: 800; margin-bottom: 16px; }
+        
+        .status-badge { display: inline-block; background: #000000; color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 800; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .warning-banner { background-color: #ffffff; border: 1.5px solid #000000; color: #000000; padding: 12px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: bold; margin-bottom: 20px; line-height: 1.5; }
+        .ios-warning { background-color: #fbfbfb; border: 1.5px solid #000000; border-radius: 8px; padding: 12px; text-align: center; font-size: 13px; font-weight: 700; color: #e91e8c; margin-bottom: 20px; line-height: 1.5; box-shadow: 2px 2px 0px #000000; }
+        
+        .card { background: #ffffff; border: 1.5px solid #000000; border-radius: 12px; padding: 16px 14px; margin-bottom: 16px; }
+        .card-title { font-size: 13px; font-weight: 800; color: #000000; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+        .card-title::before { content: ''; display: inline-block; width: 12px; height: 12px; background: #000000; border-radius: 2px; }
+        
+        .form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+        .dual-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .form-label { font-size: 12px; font-weight: 700; color: #000000; margin-left: 2px; }
+        
+        .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 14px; font-size: 14px; font-family: inherit; border: 1.5px solid #000000; border-radius: 8px; background: #ffffff; color: #000000; outline: none; transition: 0.2s; -webkit-appearance: none; appearance: none; }
+        .form-textarea { min-height: 100px; resize: vertical; margin-bottom: 10px; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { box-shadow: 0 0 0 3px rgba(0,0,0,0.1); }
+        .checkbox-container { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
+        
+        .select-wrap { position: relative; }
+        .select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #000000; pointer-events: none; font-weight: bold; }
+
+        .btn-add { width: 100%; padding: 16px; background: #000000; color: #ffffff; border: 1.5px solid #000000; border-radius: 8px; font-size: 15px; font-weight: 800; cursor: pointer; transition: 0.2s; margin-bottom: 10px; }
+        .btn-add:active { background: #333333; transform: scale(0.98); }
+        .action-buttons { display: flex; gap: 10px; margin-top: 5px; }
+        .btn-action { flex: 1; padding: 12px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; transition: 0.1s; border: 1.5px solid #000000; }
+        .btn-copy { background: #f5f5f5; color: #000000; }
+        .btn-copy:active { background: #e0e0e0; }
+        .btn-clear { background: #ffffff; color: #555555; }
+        .btn-clear:active { background: #f0f0f0; }
+        .back-btn { background: rgba(255,255,255,0.9); border: 1.5px solid #000000; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; color: #000000; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.2s; font-family: inherit; margin-bottom: 20px; box-shadow: 2px 2px 0px #000000; }
+        .back-btn:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px #000000; background: #fbfbfb; }
+        .menu-image-btn { width: 100%; height: auto; border-radius: 20px; cursor: pointer; transition: transform 0.2s; display: block; margin-bottom: 20px; filter: drop-shadow(0 4px 10px rgba(233, 30, 140, 0.12)); }
+        .menu-image-btn:active { transform: scale(0.96); }
+
+        .notice-box { background-color: #ffffff; border: 1.5px solid #000000; padding: 16px; border-radius: 8px; margin-bottom: 24px; }
+        .notice-title { font-weight: 800; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .notice-box ul { margin: 0; padding-left: 20px; font-size: 13px; color: #333333; }
+        .notice-box li { margin-bottom: 6px; }
+        .highlight { font-weight: 800; color: #000000; text-decoration: underline; }
+        .instruction-text { font-size: 12px; color: #555555; text-align: center; margin-bottom: 12px; font-weight: bold; line-height: 1.5; }
+        .loading-text { text-align: center; color: #000000; font-size: 14px; font-weight: 800; padding: 20px; border: 1.5px dashed #000000; border-radius: 8px; background: #fbfbfb; margin-bottom: 24px; }
+        .loading-text small { display: block; margin-top: 6px; font-weight: normal; color: #555555; font-size: 12px; }
+        .step-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+        .step-card { background: #ffffff; padding: 14px; border-radius: 8px; border: 1.5px solid #000000; display: flex; align-items: center; gap: 14px; }
+        .step-number { background: #000000; color: #ffffff; width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+        .step-text b { display: block; font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+        .step-text span { font-size: 12px; color: #555555; }
+
+        #toast { visibility: hidden; min-width: 250px; background-color: #000000; color: #ffffff; text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 999; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); opacity: 0; transition: opacity 0.3s, bottom 0.3s; }
+        #toast.show { visibility: visible; opacity: 1; bottom: 50px; }
+
+        /* ================= Color Picker Shared ================= */
+        .color-section { margin-top: 4px; padding-top: 12px; display: flex; flex-direction: column; border-top: 1.5px dashed #000000; }
+        .color-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .btn-reset-color { padding: 8px 12px; font-size: 12px; font-weight: bold; border-radius: 8px; border: 1.5px solid #000; background: #fff; color: #000; cursor: pointer; transition: 0.2s; box-shadow: 2px 2px 0px #000; }
+        .btn-reset-color:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px #000; background: #fbfbfb; }
+        
+        .color-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+        .target-btn { padding: 10px; border-radius: 8px; background: #ffffff; font-size: 13px; font-weight: bold; cursor: pointer; text-align: center; border: 2px solid #ddd; color: #666; transition: 0.15s; }
+        .target-btn:active { transform: scale(0.95); }
+        .target-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+        
+        .sv-map { width: 100%; height: 100px; position: relative; border-radius: 8px; cursor: crosshair; touch-action: none; overscroll-behavior: contain; background: linear-gradient(to bottom, transparent, #000), linear-gradient(to right, #fff, transparent); margin-bottom: 10px; border: 1.5px solid #000000; }
+        .hue-slider { width: 100%; height: 18px; border-radius: 8px; position: relative; background: linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%); touch-action: none; overscroll-behavior: contain; cursor: pointer; margin-bottom: 10px; border: 1.5px solid #000000; }
+        .pointer { position: absolute; width: 16px; height: 16px; border: 2.5px solid white; border-radius: 50%; box-shadow: 0 0 4px rgba(0,0,0,0.4); transform: translate(-50%, -50%); pointer-events: none; }
+        .hex-info { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 10px; }
+        .picker-label { font-size: 12px; font-weight: 700; color: #000000; }
+        .hex-display { font-family: monospace; font-size: 13px; font-weight: bold; color: #000000; }
+        .quick-colors { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; }
+        .quick-color { width: 100%; aspect-ratio: 1; border-radius: 6px; cursor: pointer; border: 1.5px solid #000000; transition: 0.1s; }
+        .quick-color:active { transform: scale(0.8); }
+
+        /* ================= CSS สายคล้องแมสปกติ (Lanyard) ================= */
+        .preview-container { 
+            display: flex; justify-content: center; align-items: center; 
+            padding: 50px 10px; background: #fbfbfb; 
+            border: 1.5px dashed #000; border-radius: 12px; 
+            margin-bottom: 24px; background-size: cover; background-position: center; 
+            min-height: 120px; /* <--- ใช้ min-height เพื่อให้ยืดตามเข็มกลัดได้ */
+            width: 100%;
+        }
+        #sampleTextLan { 
+            font-size: 34px; font-weight: bold; text-align: center; 
+            line-height: 1.2; color: #000000; padding: 0 10px; 
+            white-space: nowrap; 
+        }
+        #sampleTextLan span { color: inherit; }
+
+        /* ================= CSS ป้ายรองเท้า (Shoe Tag) ================= */
+        .shoe-tag { background-color: #1a1a1a; border-radius: 8px; padding: 10px 15px; width: 250px; min-width: 250px; max-width: 250px; height: 85px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 6px 16px rgba(0,0,0,0.2); position: relative; transition: background 0.3s; margin: 0 auto; }
+        .shoe-tag.white-tag { background-color: #ffffff; border: 2px solid #ddd; }
+        .hole { width: 18px; height: 55px; background-color: #fbfbfb; border-radius: 8px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.25); flex-shrink: 0; }
+        .shoe-tag-text { 
+            font-size: 34px; font-weight: bold; color: Silver; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); text-align: center; 
+            line-height: 1; padding: 0 10px; 
+            white-space: nowrap; 
+            overflow: hidden; flex: 1; min-width: 0; transition: font-size 0.2s ease; 
+        }
+        .shoe-tag-text span { color: inherit; }
+
+        /* ================= CSS เข็มกลัด (Badge) ================= */
+        .badge-outer { width: 170px; height: 170px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; border: 2px solid #ddd; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 0 auto; }
+        .badge-ring { width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
+        .badge-middle { width: 130px; height: 130px; border-radius: 50%; background-color: #ffffff; position: absolute; z-index: 2; overflow: hidden; }
+        .badge-cartoon { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 160px; height: 160px; object-fit: contain; z-index: 3; }
+        .badge-text { position: absolute; bottom: 18%; left: 50%; transform: translateX(-50%); font-size: 20px; font-weight: 800; text-align: center; line-height: 1.1; z-index: 4; text-transform: uppercase; width: 140px; word-wrap: break-word; text-shadow: 0 0 4px rgba(255,255,255,0.8), 0 0 2px rgba(255,255,255,0.9); }
+        .badge-text span { color: inherit; }
+
+        /* ================= CSS สายพิมพ์ลาย (Print Lanyard) ================= */
+        .preview-container-print { 
+            display: flex; justify-content: center; align-items: center; 
+            padding: 0 10px; background: #fbfbfb; border: 1.5px dashed #000; 
+            border-radius: 12px; margin-bottom: 24px; width: 100%; 
+            aspect-ratio: 3 / 1; background-size: 100% 100%; 
+            background-position: center; background-repeat: no-repeat; 
+            overflow: hidden; 
+        }
+        #sampleTextPrint { 
+            font-size: 55px; font-weight: bold; text-align: center; 
+            line-height: 1.2; color: #000000; padding: 0 10px; 
+            white-space: nowrap; 
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="ios-warning">
+            📱 ** IOS ก้อบลิงค์วางในซาฟารีหรือกูเกิ้ลนะคะ <br>พยายามเลื่อนตรงพื้นที่ว่างด้านข้าง เพื่อการเลื่อนหน้าที่ดีที่สุดค่า ✨<br> ถ้าไม่ได้จริงๆทักแชทร้านขอฟอนต์ปกติได้เลยค่ะ<br>ขออภัยในความไม่สะดวกค่า
+    </div>
+
+    <div id="page-home" class="app-page active-page">
+        <div class="header">
+            <div class="status-badge">Custom Order</div>
+            <h2>สั่งสกรีนชื่อ</h2>
+            <div class="header-subtitle">พิมพ์ชื่อและเลือกฟอนต์ได้เลยค่ะ</div>
+            <div class="header-subtitle" style="font-weight: normal; margin-top: 4px;">(เลื่อนลงล่างสุดมีรูปฟอนต์รวมค่ะ)</div>
+        </div>
+
+        <div class="notice-box">
+            <div class="notice-title">⚠️ หมายเหตุสำคัญ:</div>
+            <ul>
+                <li>สีสายและตัวอักษรในจอภาพอาจเข้มหรืออ่อนกว่างานจริงเล็กน้อย</li>
+                <li><span class="highlight">ภาษาอังกฤษ:</span> ฟอนต์ตัวเขียนเบอร์ <b>22-26</b> งานสกรีนจริงจะหนากว่าในรูป</li>
+                <li><span class="highlight">ภาษาไทย:</span> ฟอนต์เบอร์ <b>4</b> งานสกรีนจริงจะหนากว่าในรูป</li>
+                <li>ทุกเส้นทางร้านจะช่วยจัดสระและวรรณยุกต์ให้ใหม่เพื่อความสวยงามค่ะ</li>
+            </ul>
+        </div>
+
+        <div class="section-title">✦ วิธีใช้งาน ✦</div>
+        <div class="step-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-text"><b>ออกแบบ</b><span>พิมพ์ชื่อและเลือกรายละเอียดให้ครบถ้วน</span></div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-text"><b>เพิ่มรายการ</b><span>กด "เพิ่มรายการคำสั่งซื้อ" (ทำซ้ำจนครบทุกชิ้น)<br>คัดลอกพร้อมกันทีเดียวได้เลย 1 2 3 4 ไม่ต้องกดเข้าออกใหม่</span></div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-text"><b>ส่งออเดอร์</b><span>ตรวจสอบความถูกต้อง แล้วกด "คัดลอก" ส่งทางแชทร้านค้า</span></div>
+            </div>
+        </div>
+
+        <div class="loading-text" style="margin-bottom: 30px;">
+            กดที่รูปสินค้าด้านล่างเพื่อเริ่มออกแบบ
+            <small>(ใส่รายละเอียดเสร็จแล้ว กดคัดลอกเพื่อแจ้งแอดมินในแชทร้านด้วยนะคะ)</small>
+        </div>
+
+        <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/สายคล้องแมส.png" class="menu-image-btn" onclick="navigateTo('page-lanyard')" alt="สายคล้องแมส">
+        <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/สายคล้องแมสพิมพ์ลาย.png" class="menu-image-btn" onclick="navigateTo('page-print')" alt="สายคล้องแมสพิมพ์ลาย">
+        <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ป้ายรองเท้า.png" class="menu-image-btn" onclick="navigateTo('page-shoe')" alt="ป้ายรองเท้า">
+        <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/เข็มกลัด.png" class="menu-image-btn" onclick="navigateTo('page-badge'); initBadge();" alt="เข็มกลัด">
+    </div>
+
+    <div id="page-lanyard" class="app-page">
+        <button class="back-btn" onclick="navigateTo('page-home')">◁ กลับหน้าเมนู</button>
+        <div class="header-title">✦ ตัวอย่างสายคล้องแมส ✦</div>
+        <div class="warning-banner">⚠️ รบกวนกดปุ่มด้านล่างเพื่อคัดลอกข้อความส่งให้แอดมิน<br>แทนการแคปรูปภาพนะคะ (เพื่อความถูกต้องของชื่อค่ะ)</div>
+
+        <div class="card">
+            <div class="card-title">รายละเอียดสายคล้องแมส</div>
+            <div class="form-row">
+                <label class="form-label">ลายการ์ตูน (เฉพาะสายแบบการ์ตูน 45.-)</label>
+                <input type="text" id="cartoonInputLan" class="form-input" placeholder="เช่น มาแชล มายเม (ถ้าไม่ได้สั่งเว้นว่างไว้)">
+            </div>
+            <div class="form-row">
+                <label class="form-label">พิมพ์ชื่อตรงนี้ ♥</label>
+                <span style="font-size: 11px; color: #e91e8c; margin-top: -6px; margin-left: 2px;">(ใส่อิโมจิได้เลยค่ะ สกรีนจริงอิโมจิจะเป็นสีเดียวกับอักษรนะคะ)</span>
+                <span style="font-size: 11px; color: #555555; margin-top: -6px; margin-left: 2px;">(กรณีซ้ายขวาไม่เหมือนกัน ระบุให้ด้วยนะคะ)</span>
+               <input type="text" id="textInputLan" class="form-input" placeholder="เช่น น้องปั้นหยา Panyah♥" oninput="updateAllLanyard()">
+            </div>
+            <div class="dual-row">
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์ไทย</label>
+                    <div class="select-wrap">
+                        <select id="thaiFontLan" class="form-select" onchange="updateAllLanyard()">
+                            <option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย10'" selected>ฟอนต์ไทย 10</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์ภาษาอังกฤษ</label>
+                    <div class="select-wrap">
+                        <select id="engFontLan" class="form-select" onchange="updateAllLanyard()">
+                            <option value="'ฟอนต์อังกฤษ1', sans-serif">ฟอนต์อังกฤษ1</option><option value="'ฟอนต์อังกฤษ2', cursive">ฟอนต์อังกฤษ2</option><option value="'ฟอนต์อังกฤษ3', cursive">ฟอนต์อังกฤษ3</option><option value="'ฟอนต์อังกฤษ4', cursive">ฟอนต์อังกฤษ4</option><option value="'ฟอนต์อังกฤษ6', cursive">ฟอนต์อังกฤษ6</option><option value="'ฟอนต์อังกฤษ7', sans-serif">ฟอนต์อังกฤษ7</option><option value="'ฟอนต์อังกฤษ8', cursive">ฟอนต์อังกฤษ8</option><option value="'ฟอนต์อังกฤษ9', cursive">ฟอนต์อังกฤษ9</option><option value="'ฟอนต์อังกฤษ10', cursive">ฟอนต์อังกฤษ10</option><option value="'ฟอนต์อังกฤษ11', cursive">ฟอนต์อังกฤษ11</option><option value="'ฟอนต์อังกฤษ12', sans-serif">ฟอนต์อังกฤษ12</option><option value="'ฟอนต์อังกฤษ14', cursive">ฟอนต์อังกฤษ14</option><option value="'ฟอนต์อังกฤษ15', cursive">ฟอนต์อังกฤษ15</option><option value="'ฟอนต์อังกฤษ16', cursive">ฟอนต์อังกฤษ16</option><option value="'ฟอนต์อังกฤษ17', sans-serif">ฟอนต์อังกฤษ17</option><option value="'ฟอนต์อังกฤษ18', cursive">ฟอนต์อังกฤษ18</option><option value="'ฟอนต์อังกฤษ19', cursive">ฟอนต์อังกฤษ19</option><option value="'ฟอนต์อังกฤษ20', cursive">ฟอนต์อังกฤษ20</option><option value="'ฟอนต์อังกฤษ21', cursive">ฟอนต์อังกฤษ21</option><option value="'ฟอนต์อังกฤษ22', sans-serif">ฟอนต์อังกฤษ22</option><option value="'ฟอนต์อังกฤษ23', cursive">ฟอนต์อังกฤษ23</option><option value="'ฟอนต์อังกฤษ24', cursive">ฟอนต์อังกฤษ24</option><option value="'ฟอนต์อังกฤษ25', cursive">ฟอนต์อังกฤษ25</option><option value="'ฟอนต์อังกฤษ26', cursive">ฟอนต์อังกฤษ26</option><option value="'ฟอนต์อังกฤษ27', sans-serif">ฟอนต์อังกฤษ27</option><option value="'ฟอนต์อังกฤษ28', cursive">ฟอนต์อังกฤษ28</option><option value="'ฟอนต์อังกฤษ29', cursive">ฟอนต์อังกฤษ29</option><option value="'ฟอนต์อังกฤษ30', cursive">ฟอนต์อังกฤษ30</option><option value="'ฟอนต์อังกฤษ31', cursive">ฟอนต์อังกฤษ31</option><option value="'ฟอนต์อังกฤษ32', cursive">ฟอนต์อังกฤษ32</option><option value="'ฟอนต์อังกฤษ33', sans-serif">ฟอนต์อังกฤษ33</option><option value="'ฟอนต์อังกฤษ34', cursive">ฟอนต์อังกฤษ34</option><option value="'ฟอนต์อังกฤษ35', cursive">ฟอนต์อังกฤษ35</option><option value="'ฟอนต์อังกฤษ36', cursive">ฟอนต์อังกฤษ36</option><option value="'ฟอนต์อังกฤษ37', cursive">ฟอนต์อังกฤษ37</option><option value="'ฟอนต์อังกฤษ38', sans-serif">ฟอนต์อังกฤษ38</option><option value="'ฟอนต์อังกฤษ39', cursive">ฟอนต์อังกฤษ39</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                 <label class="form-label">สีอักษร</label>
+                <div class="select-wrap">
+                    <select id="colorSelectorLan" class="form-select" onchange="updateAllLanyard()">
+                        <optgroup label="— สีอักษรปกติ —"><option value="#000000">สีดำ</option><option value="#FFFFFF">สีขาว</option><option value="#dcaf8b">สีน้ำตาลอ่อน</option><option value="#d0bce2">สีม่วงอ่อน</option><option value="#ffadcf">สีชมพู</option><option value="#d01f63">สีชมพูเข้ม</option><option value="#003aba">สีน้ำเงิน</option><option value="#4B0082">สีม่วง</option><option value="#be0715">สีแดง</option><option value="#24344e">สีกรม</option><option value="#72c9ff">สีฟ้า</option><option value="#ed591a">สีส้ม</option><option value="#adeacd">สีมิ้นท์</option><option value="#d3ef64">สีเขียวมะนาว</option><option value="#ffb703">สีเหลือง</option></optgroup>
+                        <optgroup label="— สีอักษรพิเศษ (ลาย) —"><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/hologram.jpg')">โฮโลแกรม ✨</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/rainbow.jpg')">รุ้ง 🌈</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/rosegold.jpg')">โรสโกลด์ 🌹</option></optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                 <label class="form-label">สีสายคล้องแมส</label>
+                <div class="select-wrap">
+                    <select id="bgSelectorLan" class="form-select" onchange="updateAllLanyard()">
+                        <option value="none">— ยังไม่ได้เลือกสีสาย —</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Black.png')">ดำ</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Gray.png')">เทา</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/White.png')">ขาว</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Cream%20Beige.png')">ครีมเบจ</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Hazel%20Brown.png')">น้ำตาลเฮเซล</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Red.png')">แดง</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Orange.png')">ส้ม</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Yellow.png')">เหลือง</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Pumpkin%20Yellow.png')">เหลืองฟักทอง</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Old%20Rose.png')">โอรส</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Light%20Pink.png')">ชมพูอ่อน</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Pink.png')">ชมพู</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Dark%20Pink.png')">ชมพูเข้ม</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Light%20Purple.png')">ม่วงอ่อน</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Purple.png')">ม่วง</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Light%20Blue.png')">ฟ้าอ่อน</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Blue.png')">ฟ้า</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Royal%20Blue.png')">น้ำเงิน</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Navy%20Blue.png')">กรม</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Teal.png')">เขียวเข้มอมฟ้า</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Olive%20Green.png')">เขียวไมโล</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Lime%20Green.png')">เขียวมะนาว</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Pastel%20Rainbow.png')">รุ้งพาสเทล</option><option value="url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Rainbow.png')">เรนโบว์</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-container" id="sampleBoxLan">
+            <p id="sampleTextLan">น้องปั้นหยา Panyah</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">สรุปรายการสั่งทำ</div>
+            <button class="btn-add" onclick="addToListLanyard()">✅ กดตรงนี้ ยืนยันแบบ (เส้นที่ <span id="btnCounterLan">1</span>)</button>
+            <p class="instruction-text">ตรวจสอบข้อมูลแล้ว <br>กดคัดลอกด้านล่างส่งให้แอดมินในแชทได้เลยค่ะ 👇<br>(สายแบบการ์ตูน 45.- ใส่ลายการ์ตูนให้ด้วยนะคะ)</p>
+            <textarea id="orderSummaryLan" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่...พิมพ์แก้ไขได้ที่นี่ค่ะ"></textarea>
+            <div class="action-buttons">
+                <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryLan')">📋 คัดลอกข้อความ</button>
+                <button class="btn-action btn-clear" onclick="clearOrder('orderSummaryLan', 'btnCounterLan', 'lan')">🗑️ ล้างข้อมูลใหม่</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-print" class="app-page">
+        <button class="back-btn" onclick="navigateTo('page-home')">◁ กลับหน้าเมนู</button>
+        <div class="header-title">✦ สั่งทำสายพิมพ์ลาย ✦</div>
+        <div class="warning-banner">⚠️ รบกวนกดปุ่มด้านล่างเพื่อคัดลอกข้อความส่งให้แอดมินแทนการแคปรูปภาพนะคะ</div>
+
+        <div class="preview-container-print" id="sampleBoxPrint" style="background-image: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/space.png');">
+            <p id="sampleTextPrint">PUNN</p>
+        </div>
+
+        <div class="card">
+            <div class="color-header">
+                <div class="card-title" style="margin: 0;">รายละเอียดสายพิมพ์ลาย</div>
+                <button class="btn-reset-color" onclick="resetAllPrintColors()">🔄 คืนค่าสีเริ่มต้น</button>
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label">พิมพ์ชื่อตรงนี้ ♥</label>
+                <span style="font-size: 11px; color: #e91e8c; margin-top: -6px; margin-left: 2px;">(อิโมจิใส่ได้เลยค่ะ)</span>
+                <input type="text" id="textInputPrint" class="form-input" placeholder="พิมพ์ชื่อที่นี่..." oninput="updateAllPrint()">
+            </div>
+            
+            <div class="dual-row">
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์ไทย</label>
+                    <div class="select-wrap">
+                        <select id="thaiFontPrint" class="form-select" onchange="updateAllPrint()">
+                            <option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย10'" selected>ฟอนต์ไทย 10</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์อังกฤษ</label>
+                    <div class="select-wrap">
+                        <select id="engFontPrint" class="form-select" onchange="updateAllPrint()">
+                            <option value="'ฟอนต์อังกฤษ1', sans-serif">ฟอนต์อังกฤษ1</option><option value="'ฟอนต์อังกฤษ2', cursive">ฟอนต์อังกฤษ2</option><option value="'ฟอนต์อังกฤษ3', cursive">ฟอนต์อังกฤษ3</option><option value="'ฟอนต์อังกฤษ4', cursive">ฟอนต์อังกฤษ4</option><option value="'ฟอนต์อังกฤษ6', cursive">ฟอนต์อังกฤษ6</option><option value="'ฟอนต์อังกฤษ7', sans-serif">ฟอนต์อังกฤษ7</option><option value="'ฟอนต์อังกฤษ8', cursive">ฟอนต์อังกฤษ8</option><option value="'ฟอนต์อังกฤษ9', cursive">ฟอนต์อังกฤษ9</option><option value="'ฟอนต์อังกฤษ10', cursive">ฟอนต์อังกฤษ10</option><option value="'ฟอนต์อังกฤษ11', cursive">ฟอนต์อังกฤษ11</option><option value="'ฟอนต์อังกฤษ12', sans-serif">ฟอนต์อังกฤษ12</option><option value="'ฟอนต์อังกฤษ14', cursive">ฟอนต์อังกฤษ14</option><option value="'ฟอนต์อังกฤษ15', cursive">ฟอนต์อังกฤษ15</option><option value="'ฟอนต์อังกฤษ16', cursive">ฟอนต์อังกฤษ16</option><option value="'ฟอนต์อังกฤษ17', sans-serif">ฟอนต์อังกฤษ17</option><option value="'ฟอนต์อังกฤษ18', cursive">ฟอนต์อังกฤษ18</option><option value="'ฟอนต์อังกฤษ19', cursive">ฟอนต์อังกฤษ19</option><option value="'ฟอนต์อังกฤษ20', cursive">ฟอนต์อังกฤษ20</option><option value="'ฟอนต์อังกฤษ21', cursive">ฟอนต์อังกฤษ21</option><option value="'ฟอนต์อังกฤษ22', sans-serif">ฟอนต์อังกฤษ22</option><option value="'ฟอนต์อังกฤษ23', cursive">ฟอนต์อังกฤษ23</option><option value="'ฟอนต์อังกฤษ24', cursive">ฟอนต์อังกฤษ24</option><option value="'ฟอนต์อังกฤษ25', cursive">ฟอนต์อังกฤษ25</option><option value="'ฟอนต์อังกฤษ26', cursive">ฟอนต์อังกฤษ26</option><option value="'ฟอนต์อังกฤษ27', sans-serif">ฟอนต์อังกฤษ27</option><option value="'ฟอนต์อังกฤษ28', cursive">ฟอนต์อังกฤษ28</option><option value="'ฟอนต์อังกฤษ29', cursive">ฟอนต์อังกฤษ29</option><option value="'ฟอนต์อังกฤษ30', cursive">ฟอนต์อังกฤษ30</option><option value="'ฟอนต์อังกฤษ31', cursive">ฟอนต์อังกฤษ31</option><option value="'ฟอนต์อังกฤษ32', cursive">ฟอนต์อังกฤษ32</option><option value="'ฟอนต์อังกฤษ33', sans-serif">ฟอนต์อังกฤษ33</option><option value="'ฟอนต์อังกฤษ34', cursive">ฟอนต์อังกฤษ34</option><option value="'ฟอนต์อังกฤษ35', cursive">ฟอนต์อังกฤษ35</option><option value="'ฟอนต์อังกฤษ36', cursive">ฟอนต์อังกฤษ36</option><option value="'ฟอนต์อังกฤษ37', cursive">ฟอนต์อังกฤษ37</option><option value="'ฟอนต์อังกฤษ38', sans-serif">ฟอนต์อังกฤษ38</option><option value="'ฟอนต์อังกฤษ39', cursive">ฟอนต์อังกฤษ39</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">สีอักษร</label>
+                <div class="select-wrap">
+                    <select id="colorSelectorPrint" class="form-select" onchange="checkCustomPrintColor()">
+                        <option value="FUN_COLORS">Fun(รุ้ง)</option>
+                        <option value="#000000">สีดำ</option>
+                        <option value="#FFFFFF">สีขาว</option>
+                        <option value="BLACK_WHITE">สีมาแชล </option>
+                        <option value="SKY">สีสกาย </option>
+                        <option value="CHASE">สีเชส </option>
+                        <option value="RUBBLE">สีรับเบิ้ล </option>
+                        <option value="ROCKY">สีร็อคกี้ </option>
+                        <option value="ZUMA">สีซูม่า </option>
+                        <option value="EVEREST">สีเอเวอเรส </option>
+                        <option value="CUSTOM">🎨 เลือกสีเอง ✨</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row" style="margin-bottom: 8px;">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="toggleOutlinePrint" onchange="checkCustomPrintColor()"> 
+                    ใส่ขอบตัวอักษร
+                </label>
+            </div>
+            <div class="form-row" id="outlineRowPrint" style="display: none;">
+                <label class="form-label" style="color:#e91e8c;">สีขอบตัวอักษร</label>
+                <div class="select-wrap">
+                    <select id="outlineColorSelectorPrint" class="form-select" onchange="checkCustomPrintColor()">
+                        <option value="#FFFFFF">สีขาว</option>
+                        <option value="#000000">สีดำ</option>
+                        <option value="CUSTOM"> เลือกสีขอบเอง </option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label">เลือกลายสาย / สีคัสต้อม</label>
+                <div class="select-wrap">
+                    <select id="bgSelectorPrint" class="form-select" onchange="checkCustomPrintColor()">
+                        <option value="space.png" selected>ลาย Space </option>
+                        <option value="sea.png">ลาย Sea </option>
+                        <option value="fun.png">ลาย Fun </option>
+                        <option value="sweet.png">ลาย Sweet </option>
+                        <option value="ches.png">ลาย เชส </option>
+                        <option value="ever.png">ลาย เอเวอร์เรส </option>
+                        <option value="mashall.png">ลาย มาแชล </option>
+                        <option value="rocky.png">ลาย ร็อคกี้ </option>
+                        <option value="rubble.png">ลาย รับเบิ้ล </option>
+                        <option value="sky.png">ลาย สกาย </option>
+                        <option value="zuma.png">ลาย ซูม่า </option>
+                        <option value="CUSTOM"> คัสต้อม (เลือกสีเอง)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="customPrintColorArea" style="display: none; margin-top: 10px; border-top: 1.5px dashed #000; padding-top: 15px;">
+                <label class="form-label">🎨 ปรับแต่งสีที่เลือกเอง</label>
+                <span style="font-size: 11px; color: #000000; margin-top: -6px; margin-left: 2px;">(สีบนจออาจแสดงแตกต่างจากสีจริงนะคะ)</span>
+
+                <div style="display: flex; gap: 8px; margin-bottom: 12px; margin-top: 10px;">
+                    <button class="target-btn active" id="btnTargetTextPrint" style="display:none; flex:1;" onclick="setPrintPickerTarget('text', this)">สีอักษร</button>
+                    <button class="target-btn" id="btnTargetOutlinePrint" style="display:none; flex:1;" onclick="setPrintPickerTarget('outline', this)">สีขอบ</button>
+                    <button class="target-btn" id="btnTargetBgPrint" style="display:none; flex:1;" onclick="setPrintPickerTarget('bg', this)">สีพื้นหลัง</button>
+                </div>
+
+                <div class="sv-map" id="svMapPrint"><div class="pointer" id="svPointerPrint" style="top:0; left:100%"></div></div>
+                <div class="hue-slider" id="hueSliderPrint"><div class="pointer" id="huePointerPrint" style="top:50%; left:0"></div></div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:bold;">
+                    <span>รหัสสีที่กำลังปรับ:</span>
+                    <span id="hexValDisplayPrint">#FF0000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">สรุปรายการสั่งทำ</div>
+            <button class="btn-add" onclick="addToListPrint()">✅ กดตรงนี้ ยืนยันแบบ (เส้นที่ <span id="btnCounterPrint">1</span>)</button>
+            <textarea id="orderSummaryPrint" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่..."></textarea>
+            <div class="action-buttons">
+                <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryPrint')">📋 คัดลอกข้อความ</button>
+                <button class="btn-action btn-clear" onclick="clearOrder('orderSummaryPrint', 'btnCounterPrint', 'print')">🗑️ ล้างข้อมูลใหม่</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-shoe" class="app-page">
+        <button class="back-btn" onclick="navigateTo('page-home')">◁ กลับหน้าเมนู</button>
+        <div class="header-title">✦ ออกแบบป้ายรองเท้า ✦</div>
+        <div class="warning-banner">⚠️ รบกวนกดปุ่มด้านล่างเพื่อคัดลอกข้อความส่งให้แอดมิน<br>แทนการแคปรูปภาพนะคะ (เพื่อความถูกต้องของชื่อค่ะ)</div>
+
+        <div class="preview-container">
+            <div class="shoe-tag" id="shoeTagBg">
+                <div class="hole"></div>
+                <div class="shoe-tag-text" id="shoeTagText">PUNN</div>
+                <div class="hole"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">รายละเอียดป้ายรองเท้า</div>
+            <div class="form-row">
+                <label class="form-label">สีป้าย (Color)</label>
+                <div class="select-wrap">
+                    <select id="tagColorShoe" class="form-select" onchange="updateShoeTag()">
+                        <option value="black">สีดำ</option><option value="white">สีขาว</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <label class="form-label">พิมพ์ชื่อตรงนี้ <span style="font-weight: normal; color: #555;">(6-8ตัวอักษร)</span></label>
+                <span style="font-size: 11px; color: #555555; margin-top: -6px; margin-left: 2px;">(ยิ่งยาว ตัวอักษรจะยิ่งเล็กนะคะ)</span>
+                <input type="text" id="textInputShoe" class="form-input" placeholder="ใส่ชื่อที่ต้องการ" maxlength="15" oninput="updateShoeTag()">
+            </div>
+            <div class="dual-row">
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์ไทย</label>
+                    <div class="select-wrap">
+                        <select id="thaiFontShoe" class="form-select" onchange="updateShoeTag()">
+                            <option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย10'" selected>ฟอนต์ไทย 10</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์อังกฤษ</label>
+                    <div class="select-wrap">
+                        <select id="engFontShoe" class="form-select" onchange="updateShoeTag()">
+                            <option value="'ฟอนต์อังกฤษ15'">Eng 15</option><option value="'ฟอนต์อังกฤษ1'">Eng 1</option><option value="'ฟอนต์อังกฤษ2'">Eng 2</option><option value="'ฟอนต์อังกฤษ3'">Eng 3</option><option value="'ฟอนต์อังกฤษ4'">Eng 4</option><option value="'ฟอนต์อังกฤษ6'">Eng 6</option><option value="'ฟอนต์อังกฤษ7'">Eng 7</option><option value="'ฟอนต์อังกฤษ8'">Eng 8</option><option value="'ฟอนต์อังกฤษ9'">Eng 9</option><option value="'ฟอนต์อังกฤษ10'">Eng 10</option><option value="'ฟอนต์อังกฤษ11'">Eng 11</option><option value="'ฟอนต์อังกฤษ12'">Eng 12</option><option value="'ฟอนต์อังกฤษ14'">Eng 14</option><option value="'ฟอนต์อังกฤษ16'">Eng 16</option><option value="'ฟอนต์อังกฤษ17'">Eng 17</option><option value="'ฟอนต์อังกฤษ18'">Eng 18</option><option value="'ฟอนต์อังกฤษ19'">Eng 19</option><option value="'ฟอนต์อังกฤษ20'">Eng 20</option><option value="'ฟอนต์อังกฤษ21'">Eng 21</option><option value="'ฟอนต์อังกฤษ22'">Eng 22</option><option value="'ฟอนต์อังกฤษ23'">Eng 23</option><option value="'ฟอนต์อังกฤษ24'">Eng 24</option><option value="'ฟอนต์อังกฤษ25'">Eng 25</option><option value="'ฟอนต์อังกฤษ26'">Eng 26</option><option value="'ฟอนต์อังกฤษ27'">Eng 27</option><option value="'ฟอนต์อังกฤษ28'">Eng 28</option><option value="'ฟอนต์อังกฤษ29'">Eng 29</option><option value="'ฟอนต์อังกฤษ30'">Eng 30</option><option value="'ฟอนต์อังกฤษ31'">Eng 31</option><option value="'ฟอนต์อังกฤษ32'">Eng 32</option><option value="'ฟอนต์อังกฤษ33'">Eng 33</option><option value="'ฟอนต์อังกฤษ34'">Eng 34</option><option value="'ฟอนต์อังกฤษ35'">Eng 35</option><option value="'ฟอนต์อังกฤษ36'">Eng 36</option><option value="'ฟอนต์อังกฤษ37'">Eng 37</option><option value="'ฟอนต์อังกฤษ38'">Eng 38</option><option value="'ฟอนต์อังกฤษ39'">Eng 39</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">สรุปรายการสั่งทำ</div>
+            <button class="btn-add" onclick="addToListShoe()">✅ กดตรงนี้ ยืนยันแบบ (คู่ที่ <span id="btnCounterShoe">1</span>)</button>
+            <p class="instruction-text">ตรวจสอบข้อมูลแล้ว <br>กดคัดลอกด้านล่างส่งให้แอดมินในแชทได้เลยค่ะ 👇</p>
+            <textarea id="orderSummaryShoe" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่..."></textarea>
+            <div class="action-buttons">
+                <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryShoe')">📋 คัดลอกข้อความ</button>
+                <button class="btn-action btn-clear" onclick="clearOrder('orderSummaryShoe', 'btnCounterShoe', 'shoe')">🗑️ ล้างข้อมูล</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-badge" class="app-page">
+        <button class="back-btn" onclick="navigateTo('page-home')">◁ กลับหน้าเมนู</button>
+        <div class="header-title">✦ ตัวอย่างเข็มกลัด ✦</div>
+        <div class="warning-banner">⚠️ รบกวนกดปุ่มด้านล่างเพื่อคัดลอกข้อความส่งให้แอดมิน<br>แทนการแคปรูปภาพนะคะ (เพื่อความถูกต้องของชื่อค่ะ)</div>
+
+        <div class="preview-container" style="background:#ffffff; padding: 40px 10px;">
+            <div class="badge-outer">
+                <div class="badge-ring" id="ringBadge" style="background-color: #f8bbd9;">
+                    <div class="badge-middle" id="bgBadge" style="background-color: #ffffff;"></div>
+                    <img id="badgeCartoon" class="badge-cartoon" src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/14.png" alt="Cartoon">
+                    <div id="badgeText" class="badge-text" style="color: #000000;">NAME</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">1. รายละเอียดเข็มกลัด</div>
+            <div class="form-row">
+                <label class="form-label">เลือกหน้าการ์ตูน</label>
+                <div class="select-wrap">
+                    <select id="cartoonSelectorBadge" class="form-select" onchange="updateBadge()">
+                        <optgroup label="— เด็กชาย  —"><option value="1"> ลายเด็กชาย 1</option><option value="2"> ลายเด็กชาย 2</option><option value="3"> ลายเด็กชาย 3</option><option value="4"> ลายเด็กชาย 4</option><option value="5"> ลายเด็กชาย 5</option><option value="6"> ลายเด็กชาย 6</option><option value="7"> ลายเด็กชาย 7</option><option value="8"> ลายเด็กชาย 8</option><option value="9"> ลายเด็กชาย 9</option><option value="10"> ลายเด็กชาย 10</option><option value="11"> ลายเด็กชาย 11</option><option value="12"> ลายเด็กชาย 12</option></optgroup>
+                        <optgroup label="— เด็กหญิง  —"><option value="14" selected> ลายเด็กหญิง 14</option><option value="15"> ลายเด็กหญิง 15</option><option value="16"> ลายเด็กหญิง 16</option><option value="17"> ลายเด็กหญิง 17</option><option value="18"> ลายเด็กหญิง 18</option><option value="19"> ลายเด็กหญิง 19</option><option value="20"> ลายเด็กหญิง 20</option><option value="21"> ลายเด็กหญิง 21</option><option value="22"> ลายเด็กหญิง 22</option><option value="23"> ลายเด็กหญิง 23</option><option value="24"> ลายเด็กหญิง 24</option><option value="25"> ลายเด็กหญิง 25</option></optgroup>
+                        <optgroup label="— พาวพาโทล 🐶 —"><option value="มาแชล"> มาแชล</option><option value="รับเบิ้ล"> รับเบิ้ล</option><option value="ร้อคกี้"> ร้อคกี้</option><option value="สกาย"> สกาย</option><option value="เชส"> เชส</option><option value="เอเวอนรส"> เอเวอนรส</option></optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <label class="form-label">พิมพ์ชื่อตรงนี้ (กด Enter ขึ้นบรรทัดใหม่ได้)</label>
+                <textarea id="textInputBadge" class="form-textarea" placeholder="NAME" style="min-height: 60px;" oninput="updateBadge()"></textarea>
+            </div>
+            <div class="dual-row">
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์ไทย</label>
+                    <div class="select-wrap">
+                        <select id="thaiFontSelectorBadge" class="form-select" onchange="updateBadge()">
+                            <option value="'ฟอนต์ไทย1', sans-serif">ฟอนต์ไทย 1</option> <option value="'ฟอนต์ไทย2', cursive">ฟอนต์ไทย 2</option> <option value="'ฟอนต์ไทย3', cursive">ฟอนต์ไทย 3</option> <option value="'ฟอนต์ไทย4', cursive">ฟอนต์ไทย 4</option> <option value="'ฟอนต์ไทย5', cursive">ฟอนต์ไทย 5</option> <option value="'ฟอนต์ไทย7', sans-serif">ฟอนต์ไทย 7</option> <option value="'ฟอนต์ไทย8', cursive">ฟอนต์ไทย 8</option> <option value="'ฟอนต์ไทย9', cursive">ฟอนต์ไทย 9</option> <option value="'ฟอนต์ไทย10', cursive" selected>ฟอนต์ไทย 10</option> <option value="'ฟอนต์ไทย11', cursive">ฟอนต์ไทย 11</option> <option value="'ฟอนต์ไทย12', sans-serif">ฟอนต์ไทย 12</option> <option value="'ฟอนต์ไทย14', cursive">ฟอนต์ไทย 14</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">ฟอนต์อังกฤษ</label>
+                    <div class="select-wrap">
+                        <select id="engFontSelectorBadge" class="form-select" onchange="updateBadge()">
+                            <option value="'ฟอนต์อังกฤษ1', sans-serif">Eng 1</option> <option value="'ฟอนต์อังกฤษ2', cursive">Eng 2</option> <option value="'ฟอนต์อังกฤษ3', cursive">Eng 3</option> <option value="'ฟอนต์อังกฤษ4', cursive">Eng 4</option> <option value="'ฟอนต์อังกฤษ6', cursive">Eng 6</option> <option value="'ฟอนต์อังกฤษ7', sans-serif">Eng 7</option> <option value="'ฟอนต์อังกฤษ8', cursive">Eng 8</option> <option value="'ฟอนต์อังกฤษ9', cursive">Eng 9</option> <option value="'ฟอนต์อังกฤษ10', cursive">Eng 10</option> <option value="'ฟอนต์อังกฤษ11', cursive">Eng 11</option> <option value="'ฟอนต์อังกฤษ12', sans-serif">Eng 12</option> <option value="'ฟอนต์อังกฤษ14', cursive">Eng 14</option> <option value="'ฟอนต์อังกฤษ15', cursive" selected>Eng 15</option> <option value="'ฟอนต์อังกฤษ16', cursive">Eng 16</option> <option value="'ฟอนต์อังกฤษ17', sans-serif">Eng 17</option> <option value="'ฟอนต์อังกฤษ18', cursive">Eng 18</option> <option value="'ฟอนต์อังกฤษ19', cursive">Eng 19</option> <option value="'ฟอนต์อังกฤษ20', cursive">Eng 20</option> <option value="'ฟอนต์อังกฤษ21', cursive">Eng 21</option> <option value="'ฟอนต์อังกฤษ22', sans-serif">Eng 22</option> <option value="'ฟอนต์อังกฤษ23', cursive">Eng 23</option> <option value="'ฟอนต์อังกฤษ24', cursive">Eng 24</option> <option value="'ฟอนต์อังกฤษ25', cursive">Eng 25</option> <option value="'ฟอนต์อังกฤษ26', cursive">Eng 26</option> <option value="'ฟอนต์อังกฤษ27', sans-serif">Eng 27</option> <option value="'ฟอนต์อังกฤษ28', cursive">Eng 28</option> <option value="'ฟอนต์อังกฤษ29', cursive">Eng 29</option> <option value="'ฟอนต์อังกฤษ30', cursive">Eng 30</option> <option value="'ฟอนต์อังกฤษ31', cursive">Eng 31</option> <option value="'ฟอนต์อังกฤษ32', cursive">Eng 32</option> <option value="'ฟอนต์อังกฤษ33', sans-serif">Eng 33</option> <option value="'ฟอนต์อังกฤษ34', cursive">Eng 34</option> <option value="'ฟอนต์อังกฤษ35', cursive">Eng 35</option> <option value="'ฟอนต์อังกฤษ36', cursive">Eng 36</option> <option value="'ฟอนต์อังกฤษ37', cursive">Eng 37</option> <option value="'ฟอนต์อังกฤษ38', sans-serif">Eng 38</option> <option value="'ฟอนต์อังกฤษ39', cursive">Eng 39</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="color-section">
+                <div class="color-header">
+                    <label class="form-label" style="margin: 0; font-size: 13px;">🎨 ปรับแต่งสี</label>
+                    <button class="btn-reset-color" onclick="resetBadgeColors()">🔄 คืนค่าสีเริ่มต้น</button>
+                </div>
+                <div class="color-buttons">
+                    <button class="target-btn active" onclick="setTargetBadge('ringBadge', this)">วงสี</button>
+                    <button class="target-btn" onclick="setTargetBadge('bgBadge', this)">พื้นหลัง</button>
+                    <button class="target-btn" onclick="setTargetBadge('badgeText', this)">สีชื่อ</button>
+                </div>
+                <div class="picker-layout">
+                    <div class="sv-map" id="svMapBadge"><div class="pointer" id="svPointerBadge" style="top:0; left:100%"></div></div>
+                    <div class="hue-slider" id="hueSliderBadge"><div class="pointer" id="huePointerBadge" style="top:50%; left:0"></div></div>
+                    <div class="hex-info">
+                        <label class="picker-label">รหัสสี</label>
+                        <div class="hex-display" id="hexValBadge">#F8BBD9</div>
+                    </div>
+                    <div class="quick-colors" id="quickColorsBadge"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">2. สรุปรายการสั่งทำเข็มกลัด</div>
+            <button class="btn-add" onclick="addToListBadge()">✨ เพิ่มลงรายการ (ชิ้นที่ <span id="btnCounterBadge">1</span>)</button>
+            <textarea id="orderSummaryBadge" class="form-textarea" placeholder="รายการเข็มกลัดจะโชว์ที่นี่...พิมพ์แก้ไขได้ที่นี่ค่ะ"></textarea>
+            <div class="action-buttons">
+                <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryBadge')">📋 คัดลอกข้อความ</button>
+                <button class="btn-action btn-clear" onclick="clearOrder('orderSummaryBadge', 'btnCounterBadge', 'badge')">🗑️ ล้างข้อมูล</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="toast">แจ้งเตือน</div>
+
+<script>
+    // iOS Scroll Fix — ป้องกัน touchmove ที่ไม่ได้อยู่บน color picker ไม่ให้บล็อก scroll
+    (function() {
+        var pickerSelectors = ['.sv-map', '.hue-slider'];
+        var isDraggingPicker = false;
+
+        document.addEventListener('touchstart', function(e) {
+            var el = e.target;
+            isDraggingPicker = pickerSelectors.some(function(sel) {
+                return el.closest ? el.closest(sel) : false;
+            });
+        }, { passive: true });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!isDraggingPicker) return; // ถ้าไม่ได้แตะ picker ปล่อยให้ scroll ตามปกติ
+        }, { passive: true });
+    })();
+</script>
+<script>
+    // =====================================
+    // ระบบนำทาง (Navigation) SPA
+    // =====================================
+    function navigateTo(pageId) {
+        document.querySelectorAll('.app-page').forEach(page => page.classList.remove('active-page'));
+        document.getElementById(pageId).classList.add('active-page');
+        window.scrollTo(0, 0);
+    }
+
+    // =====================================
+    // ระบบกลาง (DRY Utilities - ใช้ร่วมกันทุกหน้า)
+    // =====================================
+    let counts = { lan: 1, shoe: 1, badge: 1, print: 1 };
+
+    function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.innerHTML = msg;
+        t.className = "show";
+        setTimeout(() => t.className = "", 3000);
+    }
+
+    function copyOrder(summaryId) {
+        const summaryBox = document.getElementById(summaryId);
+        if(!summaryBox.value) {
+            showToast("⚠️ ยังไม่มีรายการสั่งซื้อค่ะ");
+            return;
+        }
+        summaryBox.select();
+        summaryBox.setSelectionRange(0, 99999); // สำหรับมือถือ
+        try {
+            document.execCommand("copy");
+            showToast("📋 คัดลอกรายการแล้ว!<br><span style='font-size: 12px; font-weight: normal;'>นำไปวางในแชทได้เลยค่ะ</span>");
+        } catch(e) {
+            showToast("⚠️ กดค้างเพื่อก๊อปปี้");
+        }
+    }
+
+    // ล้างข้อมูลโดยไม่เด้ง confirm() ให้กวนใจ
+    function clearOrder(summaryId, counterId, type) {
+        document.getElementById(summaryId).value = "";
+        counts[type] = 1;
+        document.getElementById(counterId).innerText = 1;
+        showToast("🗑️ ล้างข้อมูลเรียบร้อยแล้วค่ะ");
+    }
+
+    // ฟังก์ชันจัดการฟอนต์ภาษาไทยและอังกฤษผสมกัน (รวมถึงขึ้นบรรทัดใหม่ \n)
+    function buildMixedFontHTML(text, thaiFont, engFont) {
+        let resultHTML = "", currentType = null, currentChunk = "";
+        for (let i = 0; i < text.length; i++) {
+            let char = text[i];
+            if (char === '\n') {
+                if (currentChunk !== "") {
+                    resultHTML += `<span style="font-family: ${currentType === 'thai' ? thaiFont : engFont};">${currentChunk}</span>`;
+                    currentChunk = "";
+                }
+                resultHTML += `<br>`;
+                currentType = null; continue;
+            }
+            let type = /[\u0E00-\u0E7F]/.test(char) ? 'thai' : 'eng';
+            if (currentType === null) { currentType = type; currentChunk = char; }
+            else if (currentType === type) { currentChunk += char; }
+            else {
+                resultHTML += `<span style="font-family: ${currentType === 'thai' ? thaiFont : engFont};">${currentChunk}</span>`;
+                currentType = type; currentChunk = char;
+            }
+        }
+        if (currentChunk !== "") resultHTML += `<span style="font-family: ${currentType === 'thai' ? thaiFont : engFont};">${currentChunk}</span>`;
+        return resultHTML;
+    }
+
+    // ฟังก์ชันแปลงสีสำหรับ Color Picker
+    function hsvToHex(h, s, v) {
+        v /= 100; s /= 100; let f = (n, k = (n + h / 60) % 6) => v * (1 - s * Math.max(Math.min(k, 4 - k, 1), 0));
+        let rgb = [f(5), f(3), f(1)].map(x => Math.round(x * 255).toString(16).padStart(2, '0'));
+        return `#${rgb.join('')}`.toUpperCase();
+    }
+    function hexToHsv(hex) {
+        if (!hex || hex === "transparent" || hex === "none") return {h:0, s:0, v:100};
+        let r = parseInt(hex.slice(1, 3), 16) / 255, g = parseInt(hex.slice(3, 5), 16) / 255, b = parseInt(hex.slice(5, 7), 16) / 255;
+        let max = Math.max(r, g, b), min = Math.min(r, g, b), h = 0, s = 0, v = max, d = max - min;
+        s = max === 0 ? 0 : d / max;
+        if (max !== min) { switch (max) { case r: h = (g - b) / d + (g < b ? 6 : 0); break; case g: h = (b - r) / d + 2; break; case b: h = (r - g) / d + 4; break; } h /= 6; }
+        return { h: h * 360, s: s * 100, v: v * 100 };
+    }
+    function rgbToHex(c) {
+        if (c.startsWith('#')) return c;
+        const rgb = c.match(/\d+/g); if (!rgb) return '#000000';
+        return '#' + rgb.slice(0, 3).map(x => parseInt(x).toString(16).padStart(2, '0')).join('').toUpperCase();
+    }
+
+    // =====================================
+    // 1. สคริปต์สายคล้องแมส (Lanyard)
+    // =====================================
+    function updateAllLanyard() {
+        const text = document.getElementById("textInputLan").value || "น้องปั้นหยา Panyah";
+        const thaiF = document.getElementById("thaiFontLan").value;
+        const engF = document.getElementById("engFontLan").value;
+        const bg = document.getElementById("bgSelectorLan").value;
+        const color = document.getElementById("colorSelectorLan").value;
+        const sampleText = document.getElementById("sampleTextLan");
+        sampleText.innerHTML = buildMixedFontHTML(text, thaiF, engF);
+        
+        if (color.startsWith('url')) {
+            sampleText.style.color = "transparent";
+            sampleText.style.backgroundImage = color;
+            sampleText.style.backgroundClip = "text";
+            sampleText.style.webkitBackgroundClip = "text";
+        } else {
+            sampleText.style.backgroundImage = "none";
+            sampleText.style.color = color;
+        }
+        
+        document.getElementById("sampleBoxLan").style.backgroundImage = bg !== "none" ? bg : "none";
+    }
+
+    function addToListLanyard() {
+        const rawText = document.getElementById("textInputLan").value || "-";
+        const cartoonText = document.getElementById("cartoonInputLan").value || "-";
+        
+        const thaiEl = document.getElementById("thaiFontLan");
+        const engEl = document.getElementById("engFontLan");
+        const thaiFontName = thaiEl.options[thaiEl.selectedIndex].text;
+        const engFontName = engEl.options[engEl.selectedIndex].text;
+        const colorName = document.getElementById("colorSelectorLan").options[document.getElementById("colorSelectorLan").selectedIndex].text;
+        const bgName = document.getElementById("bgSelectorLan").options[document.getElementById("bgSelectorLan").selectedIndex].text;
+
+        let fontSummary = "";
+        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);     
+        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
+        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`; 
+        else fontSummary = `ฟอนต์ : ${engFontName}`;
+        const newOrder = `เส้นที่ ${counts.lan}\nการ์ตูน : ${cartoonText}\nพิมพ์ชื่อ : ${rawText}\nสีสาย : ${bgName}\nสีตัวอักษร : ${colorName}\n${fontSummary}\n\n`;
+
+        const summaryBox = document.getElementById("orderSummaryLan");
+        summaryBox.value += newOrder;
+        summaryBox.scrollTop = summaryBox.scrollHeight;
+        
+        counts.lan++;
+        document.getElementById("btnCounterLan").innerText = counts.lan;
+    }
+    updateAllLanyard();
+
+    // =====================================
+    // 2. สคริปต์ป้ายรองเท้า (Shoe Tag)
+    // =====================================
+    function updateShoeTag() {
+        const text = document.getElementById("textInputShoe").value || "PUNN";
+        const thaiF = document.getElementById("thaiFontShoe").value;
+        const engF = document.getElementById("engFontShoe").value;
+        const color = document.getElementById("tagColorShoe").value;
+        
+        const tagText = document.getElementById("shoeTagText");
+        const tagBg = document.getElementById("shoeTagBg");
+
+        if(color === 'white') tagBg.classList.add('white-tag');
+        else tagBg.classList.remove('white-tag');
+
+        const len = text.length;
+        if (len <= 4) tagText.style.fontSize = "34px";
+        else if (len <= 7) tagText.style.fontSize = "26px";  
+        else if (len <= 10) tagText.style.fontSize = "20px"; 
+        else tagText.style.fontSize = "16px";
+        
+        tagText.innerHTML = buildMixedFontHTML(text, thaiF, engF);
+    }
+
+    function addToListShoe() {
+        const rawText = document.getElementById("textInputShoe").value || "PUNN";
+        const thaiEl = document.getElementById("thaiFontShoe");
+        const engEl = document.getElementById("engFontShoe");
+        const thaiFontName = thaiEl.options[thaiEl.selectedIndex].text;
+        const engFontName = engEl.options[engEl.selectedIndex].text;
+        const colorName = document.getElementById("tagColorShoe").options[document.getElementById("tagColorShoe").selectedIndex].text;
+
+        let fontSummary = ""; 
+        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);
+        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
+        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`;
+        else fontSummary = `ฟอนต์ : ${engFontName}`;
+
+        const newOrder = `ป้ายรองเท้า คู่ที่ ${counts.shoe}\nสีป้าย : ${colorName}\nพิมพ์ชื่อ : ${rawText}\n${fontSummary}\n\n`;
+
+        const summaryBox = document.getElementById("orderSummaryShoe");
+        summaryBox.value += newOrder;
+        summaryBox.scrollTop = summaryBox.scrollHeight;
+        
+        counts.shoe++;
+        document.getElementById("btnCounterShoe").innerText = counts.shoe;
+    }
+    updateShoeTag();
+
+    // =====================================
+    // 3. สคริปต์เข็มกลัด (Badge)
+    // =====================================
+    let cTargetBadge = 'ringBadge', hBadge = 330, sBadge = 24, vBadge = 97;
+    const quickColorSetBadge = ['#FF0000', '#FF6B6B', '#FFA500', '#FFD700', '#4CAF50', '#2196F3', '#9C27B0', '#FF1493', '#00BCD4', '#FF6347', '#32CD32', '#4169E1'];
+    
+    function initBadge() {
+        if (document.getElementById('quickColorsBadge').innerHTML !== "") return;
+        quickColorSetBadge.forEach(color => {
+            let btn = document.createElement('div'); btn.className = 'quick-color'; btn.style.backgroundColor = color;
+            btn.onclick = () => applyQCBadge(color);
+            document.getElementById('quickColorsBadge').appendChild(btn);
+        });
+        document.getElementById('svPointerBadge').style.left = '24%'; document.getElementById('svPointerBadge').style.top = '3%';
+        document.getElementById('huePointerBadge').style.left = (330 / 360) * 100 + '%';
+        document.getElementById('svMapBadge').style.backgroundColor = `hsl(330, 100%, 50%)`;
+        const hueEl = document.getElementById('hueSliderBadge'), svEl = document.getElementById('svMapBadge');
+        
+        const handleH = (e) => {
+            const rect = hueEl.getBoundingClientRect();
+            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left; x = Math.max(0, Math.min(x, rect.width));
+            hBadge = (x / rect.width) * 360; document.getElementById('huePointerBadge').style.left = x + 'px'; svEl.style.backgroundColor = `hsl(${hBadge},100%,50%)`; updateColBadge();
+        };
+        const handleSV = (e) => {
+            const rect = svEl.getBoundingClientRect();
+            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left, y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+            x = Math.max(0, Math.min(x, rect.width)); y = Math.max(0, Math.min(y, rect.height));
+            sBadge = (x / rect.width) * 100;
+            vBadge = 100 - (y / rect.height) * 100; document.getElementById('svPointerBadge').style.left = x + 'px'; document.getElementById('svPointerBadge').style.top = y + 'px'; updateColBadge();
+        };
+        hueEl.addEventListener('mousedown', e => { handleH(e); window.addEventListener('mousemove', handleH); });
+        hueEl.addEventListener('touchstart', e => { e.preventDefault(); handleH(e); window.addEventListener('touchmove', handleH, { passive: false }); }, { passive: false });
+        svEl.addEventListener('mousedown', e => { handleSV(e); window.addEventListener('mousemove', handleSV); });
+        svEl.addEventListener('touchstart', e => { e.preventDefault(); handleSV(e); window.addEventListener('touchmove', handleSV, { passive: false }); }, { passive: false });
+        window.addEventListener('mouseup', () => { window.removeEventListener('mousemove', handleH); window.removeEventListener('mousemove', handleSV); });
+        window.addEventListener('touchend', () => { window.removeEventListener('touchmove', handleH); window.removeEventListener('touchmove', handleSV); });
+
+        updateBadge();
+    }
+
+    function resetBadgeColors() {
+        document.getElementById('ringBadge').style.backgroundColor = '#f8bbd9';
+        document.getElementById('bgBadge').style.backgroundColor = '#ffffff';
+        document.getElementById('badgeText').style.color = '#000000';
+        updatePickFromElBadge();
+        showToast("🔄 คืนค่าสีเริ่มต้นเรียบร้อยค่ะ");
+    }
+
+    function setTargetBadge(id, btn) {
+        cTargetBadge = id;
+        document.querySelectorAll('#page-badge .target-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active'); updatePickFromElBadge();
+    }
+    function applyQCBadge(hex) {
+        let hsv = hexToHsv(hex);
+        hBadge = hsv.h; sBadge = hsv.s; vBadge = hsv.v;
+        document.getElementById('huePointerBadge').style.left = (hBadge / 360) * 100 + '%';
+        document.getElementById('svPointerBadge').style.left = sBadge + '%'; document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%';
+        document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; updateColBadge();
+    }
+    function updateColBadge() {
+        const color = hsvToHex(hBadge, sBadge, vBadge);
+        document.getElementById('hexValBadge').textContent = color;
+        const el = document.getElementById(cTargetBadge);
+        if (cTargetBadge === 'badgeText') el.style.color = color; else el.style.backgroundColor = color;
+    }
+    function updatePickFromElBadge() {
+        const el = document.getElementById(cTargetBadge);
+        const color = cTargetBadge === 'badgeText' ? el.style.color : el.style.backgroundColor;
+        if (!color) return; const hsv = hexToHsv(rgbToHex(color)); hBadge = hsv.h;
+        sBadge = hsv.s; vBadge = hsv.v;
+        document.getElementById('huePointerBadge').style.left = (hBadge / 360) * 100 + '%';
+        document.getElementById('svPointerBadge').style.left = sBadge + '%';
+        document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%';
+        document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; document.getElementById('hexValBadge').textContent = hsvToHex(hBadge, sBadge, vBadge);
+    }
+
+    function updateBadge() {
+        document.getElementById("badgeCartoon").src = `https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${document.getElementById("cartoonSelectorBadge").value}.png`;
+        const userInput = document.getElementById("textInputBadge").value;
+        const thaiFont = document.getElementById("thaiFontSelectorBadge").value;
+        const engFont = document.getElementById("engFontSelectorBadge").value;
+        const displayText = userInput || "NAME";
+        document.getElementById("badgeText").innerHTML = buildMixedFontHTML(displayText, thaiFont, engFont);
+    }
+
+    function addToListBadge() {
+        const rawText = document.getElementById("textInputBadge").value || "NAME";
+        const cartoon = document.getElementById("cartoonSelectorBadge").options[document.getElementById("cartoonSelectorBadge").selectedIndex].text;
+        const thaiEl = document.getElementById("thaiFontSelectorBadge");
+        const engEl = document.getElementById("engFontSelectorBadge");
+        const thaiFontName = thaiEl.options[thaiEl.selectedIndex].text;
+        const engFontName = engEl.options[engEl.selectedIndex].text;
+        
+        const ringColor = rgbToHex(document.getElementById('ringBadge').style.backgroundColor || 'rgb(248, 187, 217)');
+        const bgColor = rgbToHex(document.getElementById('bgBadge').style.backgroundColor || 'rgb(255, 255, 255)');
+        const textColor = rgbToHex(document.getElementById('badgeText').style.color || 'rgb(0, 0, 0)');
+        
+        let fontSummary = "";
+        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);
+        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
+        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`;
+        else fontSummary = `ฟอนต์ : ${engFontName}`;
+        
+        const newOrder = `เข็มกลัด ชิ้นที่ ${counts.badge}\nลาย : ${cartoon}\nพิมพ์ชื่อ : \n${rawText}\n\nสีวงขอบ : ${ringColor}\nสีพื้นหลัง : ${bgColor}\nสีอักษร : ${textColor}\n${fontSummary}\n\n`;
+        const summaryBox = document.getElementById("orderSummaryBadge");
+        summaryBox.value += newOrder; summaryBox.scrollTop = summaryBox.scrollHeight;
+        
+        counts.badge++;
+        document.getElementById("btnCounterBadge").innerText = counts.badge;
+    }
+
+    // =====================================
+    // 4. สคริปต์สายพิมพ์ลาย (Print Lanyard)
+    // =====================================
+    const rainbowColors = ["#E91E63", "#FF9800", "#2196F3", "#4CAF50", "#FFEB3B"];
+    const funColors = ["#f065a1", "#fba919", "#fae36c", "#a4cf57", "#4dc2f0", "#be8cbf"];
+    
+    let customPrintColors = { text: "#FF0000", outline: "#FFFFFF", bg: "#F8BBD9" };
+    let currentPrintTarget = 'text'; 
+    let hPrint = 0, sPrint = 100, vPrint = 100;
+
+    function resetAllPrintColors() {
+        document.getElementById("colorSelectorPrint").value = "FUN_COLORS";
+        document.getElementById("bgSelectorPrint").value = "space.png";
+        document.getElementById("toggleOutlinePrint").checked = false;
+        document.getElementById("outlineColorSelectorPrint").value = "#FFFFFF";
+        customPrintColors = { text: "#FF0000", outline: "#FFFFFF", bg: "#F8BBD9" };
+        checkCustomPrintColor();
+    }
+
+    function checkCustomPrintColor() {
+        const textC = document.getElementById("colorSelectorPrint").value;
+        const bgC = document.getElementById("bgSelectorPrint").value;
+        const outlineEnabled = document.getElementById("toggleOutlinePrint").checked;
+        const outlineC = document.getElementById("outlineColorSelectorPrint").value;
+
+        document.getElementById("outlineRowPrint").style.display = outlineEnabled ? "flex" : "none";
+
+        let needPicker = false;
+
+        document.getElementById("btnTargetTextPrint").style.display = (textC === "CUSTOM") ? "block" : "none";
+        document.getElementById("btnTargetOutlinePrint").style.display = (outlineEnabled && outlineC === "CUSTOM") ? "block" : "none";
+        document.getElementById("btnTargetBgPrint").style.display = (bgC === "CUSTOM") ? "block" : "none";
+
+        if (textC === "CUSTOM") { needPicker = true; currentPrintTarget = 'text'; }
+        if (outlineEnabled && outlineC === "CUSTOM") { needPicker = true; currentPrintTarget = 'outline'; }
+        if (bgC === "CUSTOM") { needPicker = true; currentPrintTarget = 'bg'; }
+
+        if (needPicker) {
+            document.getElementById("customPrintColorArea").style.display = "block";
+            document.querySelectorAll('#customPrintColorArea .target-btn').forEach(b => b.classList.remove('active'));
+            if (currentPrintTarget === 'text') document.getElementById("btnTargetTextPrint").classList.add('active');
+            if (currentPrintTarget === 'outline') document.getElementById("btnTargetOutlinePrint").classList.add('active');
+            if (currentPrintTarget === 'bg') document.getElementById("btnTargetBgPrint").classList.add('active');
+            syncPrintPickerToCustomColor();
+        } else {
+            document.getElementById("customPrintColorArea").style.display = "none";
+        }
+        updateAllPrint();
+    }
+
+    function setPrintPickerTarget(target, btn) {
+        currentPrintTarget = target;
+        document.querySelectorAll('#customPrintColorArea .target-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        syncPrintPickerToCustomColor();
+    }
+
+    function syncPrintPickerToCustomColor() {
+        let hex = customPrintColors[currentPrintTarget];
+        let hsv = hexToHsv(hex);
+        hPrint = hsv.h; sPrint = hsv.s; vPrint = hsv.v;
+        document.getElementById('huePointerPrint').style.left = (hPrint / 360 * 100) + '%';
+        document.getElementById('svPointerPrint').style.left = sPrint + '%';
+        document.getElementById('svPointerPrint').style.top = (100 - vPrint) + '%';
+        document.getElementById('svMapPrint').style.backgroundColor = `hsl(${hPrint},100%,50%)`;
+        document.getElementById('hexValDisplayPrint').textContent = hex;
+    }
+
+    function updateAllPrint() {
+        const text = document.getElementById("textInputPrint").value || "PUNN";
+        const thaiF = document.getElementById("thaiFontPrint").value;
+        const engF = document.getElementById("engFontPrint").value;
+        
+        const colorVal = document.getElementById("colorSelectorPrint").value;
+        const bgVal = document.getElementById("bgSelectorPrint").value;
+        
+        const outlineEnabled = document.getElementById("toggleOutlinePrint").checked;
+        const outlineVal = document.getElementById("outlineColorSelectorPrint").value;
+
+        const sampleText = document.getElementById("sampleTextPrint");
+        const sampleBox = document.getElementById("sampleBoxPrint");
+
+        // จัดการพื้นหลัง
+        if (bgVal === "CUSTOM") {
+            sampleBox.style.backgroundImage = "none";
+            sampleBox.style.backgroundColor = customPrintColors.bg;
+        } else {
+            sampleBox.style.backgroundColor = "transparent";
+            sampleBox.style.backgroundImage = `url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${bgVal}')`;
+        }
+
+        // จัดการขอบ
+        const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
+        if (lockedWhiteOutlines.includes(colorVal)) {
+            sampleText.style.textShadow = `
+                2px 2px 0 #FFFFFF, -2px -2px 0 #FFFFFF, 
+                2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, 
+                0px 2px 0 #FFFFFF, 0px -2px 0 #FFFFFF, 
+                2px 0px 0 #FFFFFF, -2px 0px 0 #FFFFFF
+            `;
+        } else if (outlineEnabled) {
+            let oColor = (outlineVal === "CUSTOM") ? customPrintColors.outline : outlineVal;
+            sampleText.style.textShadow = `
+                2px 2px 0 ${oColor}, -2px -2px 0 ${oColor}, 
+                2px -2px 0 ${oColor}, -2px 2px 0 ${oColor}, 
+                0px 2px 0 ${oColor}, 0px -2px 0 ${oColor}, 
+                2px 0px 0 ${oColor}, -2px 0px 0 ${oColor}
+            `;
+        } else {
+            sampleText.style.textShadow = "none";
+        }
+
+        // จัดการอักษร
+        let html = "";
+        let colorIndex = 0;
+        
+        for (let char of text) {
+            if (char === " ") { html += " "; continue; }
+            let isThai = /[\u0E00-\u0E7F]/.test(char);
+            let currentFont = isThai ? thaiF : engF;
+            let currentColor = "";
+
+            if (colorVal === "FUN_COLORS") {
+                currentColor = funColors[colorIndex % funColors.length];
+                colorIndex++;
+            } else if (colorVal === "RAINBOW") {
+                currentColor = rainbowColors[colorIndex % rainbowColors.length];
+                colorIndex++;
+            } else if (colorVal === "BLACK_WHITE") {
+                currentColor = "#000000";
+            } else if (colorVal === "SKY") {
+                currentColor = "#f04898";
+            } else if (colorVal === "CHASE") {
+                currentColor = "#255dac";
+            } else if (colorVal === "RUBBLE") {
+                currentColor = "#aa6429";
+            } else if (colorVal === "ROCKY") {
+                currentColor = "#196f39";
+            } else if (colorVal === "ZUMA") {
+                currentColor = "#e95b2a";
+            } else if (colorVal === "EVEREST") {
+                currentColor = "#4f2e89";
+            } else if (colorVal === "CUSTOM") {
+                currentColor = customPrintColors.text;
+            } else {
+                currentColor = colorVal;
+            }
+
+            html += `<span style="font-family: ${currentFont}; color: ${currentColor};">${char}</span>`;
+        }
+
+        sampleText.innerHTML = html;
+        
+        // Auto-resize
+        const container = sampleText.parentElement;
+        let fontSize = 55;
+        sampleText.style.fontSize = fontSize + "px";
+        while (sampleText.scrollWidth > container.clientWidth - 20 && fontSize > 10) {
+            fontSize--;
+            sampleText.style.fontSize = fontSize + "px";
+        }
+    }
+
+    function setupPrintPicker() {
+        const hueElP = document.getElementById('hueSliderPrint'), svElP = document.getElementById('svMapPrint');
+        
+        const handleHP = (e) => {
+            const rect = hueElP.getBoundingClientRect(); 
+            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+            x = Math.max(0, Math.min(x, rect.width)); hPrint = (x / rect.width) * 360;
+            document.getElementById('huePointerPrint').style.left = (x / rect.width * 100) + '%';
+            svElP.style.backgroundColor = `hsl(${hPrint},100%,50%)`; updatePrintPickerColor();
+        };
+        const handleSVP = (e) => {
+            const rect = svElP.getBoundingClientRect(); 
+            let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+            let y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+            x = Math.max(0, Math.min(x, rect.width)); y = Math.max(0, Math.min(y, rect.height));
+            sPrint = (x / rect.width) * 100; vPrint = 100 - (y / rect.height) * 100;
+            document.getElementById('svPointerPrint').style.left = (x / rect.width * 100) + '%';
+            document.getElementById('svPointerPrint').style.top = (y / rect.height * 100) + '%'; updatePrintPickerColor();
+        };
+
+        function updatePrintPickerColor() {
+            let hex = hsvToHex(hPrint, sPrint, vPrint);
+            customPrintColors[currentPrintTarget] = hex;
+            document.getElementById('hexValDisplayPrint').textContent = hex;
+            updateAllPrint();
+        }
+
+        hueElP.addEventListener('mousedown', (e) => { handleHP(e); window.addEventListener('mousemove', handleHP); });
+        svElP.addEventListener('mousedown', (e) => { handleSVP(e); window.addEventListener('mousemove', handleSVP); });
+        hueElP.addEventListener('touchstart', e => { e.preventDefault(); handleHP(e); window.addEventListener('touchmove', handleHP, {passive:false}); }, {passive:false});
+        svElP.addEventListener('touchstart', e => { e.preventDefault(); handleSVP(e); window.addEventListener('touchmove', handleSVP, {passive:false}); }, {passive:false});
+        window.addEventListener('mouseup', () => { window.removeEventListener('mousemove', handleHP); window.removeEventListener('mousemove', handleSVP); });
+        window.addEventListener('touchend', () => { window.removeEventListener('touchmove', handleHP); window.removeEventListener('touchmove', handleSVP); });
+    }
+
+    function addToListPrint() {
+        const rawText = document.getElementById("textInputPrint").value || "PUNN";
+        
+        let colorSelector = document.getElementById("colorSelectorPrint");
+        let colorName = colorSelector.options[colorSelector.selectedIndex].text;
+        if (colorSelector.value === "CUSTOM") colorName = `เลือกสีเอง (${customPrintColors.text})`;
+
+        let bgSelector = document.getElementById("bgSelectorPrint");
+        let bgName = bgSelector.options[bgSelector.selectedIndex].text;
+        if (bgSelector.value === "CUSTOM") bgName = `สีพื้นหลังล้วน (${customPrintColors.bg})`;
+
+        const thaiFontEl = document.getElementById("thaiFontPrint");
+        const engFontEl = document.getElementById("engFontPrint");
+        const thaiFontName = thaiFontEl.options[thaiFontEl.selectedIndex].text;
+        const engFontName = engFontEl.options[engFontEl.selectedIndex].text;
+
+        let fontSummary = "";
+        const hasThai = /[\u0E00-\u0E7F]/.test(rawText), hasEng = /[a-zA-Z0-9]/.test(rawText);
+        if (hasThai && hasEng) fontSummary = `ฟอนต์ไทย : ${thaiFontName}\nฟอนต์อังกฤษ : ${engFontName}`;
+        else if (hasThai) fontSummary = `ฟอนต์ : ${thaiFontName}`;
+        else fontSummary = `ฟอนต์ : ${engFontName}`;
+
+       let outlineInfo = "ไม่มีขอบ";
+        const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
+        
+        if (lockedWhiteOutlines.includes(colorSelector.value)) {
+            outlineInfo = "มีขอบ (สีขาว)";
+        } else if (document.getElementById("toggleOutlinePrint").checked) {
+            let outlineSelector = document.getElementById("outlineColorSelectorPrint");
+            let outlineColorName = outlineSelector.options[outlineSelector.selectedIndex].text;
+            if (outlineSelector.value === "CUSTOM") outlineColorName = `เลือกสีเอง (${customPrintColors.outline})`;
+            outlineInfo = `มีขอบ (${outlineColorName})`;
+        }
+
+        const newOrder = `สายพิมพ์ลาย เส้นที่ ${counts.print}\nพิมพ์ชื่อ : ${rawText}\nลายสาย : ${bgName}\nสีอักษร : ${colorName}\nขอบอักษร : ${outlineInfo}\n${fontSummary}\n\n`;
+        const summaryBox = document.getElementById("orderSummaryPrint");
+        summaryBox.value += newOrder;
+        summaryBox.scrollTop = summaryBox.scrollHeight;
+        
+        counts.print++;
+        document.getElementById("btnCounterPrint").innerText = counts.print;
+    }
+
+    // =====================================
+    // เริ่มทำงานเมื่อโหลดหน้าเสร็จ
+    // =====================================
+    window.onload = function() {
+        setupPrintPicker();
+        resetAllPrintColors();
+    };
+</script>
+</body>
+</html>
