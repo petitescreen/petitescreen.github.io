@@ -110,7 +110,6 @@
         
         .status-badge { display: inline-block; background: #000000; color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 800; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
         .warning-banner { background-color: #ffffff; border: 1.5px solid #000000; color: #000000; padding: 12px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: bold; margin-bottom: 20px; line-height: 1.5; }
-        .ios-warning { background-color: #fbfbfb; border: 1.5px solid #000000; border-radius: 8px; padding: 12px; text-align: center; font-size: 13px; font-weight: 700; color: #e91e8c; margin-bottom: 20px; line-height: 1.5; box-shadow: 2px 2px 0px #000000; }
         
         .card { background: #ffffff; border: 1.5px solid #000000; border-radius: 12px; padding: 16px 14px; margin-bottom: 16px; }
         .card-title { font-size: 13px; font-weight: 800; color: #000000; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
@@ -179,16 +178,17 @@
         .quick-color { width: 100%; aspect-ratio: 1; border-radius: 6px; cursor: pointer; border: 1.5px solid #000000; transition: 0.1s; }
         .quick-color:active { transform: scale(0.8); }
 
-        /* ================= CSS สายคล้องแมสปกติ (Lanyard) ================= */
+        /* ================= CSS กล่องแสดงตัวอย่าง (Preview Containers) ================= */
         .preview-container { 
             display: flex; justify-content: center; align-items: center; 
             padding: 50px 10px; background: #fbfbfb; 
             border: 1.5px dashed #000; border-radius: 12px; 
             margin-bottom: 24px; background-size: cover; background-position: center; 
-            height: 120px; /* ล็อคความสูงกล่องตายตัว */
-            overflow: hidden; /* ป้องกันเนื้อหาล้น */
+            min-height: 120px; /* ปล่อยให้ความสูงยืดได้ */
+            height: auto; 
             width: 100%;
         }
+        
         #sampleTextLan { 
             font-size: 34px; font-weight: bold; text-align: center; 
             line-height: 1.2; color: #000000; padding: 0 10px; 
@@ -212,8 +212,8 @@
         .badge-text span { color: inherit; }
 
         /* ================= CSS สายพิมพ์ลาย (Print Lanyard) ================= */
-        .preview-container-print { display: flex; justify-content: center; align-items: center; padding: 0 10px; background: #fbfbfb; border: 1.5px dashed #000; border-radius: 12px; margin-bottom: 24px; width: 100%; aspect-ratio: 3 / 1; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; }
-        #sampleTextPrint { font-size: 55px; font-weight: bold; text-align: center; line-height: 1.2; color: #000000; padding: 0 10px; word-break: break-word; }
+        .preview-container-print { display: flex; justify-content: center; align-items: center; padding: 0 10px; background: #fbfbfb; border: 1.5px dashed #000; border-radius: 12px; margin-bottom: 24px; width: 100%; aspect-ratio: 3 / 1; background-size: 100% 100%; background-position: center; background-repeat: no-repeat; overflow: hidden; }
+        #sampleTextPrint { font-size: 55px; font-weight: bold; text-align: center; line-height: 1.2; color: #000000; padding: 0 10px; white-space: nowrap; }
         
         /* สไตล์สำหรับรูปตัวอย่างฟอนต์ */
         .font-gallery-img {
@@ -343,7 +343,7 @@
             </div>
         </div>
 
-        <div class="preview-container" id="sampleBoxLan" style="min-height: 120px; height: auto;">
+        <div class="preview-container" id="sampleBoxLan">
             <p id="sampleTextLan">น้องปั้นหยา Panyah</p>
         </div>
 
@@ -477,7 +477,7 @@
         <div class="card">
             <div class="card-title">สรุปรายการสั่งทำ</div>
             <button class="btn-add" onclick="addToListPrint()">✅ กดตรงนี้ ยืนยันแบบ (เส้นที่ <span id="btnCounterPrint">1</span>)</button>
-            <textarea id="orderSummaryPrint" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่..พิมพ์แก้ไขได้ที่นี่ค่ะ."></textarea>
+            <textarea id="orderSummaryPrint" class="form-textarea" placeholder="รายการที่กดยืนยันแล้วจะโชว์ที่นี่...พิมพ์แก้ไขได้ที่นี่ค่ะ"></textarea>
             <div class="action-buttons">
                 <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryPrint')">📋 คัดลอกข้อความ</button>
                 <button class="btn-action btn-clear" onclick="clearOrder('orderSummaryPrint', 'btnCounterPrint', 'print')">🗑️ ล้างข้อมูลใหม่</button>
@@ -759,7 +759,6 @@
     }
 
     // =====================================
-    /// =====================================
     // 1. สคริปต์สายคล้องแมส (Lanyard)
     // =====================================
     function updateAllLanyard() {
@@ -1078,7 +1077,7 @@
             sampleBox.style.backgroundImage = `url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${bgVal}')`;
         }
 
-       // จัดการขอบ
+        // จัดการขอบ
         const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
         if (lockedWhiteOutlines.includes(colorVal)) {
             sampleText.style.textShadow = `
@@ -1109,7 +1108,7 @@
             let currentFont = isThai ? thaiF : engF;
             let currentColor = "";
 
-   if (colorVal === "FUN_COLORS") {
+            if (colorVal === "FUN_COLORS") {
                 currentColor = funColors[colorIndex % funColors.length];
                 colorIndex++;
             } else if (colorVal === "RAINBOW") {
