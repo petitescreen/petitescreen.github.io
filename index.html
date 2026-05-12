@@ -15,6 +15,7 @@
         <div class="top-yellow-section">
             <div class="top-bar">
                 <div class="app-logo"> Petite.Screen</div>
+                <div class="top-icons"><span>📅</span><span>⚙️</span></div>
             </div>
         </div>
         
@@ -30,6 +31,7 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
+            
             <div class="promo-banner" onclick="showToast('เงื่อนไขการสั่งซื้อ...')" style="margin-bottom: 15px;">
                 <div><b>📢 ประกาศ</b><br><span>หลังจากกดเพิ่มสินค้าแล้ว ลูกค้าสามารถดูทั้งหมดได้ที่รายการสั่งทำ <br>เพื่อตรวจทาน แก้ไขรายละเอียดและกดคัดลอกทีเดียวได้เลยนะคะ</span></div>
             </div>
@@ -70,6 +72,7 @@
         <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
             <button class="back-btn" onclick="MapsTo('page-products')" style="background: #fff; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">◁ กลับหน้าเลือกสินค้า</button>
             <h2 style="text-align: center;">สายคล้องแมสสกรีนชื่อ</h2>
+            <div style="text-align: center; font-size: 15px; color: rgba(0, 0, 0, 0.795); margin-top: 5px; font-weight: 800;">⚠️ รบกวนลูกค้ากดปุ่ม "คัดลอก" ด้านล่าง แทนการแคปหน้าจอนะคะ 💖 <br>เพื่อความถูกต้องของชื่อค่ะ</div>
         </div>
 
         <div class="main-content-area" style="margin-top: 20px;">
@@ -130,6 +133,9 @@
                     ✅ ยืนยันแบบ (เส้นที่ <span id="btnCounterLan">1</span>)
                 </button>
                 <textarea id="orderSummaryLan" class="form-textarea" style="margin-top:15px; width:100%; min-height: 100px;" placeholder="รายการที่คุณกดยืนยันจะมาขึ้นตรงนี้..."></textarea>
+                
+                <div style="font-size: 12px; color: #e74c3c; text-align: center; margin-top: 8px; font-weight: bold;">⚠️ รบกวนลูกค้ากดปุ่ม "คัดลอก" ด้านล่าง แทนการแคปหน้าจอนะคะ 💖</div>
+                
                 <div style="display: flex; gap: 10px; margin-top: 10px;">
                     <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryLan')" style="flex: 1; border:none; background:#f0f0f0; color: #000; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">📋 คัดลอกข้อความ</button>
                     <button class="btn-action" onclick="if(typeof clearOrder === 'function') clearOrder('orderSummaryLan', 'btnCounterLan', 'lan')" style="border:1px solid #eaeaea; background:#fff; color: #666; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">🗑️ ล้างข้อมูล</button>
@@ -142,6 +148,7 @@
         <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
             <button class="back-btn" onclick="MapsTo('page-products')" style="background: #fff; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">◁ กลับหน้าเลือกสินค้า</button>
             <h2 style="text-align: center;">สั่งทำสายพิมพ์ลาย</h2>
+                        <div style="text-align: center; font-size: 15px; color: rgba(0, 0, 0, 0.795); margin-top: 5px; font-weight: 800;">⚠️ รบกวนลูกค้ากดปุ่ม "คัดลอก" ด้านล่าง แทนการแคปหน้าจอนะคะ 💖 <br>เพื่อความถูกต้องของชื่อค่ะ</div>
         </div>
 
         <div class="main-content-area" style="margin-top: 20px;">
@@ -248,6 +255,9 @@
                     ✅ ยืนยันแบบ (เส้นที่ <span id="btnCounterPrint">1</span>)
                 </button>
                 <textarea id="orderSummaryPrint" class="form-textarea" style="margin-top:15px; width:100%; min-height: 100px;" placeholder="รายการที่คุณกดยืนยันจะมาขึ้นตรงนี้..."></textarea>
+                
+                <div style="font-size: 12px; color: #e74c3c; text-align: center; margin-top: 8px; font-weight: bold;">⚠️ รบกวนลูกค้ากดปุ่ม "คัดลอก" ด้านล่าง แทนการแคปหน้าจอนะคะ 💖</div>
+                
                 <div style="display: flex; gap: 10px; margin-top: 10px;">
                     <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryPrint')" style="flex: 1; border:none; background:#f0f0f0; color: #000; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">📋 คัดลอก</button>
                     <button class="btn-action" onclick="if(typeof clearOrder === 'function') clearOrder('orderSummaryPrint', 'btnCounterPrint', 'print')" style="border:1px solid #eaeaea; background:#fff; color: #666; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">🗑️ ล้างข้อมูล</button>
@@ -260,6 +270,7 @@
         <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
             <button class="back-btn" onclick="MapsTo('page-products')" style="background: #fff; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">◁ กลับหน้าเลือกสินค้า</button>
             <h2 style="text-align: center;">ออกแบบป้ายรองเท้า</h2>
+                        <div style="text-align: center; font-size: 15px; color: rgba(0, 0, 0, 0.795); margin-top: 5px; font-weight: 800;">⚠️ รบกวนลูกค้ากดปุ่ม "คัดลอก" ด้านล่าง แทนการแคปหน้าจอนะคะ 💖 <br>เพื่อความถูกต้องของชื่อค่ะ</div>
         </div>
 
         <div class="main-content-area" style="margin-top: 20px;">
@@ -307,6 +318,9 @@
                     ✅ ยืนยันแบบ (คู่ที่ <span id="btnCounterShoe">1</span>)
                 </button>
                 <textarea id="orderSummaryShoe" class="form-textarea" style="margin-top:15px; width:100%; min-height: 100px;" placeholder="รายการที่คุณกดยืนยันจะมาขึ้นตรงนี้..."></textarea>
+                
+                <div style="font-size: 12px; color: #e74c3c; text-align: center; margin-top: 8px; font-weight: bold;">⚠️ รบกวนลูกค้ากดปุ่ม "คัดลอก" ด้านล่าง แทนการแคปหน้าจอนะคะ 💖</div>
+                
                 <div style="display: flex; gap: 10px; margin-top: 10px;">
                     <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryShoe')" style="flex: 1; border:none; background:#f0f0f0; color: #000; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">📋 คัดลอก</button>
                     <button class="btn-action" onclick="if(typeof clearOrder === 'function') clearOrder('orderSummaryShoe', 'btnCounterShoe', 'shoe')" style="border:1px solid #eaeaea; background:#fff; color: #666; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">🗑️ ล้างข้อมูล</button>
@@ -319,6 +333,7 @@
         <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
             <button class="back-btn" onclick="MapsTo('page-products')" style="background: #fff; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">◁ กลับหน้าเลือกสินค้า</button>
             <h2 style="text-align: center;">ออกแบบเข็มกลัด</h2>
+                        <div style="text-align: center; font-size: 15px; color: rgba(0, 0, 0, 0.795); margin-top: 5px; font-weight: 800;">⚠️ รบกวนลูกค้ากดปุ่ม "คัดลอก" ด้านล่าง แทนการแคปหน้าจอนะคะ 💖 <br>เพื่อความถูกต้องของชื่อค่ะ</div>
         </div>
 
         <div class="main-content-area" style="margin-top: 20px;">
@@ -418,6 +433,8 @@
                     ✅ ยืนยันแบบ (ชิ้นที่ <span id="btnCounterBadge">1</span>)
                 </button>
                 <textarea id="orderSummaryBadge" class="form-textarea" style="margin-top:15px; width:100%; min-height: 100px;" placeholder="รายการที่คุณกดยืนยันจะมาขึ้นตรงนี้..."></textarea>
+                
+                
                 <div style="display: flex; gap: 10px; margin-top: 10px;">
                     <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryBadge')" style="flex: 1; border:none; background:#f0f0f0; color: #000; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">📋 คัดลอก</button>
                     <button class="btn-action" onclick="if(typeof clearOrder === 'function') clearOrder('orderSummaryBadge', 'btnCounterBadge', 'badge')" style="border:1px solid #eaeaea; background:#fff; color: #666; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">🗑️ ล้างข้อมูล</button>
