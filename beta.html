@@ -17,10 +17,23 @@
                 <div class="app-logo"> Petite.Screen</div>
             </div>
         </div>
-
+        
         <div class="main-content-area">
-            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ChatGPT Image May 12, 2026, 03_41_01 PM.png" class="shop-banner-img" alt="Shop Banner" onerror="this.src='https://raw.githubusercontent.com/sakulkarn93/petitefont/main/14.png'; this.style.objectFit='contain';">
             
+            <div class="banner-slider" id="homeBannerSlider">
+                <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ChatGPT%20Image%20May%2012,%202026,%2003_41_01%20PM.png" class="slide-img" alt="Shop Banner" style="object-fit: cover;" onerror="this.src='https://raw.githubusercontent.com/sakulkarn93/petitefont/main/14.png'; this.style.objectFit='contain';">
+                <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/howto.png" class="slide-img" alt="วิธีใช้งาน">
+                <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/note.png" class="slide-img" alt="หมายเหตุ">
+            </div>
+            <div class="slider-dots" id="homeSliderDots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="promo-banner" onclick="showToast('เงื่อนไขการสั่งซื้อ...')" style="margin-bottom: 15px;">
+                <div><b>📢 ประกาศ</b><br><span>หลังจากกดเพิ่มสินค้าแล้ว ลูกค้าสามารถดูทั้งหมดได้ที่รายการสั่งทำ <br>เพื่อตรวจทาน แก้ไขรายละเอียดและกดคัดลอกทีเดียวได้เลยนะคะ</span></div>
+            </div>
+
             <div class="white-card">
                 <div style="font-size: 14px; font-weight: 800; margin-bottom: 15px;">หมวดหมู่สินค้า</div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
@@ -28,17 +41,14 @@
                         <div class="menu-icon" style="margin-bottom: 10px; width: 55px; height: 55px; background: #FFF9E9; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="font-size: 26px;">🎨</span></div>
                         <div class="menu-text"><b style="font-size: 14px;">ออกแบบและสั่งทำ</b><span style="font-size: 12px; color: var(--text-brown); margin-top: 6px; font-weight: bold; display: block;">👇 จิ้มเลย!</span></div>
                     </div>
-<div class="menu-item" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 25px 10px; background: #fafafa; border-radius: 16px; cursor: pointer;" onclick="MapsTo('page-fonts')">                        <div class="menu-icon" style="margin-bottom: 10px; width: 55px; height: 55px; background: #F4F8FF; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="font-size: 26px;">Aa</span></div>
+                    <div class="menu-item" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 25px 10px; background: #fafafa; border-radius: 16px; cursor: pointer;" onclick="MapsTo('page-fonts')">
+                        <div class="menu-icon" style="margin-bottom: 10px; width: 55px; height: 55px; background: #F4F8FF; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="font-size: 26px;">Aa</span></div>
                         <div class="menu-text"><b style="font-size: 14px;">ดูตัวอย่างฟอนต์</b><span style="font-size: 12px; color: var(--text-brown); margin-top: 6px; font-weight: bold; display: block;">👇 จิ้มเลย!</span><span style="font-size: 11px; color: #888; margin-top: 4px; display: block;">ทั้งหมด</span></div>
                     </div>
                 </div>
             </div>
 
-            <div class="promo-banner" onclick="showToast('เงื่อนไขการสั่งซื้อ...')">
-                <div><b>แจ้งก่อนสั่ง</b><br><span>คลิกเพื่ออ่านรายละเอียดฟอนต์และสี</span></div>
-                <div style="font-size: 20px;">👉</div>
-            </div>
-        </div>
+        </div> 
     </div>
 
     <div id="page-products" class="app-page">
@@ -75,6 +85,10 @@
 
                 <div class="form-row" style="margin-top: 15px;">
                     <label class="form-label" style="font-weight: bold; font-size: 13px;">พิมพ์ชื่อที่ต้องการ ♥</label>
+                    <div style="font-size: 11.5px; color: #e74c3c; line-height: 1.4; margin-bottom: 5px;">
+                        (ใส่อิโมจิได้เลยค่ะ สกรีนจริงอิโมจิจะเป็นสีเดียวกับอักษรนะคะ)<br>
+                        (กรณีซ้ายขวาไม่เหมือนกัน ระบุให้ด้วยนะคะ)
+                    </div>
                     <input type="text" id="textInputLan" class="form-input" placeholder="เช่น น้องปั้นหยา Panyah" oninput="updateAllLanyard()">
                 </div>
                 
@@ -82,13 +96,13 @@
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์ไทย</label>
                         <select id="thaiFontLan" class="form-select" onchange="updateAllLanyard()">
-                            <option value="'ฟอนต์ไทย1'" selected>ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                            <option value="'ฟอนต์ไทย10'" selected>ฟอนต์ไทย 10</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
                         </select>
                     </div>
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์อังกฤษ</label>
                         <select id="engFontLan" class="form-select" onchange="updateAllLanyard()">
-                            <option value="'ฟอนต์อังกฤษ1'" selected>Eng 1</option><option value="'ฟอนต์อังกฤษ1', sans-serif">Eng 1</option><option value="'ฟอนต์อังกฤษ2', cursive">Eng 2</option><option value="'ฟอนต์อังกฤษ3', cursive">Eng 3</option><option value="'ฟอนต์อังกฤษ4', cursive">Eng 4</option><option value="'ฟอนต์อังกฤษ6', cursive">Eng 6</option><option value="'ฟอนต์อังกฤษ7', sans-serif">Eng 7</option><option value="'ฟอนต์อังกฤษ8', cursive">Eng 8</option><option value="'ฟอนต์อังกฤษ9', cursive">Eng 9</option><option value="'ฟอนต์อังกฤษ10', cursive">Eng 10</option><option value="'ฟอนต์อังกฤษ11', cursive">Eng 11</option><option value="'ฟอนต์อังกฤษ12', sans-serif">Eng 12</option><option value="'ฟอนต์อังกฤษ14', cursive">Eng 14</option><option value="'ฟอนต์อังกฤษ16', cursive">Eng 16</option><option value="'ฟอนต์อังกฤษ17', sans-serif">Eng 17</option><option value="'ฟอนต์อังกฤษ18', cursive">Eng 18</option><option value="'ฟอนต์อังกฤษ19', cursive">Eng 19</option><option value="'ฟอนต์อังกฤษ20', cursive">Eng 20</option><option value="'ฟอนต์อังกฤษ21', cursive">Eng 21</option><option value="'ฟอนต์อังกฤษ22', sans-serif">Eng 22</option><option value="'ฟอนต์อังกฤษ23', cursive">Eng 23</option><option value="'ฟอนต์อังกฤษ24', cursive">Eng 24</option><option value="'ฟอนต์อังกฤษ25', cursive">Eng 25</option><option value="'ฟอนต์อังกฤษ26', cursive">Eng 26</option><option value="'ฟอนต์อังกฤษ27', sans-serif">Eng 27</option><option value="'ฟอนต์อังกฤษ28', cursive">Eng 28</option><option value="'ฟอนต์อังกฤษ29', cursive">Eng 29</option><option value="'ฟอนต์อังกฤษ30', cursive">Eng 30</option><option value="'ฟอนต์อังกฤษ31', cursive">Eng 31</option><option value="'ฟอนต์อังกฤษ32', cursive">Eng 32</option><option value="'ฟอนต์อังกฤษ33', sans-serif">Eng 33</option><option value="'ฟอนต์อังกฤษ34', cursive">Eng 34</option><option value="'ฟอนต์อังกฤษ35', cursive">Eng 35</option><option value="'ฟอนต์อังกฤษ36', cursive">Eng 36</option><option value="'ฟอนต์อังกฤษ37', cursive">Eng 37</option><option value="'ฟอนต์อังกฤษ38', sans-serif">Eng 38</option><option value="'ฟอนต์อังกฤษ39', cursive">Eng 39</option>
+                            <option value="'ฟอนต์อังกฤษ15'" selected>Eng 15</option><option value="'ฟอนต์อังกฤษ1', sans-serif">Eng 1</option><option value="'ฟอนต์อังกฤษ2', cursive">Eng 2</option><option value="'ฟอนต์อังกฤษ3', cursive">Eng 3</option><option value="'ฟอนต์อังกฤษ4', cursive">Eng 4</option><option value="'ฟอนต์อังกฤษ6', cursive">Eng 6</option><option value="'ฟอนต์อังกฤษ7', sans-serif">Eng 7</option><option value="'ฟอนต์อังกฤษ8', cursive">Eng 8</option><option value="'ฟอนต์อังกฤษ9', cursive">Eng 9</option><option value="'ฟอนต์อังกฤษ10', cursive">Eng 10</option><option value="'ฟอนต์อังกฤษ11', cursive">Eng 11</option><option value="'ฟอนต์อังกฤษ12', sans-serif">Eng 12</option><option value="'ฟอนต์อังกฤษ14', cursive">Eng 14</option><option value="'ฟอนต์อังกฤษ16', cursive">Eng 16</option><option value="'ฟอนต์อังกฤษ17', sans-serif">Eng 17</option><option value="'ฟอนต์อังกฤษ18', cursive">Eng 18</option><option value="'ฟอนต์อังกฤษ19', cursive">Eng 19</option><option value="'ฟอนต์อังกฤษ20', cursive">Eng 20</option><option value="'ฟอนต์อังกฤษ21', cursive">Eng 21</option><option value="'ฟอนต์อังกฤษ22', sans-serif">Eng 22</option><option value="'ฟอนต์อังกฤษ23', cursive">Eng 23</option><option value="'ฟอนต์อังกฤษ24', cursive">Eng 24</option><option value="'ฟอนต์อังกฤษ25', cursive">Eng 25</option><option value="'ฟอนต์อังกฤษ26', cursive">Eng 26</option><option value="'ฟอนต์อังกฤษ27', sans-serif">Eng 27</option><option value="'ฟอนต์อังกฤษ28', cursive">Eng 28</option><option value="'ฟอนต์อังกฤษ29', cursive">Eng 29</option><option value="'ฟอนต์อังกฤษ30', cursive">Eng 30</option><option value="'ฟอนต์อังกฤษ31', cursive">Eng 31</option><option value="'ฟอนต์อังกฤษ32', cursive">Eng 32</option><option value="'ฟอนต์อังกฤษ33', sans-serif">Eng 33</option><option value="'ฟอนต์อังกฤษ34', cursive">Eng 34</option><option value="'ฟอนต์อังกฤษ35', cursive">Eng 35</option><option value="'ฟอนต์อังกฤษ36', cursive">Eng 36</option><option value="'ฟอนต์อังกฤษ37', cursive">Eng 37</option><option value="'ฟอนต์อังกฤษ38', sans-serif">Eng 38</option><option value="'ฟอนต์อังกฤษ39', cursive">Eng 39</option>
                         </select>
                     </div>
                 </div>
@@ -136,7 +150,7 @@
             </div>
 
             <div class="white-card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div style="margin-bottom: 15px;">
                     <div style="font-weight: bold; font-size: 14px;">รายละเอียดสายพิมพ์ลาย</div>
                 </div>
                 
@@ -149,13 +163,13 @@
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์ไทย</label>
                         <select id="thaiFontPrint" class="form-select" onchange="if(typeof updateAllPrint === 'function') updateAllPrint()">
-                            <option value="'ฟอนต์ไทย1'" selected>ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                            <option value="'ฟอนต์ไทย10'" selected>ฟอนต์ไทย 10</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
                         </select>
                     </div>
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์อังกฤษ</label>
                         <select id="engFontPrint" class="form-select" onchange="if(typeof updateAllPrint === 'function') updateAllPrint()">
-                            <option value="'ฟอนต์อังกฤษ1'" selected>Eng 1</option><option value="'ฟอนต์อังกฤษ1', sans-serif">Eng 1</option><option value="'ฟอนต์อังกฤษ2', cursive">Eng 2</option><option value="'ฟอนต์อังกฤษ3', cursive">Eng 3</option><option value="'ฟอนต์อังกฤษ4', cursive">Eng 4</option><option value="'ฟอนต์อังกฤษ6', cursive">Eng 6</option><option value="'ฟอนต์อังกฤษ7', sans-serif">Eng 7</option><option value="'ฟอนต์อังกฤษ8', cursive">Eng 8</option><option value="'ฟอนต์อังกฤษ9', cursive">Eng 9</option><option value="'ฟอนต์อังกฤษ10', cursive">Eng 10</option><option value="'ฟอนต์อังกฤษ11', cursive">Eng 11</option><option value="'ฟอนต์อังกฤษ12', sans-serif">Eng 12</option><option value="'ฟอนต์อังกฤษ14', cursive">Eng 14</option><option value="'ฟอนต์อังกฤษ16', cursive">Eng 16</option><option value="'ฟอนต์อังกฤษ17', sans-serif">Eng 17</option><option value="'ฟอนต์อังกฤษ18', cursive">Eng 18</option><option value="'ฟอนต์อังกฤษ19', cursive">Eng 19</option><option value="'ฟอนต์อังกฤษ20', cursive">Eng 20</option><option value="'ฟอนต์อังกฤษ21', cursive">Eng 21</option><option value="'ฟอนต์อังกฤษ22', sans-serif">Eng 22</option><option value="'ฟอนต์อังกฤษ23', cursive">Eng 23</option><option value="'ฟอนต์อังกฤษ24', cursive">Eng 24</option><option value="'ฟอนต์อังกฤษ25', cursive">Eng 25</option><option value="'ฟอนต์อังกฤษ26', cursive">Eng 26</option><option value="'ฟอนต์อังกฤษ27', sans-serif">Eng 27</option><option value="'ฟอนต์อังกฤษ28', cursive">Eng 28</option><option value="'ฟอนต์อังกฤษ29', cursive">Eng 29</option><option value="'ฟอนต์อังกฤษ30', cursive">Eng 30</option><option value="'ฟอนต์อังกฤษ31', cursive">Eng 31</option><option value="'ฟอนต์อังกฤษ32', cursive">Eng 32</option><option value="'ฟอนต์อังกฤษ33', sans-serif">Eng 33</option><option value="'ฟอนต์อังกฤษ34', cursive">Eng 34</option><option value="'ฟอนต์อังกฤษ35', cursive">Eng 35</option><option value="'ฟอนต์อังกฤษ36', cursive">Eng 36</option><option value="'ฟอนต์อังกฤษ37', cursive">Eng 37</option><option value="'ฟอนต์อังกฤษ38', sans-serif">Eng 38</option><option value="'ฟอนต์อังกฤษ39', cursive">Eng 39</option>
+                            <option value="'ฟอนต์อังกฤษ15'" selected>Eng 15</option><option value="'ฟอนต์อังกฤษ1', sans-serif">Eng 1</option><option value="'ฟอนต์อังกฤษ2', cursive">Eng 2</option><option value="'ฟอนต์อังกฤษ3', cursive">Eng 3</option><option value="'ฟอนต์อังกฤษ4', cursive">Eng 4</option><option value="'ฟอนต์อังกฤษ6', cursive">Eng 6</option><option value="'ฟอนต์อังกฤษ7', sans-serif">Eng 7</option><option value="'ฟอนต์อังกฤษ8', cursive">Eng 8</option><option value="'ฟอนต์อังกฤษ9', cursive">Eng 9</option><option value="'ฟอนต์อังกฤษ10', cursive">Eng 10</option><option value="'ฟอนต์อังกฤษ11', cursive">Eng 11</option><option value="'ฟอนต์อังกฤษ12', sans-serif">Eng 12</option><option value="'ฟอนต์อังกฤษ14', cursive">Eng 14</option><option value="'ฟอนต์อังกฤษ16', cursive">Eng 16</option><option value="'ฟอนต์อังกฤษ17', sans-serif">Eng 17</option><option value="'ฟอนต์อังกฤษ18', cursive">Eng 18</option><option value="'ฟอนต์อังกฤษ19', cursive">Eng 19</option><option value="'ฟอนต์อังกฤษ20', cursive">Eng 20</option><option value="'ฟอนต์อังกฤษ21', cursive">Eng 21</option><option value="'ฟอนต์อังกฤษ22', sans-serif">Eng 22</option><option value="'ฟอนต์อังกฤษ23', cursive">Eng 23</option><option value="'ฟอนต์อังกฤษ24', cursive">Eng 24</option><option value="'ฟอนต์อังกฤษ25', cursive">Eng 25</option><option value="'ฟอนต์อังกฤษ26', cursive">Eng 26</option><option value="'ฟอนต์อังกฤษ27', sans-serif">Eng 27</option><option value="'ฟอนต์อังกฤษ28', cursive">Eng 28</option><option value="'ฟอนต์อังกฤษ29', cursive">Eng 29</option><option value="'ฟอนต์อังกฤษ30', cursive">Eng 30</option><option value="'ฟอนต์อังกฤษ31', cursive">Eng 31</option><option value="'ฟอนต์อังกฤษ32', cursive">Eng 32</option><option value="'ฟอนต์อังกฤษ33', sans-serif">Eng 33</option><option value="'ฟอนต์อังกฤษ34', cursive">Eng 34</option><option value="'ฟอนต์อังกฤษ35', cursive">Eng 35</option><option value="'ฟอนต์อังกฤษ36', cursive">Eng 36</option><option value="'ฟอนต์อังกฤษ37', cursive">Eng 37</option><option value="'ฟอนต์อังกฤษ38', sans-serif">Eng 38</option><option value="'ฟอนต์อังกฤษ39', cursive">Eng 39</option>
                         </select>
                     </div>
                 </div>
@@ -178,12 +192,13 @@
                     </select>
                 </div>
 
-                <<div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-    <label style="display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 13px; margin: 0;">
-        <input type="checkbox" id="toggleOutlinePrint" onchange="if(typeof checkCustomPrintColor === 'function') checkCustomPrintColor()" style="width: 18px; height: 18px;"> ใส่ขอบตัวอักษร
-    </label>
-    <button onclick="if(typeof resetAllPrintColors === 'function') resetAllPrintColors()" style="background: #f0f0f0; border: none; padding: 6px 10px; border-radius: 8px; font-size: 11px; font-weight: bold; cursor: pointer;">🔄 คืนค่าสี</button>
-</div>
+                <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <label style="display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 13px; margin: 0;">
+                        <input type="checkbox" id="toggleOutlinePrint" onchange="if(typeof checkCustomPrintColor === 'function') checkCustomPrintColor()" style="width: 18px; height: 18px;"> ใส่ขอบตัวอักษร
+                    </label>
+                    <button onclick="if(typeof resetAllPrintColors === 'function') resetAllPrintColors()" style="background: #f0f0f0; border: none; padding: 6px 10px; border-radius: 8px; font-size: 11px; font-weight: bold; cursor: pointer;">🔄 คืนค่าสี</button>
+                </div>
+                
                 <div class="form-row" id="outlineRowPrint" style="display: none; margin-top: 10px;">
                     <label class="form-label" style="font-weight: bold; font-size: 13px;">สีขอบตัวอักษร</label>
                     <select id="outlineColorSelectorPrint" class="form-select" onchange="if(typeof checkCustomPrintColor === 'function') checkCustomPrintColor()">
@@ -219,7 +234,7 @@
                         <button class="target-btn" id="btnTargetOutlinePrint" style="display:none; flex:1; padding:8px; border-radius:8px; border:1px solid #eaeaea; background:#fff; font-weight:bold; cursor:pointer;" onclick="if(typeof setPrintPickerTarget === 'function') setPrintPickerTarget('outline', this)">สีขอบ</button>
                         <button class="target-btn" id="btnTargetBgPrint" style="display:none; flex:1; padding:8px; border-radius:8px; border:1px solid #eaeaea; background:#fff; font-weight:bold; cursor:pointer;" onclick="if(typeof setPrintPickerTarget === 'function') setPrintPickerTarget('bg', this)">สีพื้นหลัง</button>
                     </div>
-                    <div class="sv-map" id="svMapPrint" style="width: 100%; height: 120px; background: red; position: relative; border-radius: 12px; margin-bottom: 10px;"><div class="pointer" id="svPointerPrint" style="position: absolute; width: 16px; height: 16px; border: 2px solid white; border-radius: 50%; top:0; left:100%; transform: translate(-50%, -50%);"></div></div>
+                    <div class="sv-map" id="svMapPrint" style="width: 100%; height: 120px; background-color: red; position: relative; border-radius: 12px; margin-bottom: 10px;"><div class="pointer" id="svPointerPrint" style="position: absolute; width: 16px; height: 16px; border: 2px solid white; border-radius: 50%; top:0; left:100%; transform: translate(-50%, -50%);"></div></div>
                     <div class="hue-slider" id="hueSliderPrint" style="width: 100%; height: 20px; background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00); position: relative; border-radius: 10px; margin-bottom: 10px;"><div class="pointer" id="huePointerPrint" style="position: absolute; width: 16px; height: 16px; border: 2px solid white; border-radius: 50%; top:50%; left:0; transform: translate(-50%, -50%);"></div></div>
                     <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:bold;">
                         <span>รหัสสีที่กำลังปรับ:</span>
@@ -266,19 +281,22 @@
                 </div>
                 <div class="form-row" style="margin-top: 15px;">
                     <label class="form-label" style="font-weight: bold; font-size: 13px;">พิมพ์ชื่อตรงนี้ ♥</label>
+                    <div style="font-size: 11.5px; color: #e74c3c; margin-bottom: 5px;">
+                        (คำเตือน: 6-8 ตัวอักษร ยิ่งพิมพ์ยาว ตัวอักษรจะยิ่งเล็กลงนะคะ)
+                    </div>
                     <input type="text" id="textInputShoe" class="form-input" placeholder="ใส่ชื่อที่ต้องการ" maxlength="15" oninput="if(typeof updateShoeTag === 'function') updateShoeTag()">
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px;">
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์ไทย</label>
                         <select id="thaiFontShoe" class="form-select" onchange="if(typeof updateShoeTag === 'function') updateShoeTag()">
-                            <option value="'ฟอนต์ไทย1'" selected>ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                            <option value="'ฟอนต์ไทย10'" selected>ฟอนต์ไทย 10</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option><option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option><option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option><option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option><option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option><option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option><option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option><option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option><option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option><option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
                         </select>
                     </div>
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์อังกฤษ</label>
                         <select id="engFontShoe" class="form-select" onchange="if(typeof updateShoeTag === 'function') updateShoeTag()">
-                            <option value="'ฟอนต์อังกฤษ1'" selected>Eng 1</option><option value="'ฟอนต์อังกฤษ1'">Eng 1</option><option value="'ฟอนต์อังกฤษ2'">Eng 2</option><option value="'ฟอนต์อังกฤษ3'">Eng 3</option><option value="'ฟอนต์อังกฤษ4'">Eng 4</option><option value="'ฟอนต์อังกฤษ6'">Eng 6</option><option value="'ฟอนต์อังกฤษ7'">Eng 7</option><option value="'ฟอนต์อังกฤษ8'">Eng 8</option><option value="'ฟอนต์อังกฤษ9'">Eng 9</option><option value="'ฟอนต์อังกฤษ10'">Eng 10</option><option value="'ฟอนต์อังกฤษ11'">Eng 11</option><option value="'ฟอนต์อังกฤษ12'">Eng 12</option><option value="'ฟอนต์อังกฤษ14'">Eng 14</option><option value="'ฟอนต์อังกฤษ16'">Eng 16</option><option value="'ฟอนต์อังกฤษ17'">Eng 17</option><option value="'ฟอนต์อังกฤษ18'">Eng 18</option><option value="'ฟอนต์อังกฤษ19'">Eng 19</option><option value="'ฟอนต์อังกฤษ20'">Eng 20</option><option value="'ฟอนต์อังกฤษ21'">Eng 21</option><option value="'ฟอนต์อังกฤษ22'">Eng 22</option><option value="'ฟอนต์อังกฤษ23'">Eng 23</option><option value="'ฟอนต์อังกฤษ24'">Eng 24</option><option value="'ฟอนต์อังกฤษ25'">Eng 25</option><option value="'ฟอนต์อังกฤษ26'">Eng 26</option><option value="'ฟอนต์อังกฤษ27'">Eng 27</option><option value="'ฟอนต์อังกฤษ28'">Eng 28</option><option value="'ฟอนต์อังกฤษ29'">Eng 29</option><option value="'ฟอนต์อังกฤษ30'">Eng 30</option><option value="'ฟอนต์อังกฤษ31'">Eng 31</option><option value="'ฟอนต์อังกฤษ32'">Eng 32</option><option value="'ฟอนต์อังกฤษ33'">Eng 33</option><option value="'ฟอนต์อังกฤษ34'">Eng 34</option><option value="'ฟอนต์อังกฤษ35'">Eng 35</option><option value="'ฟอนต์อังกฤษ36'">Eng 36</option><option value="'ฟอนต์อังกฤษ37'">Eng 37</option><option value="'ฟอนต์อังกฤษ38'">Eng 38</option><option value="'ฟอนต์อังกฤษ39'">Eng 39</option>
+                            <option value="'ฟอนต์อังกฤษ15'" selected>Eng 15</option><option value="'ฟอนต์อังกฤษ1'">Eng 1</option><option value="'ฟอนต์อังกฤษ2'">Eng 2</option><option value="'ฟอนต์อังกฤษ3'">Eng 3</option><option value="'ฟอนต์อังกฤษ4'">Eng 4</option><option value="'ฟอนต์อังกฤษ6'">Eng 6</option><option value="'ฟอนต์อังกฤษ7'">Eng 7</option><option value="'ฟอนต์อังกฤษ8'">Eng 8</option><option value="'ฟอนต์อังกฤษ9'">Eng 9</option><option value="'ฟอนต์อังกฤษ10'">Eng 10</option><option value="'ฟอนต์อังกฤษ11'">Eng 11</option><option value="'ฟอนต์อังกฤษ12'">Eng 12</option><option value="'ฟอนต์อังกฤษ14'">Eng 14</option><option value="'ฟอนต์อังกฤษ16'">Eng 16</option><option value="'ฟอนต์อังกฤษ17'">Eng 17</option><option value="'ฟอนต์อังกฤษ18'">Eng 18</option><option value="'ฟอนต์อังกฤษ19'">Eng 19</option><option value="'ฟอนต์อังกฤษ20'">Eng 20</option><option value="'ฟอนต์อังกฤษ21'">Eng 21</option><option value="'ฟอนต์อังกฤษ22'">Eng 22</option><option value="'ฟอนต์อังกฤษ23'">Eng 23</option><option value="'ฟอนต์อังกฤษ24'">Eng 24</option><option value="'ฟอนต์อังกฤษ25'">Eng 25</option><option value="'ฟอนต์อังกฤษ26'">Eng 26</option><option value="'ฟอนต์อังกฤษ27'">Eng 27</option><option value="'ฟอนต์อังกฤษ28'">Eng 28</option><option value="'ฟอนต์อังกฤษ29'">Eng 29</option><option value="'ฟอนต์อังกฤษ30'">Eng 30</option><option value="'ฟอนต์อังกฤษ31'">Eng 31</option><option value="'ฟอนต์อังกฤษ32'">Eng 32</option><option value="'ฟอนต์อังกฤษ33'">Eng 33</option><option value="'ฟอนต์อังกฤษ34'">Eng 34</option><option value="'ฟอนต์อังกฤษ35'">Eng 35</option><option value="'ฟอนต์อังกฤษ36'">Eng 36</option><option value="'ฟอนต์อังกฤษ37'">Eng 37</option><option value="'ฟอนต์อังกฤษ38'">Eng 38</option><option value="'ฟอนต์อังกฤษ39'">Eng 39</option>
                         </select>
                     </div>
                 </div>
@@ -308,7 +326,7 @@
                 <div class="badge-outer" style="width: 170px; height: 170px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin: 0 auto;">
                     <div class="badge-ring" id="ringBadge" style="width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; background-color: #f8bbd9;">
                         <div class="badge-middle" id="bgBadge" style="width: 130px; height: 130px; border-radius: 50%; background-color: #ffffff; position: absolute; z-index: 2;"></div>
-                        <img id="badgeCartoon" src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/14.png" alt="Cartoon" style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; object-fit: contain; z-index: 3;">
+                        <img id="badgeCartoon" src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/1.png" alt="Cartoon" style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; object-fit: contain; z-index: 3;">
                         <div id="badgeText" style="position: absolute; bottom: 18%; left: 50%; transform: translateX(-50%); font-size: 26px; font-weight: 800; text-align: center; line-height: 1.1; z-index: 4; text-transform: uppercase; width: 140px; word-wrap: break-word; color: #000000;">NAME</div>
                     </div>
                 </div>
@@ -364,13 +382,13 @@
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์ไทย</label>
                         <select id="thaiFontSelectorBadge" class="form-select" onchange="if(typeof updateBadge === 'function') updateBadge()">
-                            <option value="'ฟอนต์ไทย1'" selected>ฟอนต์ไทย 1</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option> <option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option> <option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option> <option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option> <option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option> <option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option> <option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option> <option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option> <option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option> <option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option> <option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                            <option value="'ฟอนต์ไทย10'" selected>ฟอนต์ไทย 10</option><option value="'ฟอนต์ไทย1'">ฟอนต์ไทย 1</option> <option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option> <option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option> <option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option> <option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option> <option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option> <option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option> <option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option> <option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option> <option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option> <option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
                         </select>
                     </div>
                     <div class="form-row">
                         <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์อังกฤษ</label>
                         <select id="engFontSelectorBadge" class="form-select" onchange="if(typeof updateBadge === 'function') updateBadge()">
-                            <option value="'ฟอนต์อังกฤษ1'" selected>Eng 1</option><option value="'ฟอนต์อังกฤษ1'">Eng 1</option> <option value="'ฟอนต์อังกฤษ2'">Eng 2</option> <option value="'ฟอนต์อังกฤษ3'">Eng 3</option> <option value="'ฟอนต์อังกฤษ4'">Eng 4</option> <option value="'ฟอนต์อังกฤษ6'">Eng 6</option> <option value="'ฟอนต์อังกฤษ7'">Eng 7</option> <option value="'ฟอนต์อังกฤษ8'">Eng 8</option> <option value="'ฟอนต์อังกฤษ9'">Eng 9</option> <option value="'ฟอนต์อังกฤษ10'">Eng 10</option> <option value="'ฟอนต์อังกฤษ11'">Eng 11</option> <option value="'ฟอนต์อังกฤษ12'">Eng 12</option> <option value="'ฟอนต์อังกฤษ14'">Eng 14</option> <option value="'ฟอนต์อังกฤษ16'">Eng 16</option> <option value="'ฟอนต์อังกฤษ17'">Eng 17</option> <option value="'ฟอนต์อังกฤษ18'">Eng 18</option> <option value="'ฟอนต์อังกฤษ19'">Eng 19</option> <option value="'ฟอนต์อังกฤษ20'">Eng 20</option> <option value="'ฟอนต์อังกฤษ21'">Eng 21</option> <option value="'ฟอนต์อังกฤษ22'">Eng 22</option> <option value="'ฟอนต์อังกฤษ23'">Eng 23</option> <option value="'ฟอนต์อังกฤษ24'">Eng 24</option> <option value="'ฟอนต์อังกฤษ25'">Eng 25</option> <option value="'ฟอนต์อังกฤษ26'">Eng 26</option> <option value="'ฟอนต์อังกฤษ27'">Eng 27</option> <option value="'ฟอนต์อังกฤษ28'">Eng 28</option> <option value="'ฟอนต์อังกฤษ29'">Eng 29</option> <option value="'ฟอนต์อังกฤษ30'">Eng 30</option> <option value="'ฟอนต์อังกฤษ31'">Eng 31</option> <option value="'ฟอนต์อังกฤษ32'">Eng 32</option> <option value="'ฟอนต์อังกฤษ33'">Eng 33</option> <option value="'ฟอนต์อังกฤษ34'">Eng 34</option> <option value="'ฟอนต์อังกฤษ35'">Eng 35</option> <option value="'ฟอนต์อังกฤษ36'">Eng 36</option> <option value="'ฟอนต์อังกฤษ37'">Eng 37</option> <option value="'ฟอนต์อังกฤษ38'">Eng 38</option> <option value="'ฟอนต์อังกฤษ39'">Eng 39</option>
+                            <option value="'ฟอนต์อังกฤษ15'" selected>Eng 15</option><option value="'ฟอนต์อังกฤษ1'">Eng 1</option> <option value="'ฟอนต์อังกฤษ2'">Eng 2</option> <option value="'ฟอนต์อังกฤษ3'">Eng 3</option> <option value="'ฟอนต์อังกฤษ4'">Eng 4</option> <option value="'ฟอนต์อังกฤษ6'">Eng 6</option> <option value="'ฟอนต์อังกฤษ7'">Eng 7</option> <option value="'ฟอนต์อังกฤษ8'">Eng 8</option> <option value="'ฟอนต์อังกฤษ9'">Eng 9</option> <option value="'ฟอนต์อังกฤษ10'">Eng 10</option> <option value="'ฟอนต์อังกฤษ11'">Eng 11</option> <option value="'ฟอนต์อังกฤษ12'">Eng 12</option> <option value="'ฟอนต์อังกฤษ14'">Eng 14</option> <option value="'ฟอนต์อังกฤษ16'">Eng 16</option> <option value="'ฟอนต์อังกฤษ17'">Eng 17</option> <option value="'ฟอนต์อังกฤษ18'">Eng 18</option> <option value="'ฟอนต์อังกฤษ19'">Eng 19</option> <option value="'ฟอนต์อังกฤษ20'">Eng 20</option> <option value="'ฟอนต์อังกฤษ21'">Eng 21</option> <option value="'ฟอนต์อังกฤษ22'">Eng 22</option> <option value="'ฟอนต์อังกฤษ23'">Eng 23</option> <option value="'ฟอนต์อังกฤษ24'">Eng 24</option> <option value="'ฟอนต์อังกฤษ25'">Eng 25</option> <option value="'ฟอนต์อังกฤษ26'">Eng 26</option> <option value="'ฟอนต์อังกฤษ27'">Eng 27</option> <option value="'ฟอนต์อังกฤษ28'">Eng 28</option> <option value="'ฟอนต์อังกฤษ29'">Eng 29</option> <option value="'ฟอนต์อังกฤษ30'">Eng 30</option> <option value="'ฟอนต์อังกฤษ31'">Eng 31</option> <option value="'ฟอนต์อังกฤษ32'">Eng 32</option> <option value="'ฟอนต์อังกฤษ33'">Eng 33</option> <option value="'ฟอนต์อังกฤษ34'">Eng 34</option> <option value="'ฟอนต์อังกฤษ35'">Eng 35</option> <option value="'ฟอนต์อังกฤษ36'">Eng 36</option> <option value="'ฟอนต์อังกฤษ37'">Eng 37</option> <option value="'ฟอนต์อังกฤษ38'">Eng 38</option> <option value="'ฟอนต์อังกฤษ39'">Eng 39</option>
                         </select>
                     </div>
                 </div>
@@ -386,7 +404,7 @@
                     <button class="target-btn" onclick="if(typeof setTargetBadge === 'function') setTargetBadge('bgBadge', this)" style="flex:1; padding:8px; border-radius:8px; border:1px solid #eaeaea; background:#fff; font-weight:bold; cursor:pointer;">พื้นหลัง</button>
                     <button class="target-btn" onclick="if(typeof setTargetBadge === 'function') setTargetBadge('badgeText', this)" style="flex:1; padding:8px; border-radius:8px; border:1px solid #eaeaea; background:#fff; font-weight:bold; cursor:pointer;">สีชื่อ</button>
                 </div>
-                <div class="sv-map" id="svMapBadge" style="width: 100%; height: 120px; background: red; position: relative; border-radius: 12px; margin-bottom: 10px;"><div class="pointer" id="svPointerBadge" style="position: absolute; width: 16px; height: 16px; border: 2px solid white; border-radius: 50%; top:0; left:100%; transform: translate(-50%, -50%);"></div></div>
+                <div class="sv-map" id="svMapBadge" style="width: 100%; height: 120px; background-color: red; position: relative; border-radius: 12px; margin-bottom: 10px;"><div class="pointer" id="svPointerBadge" style="position: absolute; width: 16px; height: 16px; border: 2px solid white; border-radius: 50%; top:0; left:100%; transform: translate(-50%, -50%);"></div></div>
                 <div class="hue-slider" id="hueSliderBadge" style="width: 100%; height: 20px; background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00); position: relative; border-radius: 10px; margin-bottom: 10px;"><div class="pointer" id="huePointerBadge" style="position: absolute; width: 16px; height: 16px; border: 2px solid white; border-radius: 50%; top:50%; left:0; transform: translate(-50%, -50%);"></div></div>
                 <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:bold; margin-bottom: 15px;">
                     <span>รหัสสีที่กำลังปรับ:</span>
@@ -407,7 +425,8 @@
             </div>
         </div>
     </div>
-<div id="page-fonts" class="app-page">
+
+    <div id="page-fonts" class="app-page">
         <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
             <button class="back-btn" onclick="MapsTo('page-home')" style="background: #fff; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">◁ กลับหน้าแรก</button>
             <h2 style="text-align: center;">ตัวอย่างฟอนต์ทั้งหมด</h2>
@@ -433,6 +452,33 @@
             </div>
         </div>
     </div>
+
+    <div id="page-summary" class="app-page">
+        <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
+            <button class="back-btn" onclick="MapsTo('page-home')" style="background: #fff; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">◁ กลับหน้าแรก</button>
+            <h2 style="text-align: center;">สรุปรายการสั่งทำ</h2>
+        </div>
+
+        <div class="main-content-area" style="margin-top: 20px; padding: 0 20px 100px 20px;">
+            <div id="summary-paper" style="background: #fff; padding: 20px; border-radius: 2px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative; border-top: 8px solid var(--cheese-yellow);">
+                
+                <div style="text-align: center; border-bottom: 2px dashed #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                    <div style="font-weight: 800; font-size: 18px; color: var(--text-brown);">PETITE ORDER</div>
+                    <div style="font-size: 12px; color: #888; margin-top: 4px;">สามารถจิ้มที่ข้อความเพื่อพิมพ์แก้ไขได้เลยค่ะ 👇</div>
+                </div>
+
+                <textarea id="summary-content" style="width: 100%; min-height: 250px; border: 1px solid #eaeaea; border-radius: 8px; padding: 12px; font-family: inherit; font-size: 14px; line-height: 1.6; color: #000; background: #fbfbfb; resize: none; outline: none;"></textarea>
+
+                <div style="margin-top: 15px; border-top: 2px dashed #eee; padding-top: 20px;">
+                    <button onclick="copyOrderSummary()" style="width: 100%; background: var(--cheese-yellow); border: none; padding: 12px; border-radius: 12px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);">
+                        📋 คัดลอกรายละเอียดทั้งหมด
+                    </button>
+                    <p style="text-align: center; font-size: 11px; color: #999; margin-top: 10px;">ตรวจทานความถูกต้องแล้ว กดคัดลอกส่งให้แอดมินได้เลยค่ะ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="bottom-nav">
@@ -444,17 +490,16 @@
         <div class="nav-icon">📖</div>
         <span>สินค้า</span>
     </div>
-    
     <div class="nav-item" onclick="MapsTo('page-fonts'); if(typeof updateNav === 'function') updateNav(this);">
         <div class="nav-icon" style="font-weight: bold; font-family: sans-serif;">Aa</div>
         <span>ตัวอย่างฟอนต์</span>
     </div>
-    
-    <div class="nav-item" onclick="showToast('กำลังพัฒนาฟีเจอร์นี้ครับ'); if(typeof updateNav === 'function') updateNav(this);">
+    <div class="nav-item" onclick="MapsTo('page-summary'); if(typeof updateNav === 'function') updateNav(this);">
         <div class="nav-icon">👤</div>
         <span>สรุปคำสั่งทำ</span>
     </div>
 </div>
+
 <div id="toast">แจ้งเตือน</div>
 
 <script src="script.js"></script>
