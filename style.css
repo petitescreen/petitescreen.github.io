@@ -152,3 +152,49 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .wrapper::-webkit-scrollbar { 
     background: linear-gradient(to top, #000000, rgba(0,0,0,0));
     pointer-events: none; /* ให้เมาส์คลิกทะลุเลเยอร์นี้ได้ */
 }
+/* คืนชีพแถบสีรุ้ง และลูกศรวงกลม */
+.hue-slider { width: 100%; height: 20px; border-radius: 10px; position: relative; background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00); touch-action: none; overscroll-behavior: contain; cursor: pointer; margin-bottom: 10px; border: 1px solid #eaeaea; }
+.pointer { position: absolute; width: 18px; height: 18px; border: 2.5px solid white; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.3); transform: translate(-50%, -50%); pointer-events: none; }
+
+/* ================= ระบบสไลเดอร์ (Home Banner) ================= */
+.banner-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* ซ่อน Scrollbar ใน IE/Edge */
+    scrollbar-width: none; /* ซ่อน Scrollbar ใน Firefox */
+    border-radius: var(--card-radius);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+.banner-slider::-webkit-scrollbar { 
+    display: none; /* ซ่อน Scrollbar ใน Chrome/Safari/iOS */
+}
+.slide-img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 250px;
+    object-fit: contain; /* โชว์รูปเต็มใบไม่ให้ข้อความโดนตัด */
+    scroll-snap-align: center;
+    padding: 0;
+}
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+.slider-dots .dot {
+    width: 6px;
+    height: 6px;
+    background: #ccc;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.slider-dots .dot.active {
+    width: 16px;
+    border-radius: 3px;
+    background: var(--cheese-yellow);
+}
