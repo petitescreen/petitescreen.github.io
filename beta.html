@@ -436,11 +436,25 @@
 </div>
 
 <div class="bottom-nav">
-    <div class="nav-item active" onclick="MapsTo('page-home'); if(typeof updateNav === 'function') updateNav(this);"><div class="nav-icon">🧀</div><span>หน้าแรก</span></div>
-    <div class="nav-item" onclick="MapsTo('page-products'); if(typeof updateNav === 'function') updateNav(this);"><div class="nav-icon">📖</div><span>สินค้า</span></div>
-    <div class="nav-item" onclick="showToast('กำลังพัฒนาฟีเจอร์นี้ครับ'); if(typeof updateNav === 'function') updateNav(this);"><div class="nav-icon">Aa</div><span>ตัวอย่างฟอนต์</span></div>
-    <div class="nav-item" onclick="MapsTo('page-summary'); if(typeof updateNav === 'function') updateNav(this);"><div class="nav-icon">👤</div><span>สรุปคำสั่งทำ</span></div>
- </div>
+    <div class="nav-item active" onclick="MapsTo('page-home'); if(typeof updateNav === 'function') updateNav(this);">
+        <div class="nav-icon">🧀</div>
+        <span>หน้าแรก</span>
+    </div>
+    <div class="nav-item" onclick="MapsTo('page-products'); if(typeof updateNav === 'function') updateNav(this);">
+        <div class="nav-icon">📖</div>
+        <span>สินค้า</span>
+    </div>
+    
+    <div class="nav-item" onclick="MapsTo('page-fonts'); if(typeof updateNav === 'function') updateNav(this);">
+        <div class="nav-icon" style="font-weight: bold; font-family: sans-serif;">Aa</div>
+        <span>ตัวอย่างฟอนต์</span>
+    </div>
+    
+    <div class="nav-item" onclick="showToast('กำลังพัฒนาฟีเจอร์นี้ครับ'); if(typeof updateNav === 'function') updateNav(this);">
+        <div class="nav-icon">👤</div>
+        <span>สรุปคำสั่งทำ</span>
+    </div>
+</div>
 <div id="toast">แจ้งเตือน</div>
 
 <script src="script.js"></script>
