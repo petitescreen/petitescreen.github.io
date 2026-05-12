@@ -1,4 +1,9 @@
 /* ================= โหลดฟอนต์ทั้งหมด (ห้ามตัดทอน) ================= */
+/* ================= โหลดฟอนต์หลักของเว็บ ================= */
+@font-face { 
+    font-family: 'Muekkrob'; 
+    src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/SDMuekkrob.ttf') format('truetype'); 
+}
 @font-face { font-family: 'ฟอนต์ไทย1'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/fluffyfriday.ttf') format('truetype'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'ฟอนต์ไทย2'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/sundaeplseditver.ttf') format('truetype'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'ฟอนต์ไทย3'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/HappyMayna.ttf') format('truetype'); font-weight: normal; font-style: normal; }
@@ -56,7 +61,7 @@
     margin: 0; 
     padding: 0; 
     -webkit-tap-highlight-color: transparent; 
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Muekkrob', 'Sarabun', sans-serif; /* เปลี่ยนมาใช้หมึกกรอบเป็นฟอนต์หลัก */
 }
 
 :root {
