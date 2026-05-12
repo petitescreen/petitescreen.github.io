@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Petite Screen App (Beta)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div id="page-home" class="app-page active-page">
+        
+        <div class="top-yellow-section">
+            <div class="top-bar">
+                <div class="app-logo">
+                    🧀 Petite App
+                </div>
+                <div class="top-icons">
+                    <span>📅</span>
+                    <span>⚙️</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content-area">
+            
+            <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ChatGPT Image May 12, 2026, 03_41_01 PM.png" class="shop-banner-img" alt="Shop Banner" onerror="this.src='https://raw.githubusercontent.com/sakulkarn93/petitefont/main/14.png'; this.style.objectFit='contain';">
+            
+            <div class="white-card">
+                <div style="font-size: 14px; font-weight: 800; margin-bottom: 15px;">หมวดหมู่สินค้า</div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    
+                    <div class="menu-item" style="flex-direction: column; text-align: center; padding: 25px 10px;" onclick="MapsTo('page-lanyard')">
+                        <div class="menu-icon" style="margin-bottom: 10px; width: 55px; height: 55px; background: #FFF9E9;">
+                            <span style="font-size: 26px;">🎨</span>
+                        </div>
+                        <div class="menu-text">
+                            <b style="font-size: 15px;">ออกแบบและสั่งทำ</b>
+                            <span style="font-size: 12px; color: var(--text-brown); margin-top: 6px; font-weight: bold;">👇 จิ้มเลย!</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" style="flex-direction: column; text-align: center; padding: 25px 10px;" onclick="showToast('กำลังทำหน้ารวมฟอนต์ครับ')">
+                        <div class="menu-icon" style="margin-bottom: 10px; width: 55px; height: 55px; background: #F4F8FF;">
+                            <span style="font-size: 26px;">Aa</span>
+                        </div>
+                        <div class="menu-text">
+                            <b style="font-size: 15px;">ดูตัวอย่างฟอนต์</b>
+                            <span style="font-size: 12px; color: #666; margin-top: 6px;">ทั้งหมด</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="promo-banner" onclick="showToast('เงื่อนไขการสั่งซื้อ...')">
+                <div>
+                    <b>แจ้งก่อนสั่ง</b><br>
+                    <span>คลิกเพื่ออ่านรายละเอียดฟอนต์และสี</span>
+                </div>
+                <div style="font-size: 20px;">👉</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="page-lanyard" class="app-page">
+        <div style="padding: 50px 20px; text-align: center;">
+            <h2>หน้าออกแบบสายคล้องแมส</h2>
+            <p style="margin-top: 10px; color: #888;">(รอ Dev Petite นำโค้ดมาใส่ในขั้นตอนต่อไปครับ)</p>
+            <button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button>
+        </div>
+    </div>
+    
+    <div id="page-print" class="app-page">
+        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าสายพิมพ์ลาย</h2><button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button></div>
+    </div>
+
+    <div id="page-shoe" class="app-page">
+        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าป้ายรองเท้า</h2><button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button></div>
+    </div>
+
+    <div id="page-badge" class="app-page">
+        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าเข็มกลัด</h2><button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button></div>
+    </div>
+
+</div>
+
+<div class="bottom-nav">
+    <div class="nav-item active" onclick="MapsTo('page-home'); updateNav(this);">
+        <div class="nav-icon">🧀</div>
+        <span>หน้าแรก</span>
+    </div>
+    <div class="nav-item" onclick="showToast('เข้าดูรายการสินค้าได้ที่หน้าแรกครับ'); updateNav(this);">
+        <div class="nav-icon">📖</div>
+        <span>สมุดคำศัพท์</span>
+    </div>
+    <div class="nav-item" onclick="showToast('กำลังพัฒนาฟีเจอร์นี้ครับ'); updateNav(this);">
+        <div class="nav-icon">🛒</div>
+        <span>ตะกร้า</span>
+    </div>
+    <div class="nav-item" onclick="showToast('กำลังพัฒนาฟีเจอร์นี้ครับ'); updateNav(this);">
+        <div class="nav-icon">👤</div>
+        <span>ฉัน</span>
+    </div>
+</div>
+
+<div id="toast">แจ้งเตือน</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
