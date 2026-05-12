@@ -367,6 +367,7 @@ function initBannerSlider() {
 
     let currentIndex = 0;
     const totalSlides = dots.length;
+    let slideTimer; // ตัวแปรสำหรับจำเวลา
 
     // ระบบจุด (Dots) เปลี่ยนสีตามภาพที่ลูกค้าปัด
     slider.addEventListener('scroll', () => {
@@ -377,19 +378,39 @@ function initBannerSlider() {
         currentIndex = index;
     });
 
-    // เลื่อนอัตโนมัติทุกๆ 3 วินาที (3000 มิลลิวินาที)
-    setInterval(() => {
-        currentIndex++;
-        if (currentIndex >= totalSlides) {
-            currentIndex = 0;
-        }
-        slider.scrollTo({
-            left: currentIndex * slider.clientWidth,
-            behavior: 'smooth'
-        });
-    }, 3000); 
-}
+    // ฟังก์ชันสั่งให้สไลด์เดินหน้า
+    function startAutoSlide() {
+        // ล้างเวลาเก่าก่อนตั้งใหม่ กันบั๊กวิ่งซ้อนกัน
+        clearInterval(slideTimer);
+        // ตั้งเวลาใหม่ 5 วินาที (5000 มิลลิวินาที)
+        slideTimer = setInterval(() => {
+            currentIndex++;
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+            slider.scrollTo({
+                left: currentIndex * slider.clientWidth,
+                behavior: 'smooth'
+            });
+        }, 5000); 
+    }
 
+    // ฟังก์ชันสั่งหยุดสไลด์
+    function stopAutoSlide() {
+        clearInterval(slideTimer);
+    }
+
+    // เริ่มทำงานครั้งแรก
+    startAutoSlide();
+
+    // ทัชสกรีน (มือถือ) - แตะเพื่อหยุด ปล่อยเพื่อเดินต่อ
+    slider.addEventListener('touchstart', stopAutoSlide, { passive: true });
+    slider.addEventListener('touchend', startAutoSlide, { passive: true });
+    
+    // เมาส์ (คอมพิวเตอร์) - ชี้เพื่อหยุด เอาออกเพื่อเดินต่อ
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+}
 // ================= โหลดครั้งแรกตอนเปิดหน้าเว็บ =================
 window.onload = function() { 
     setupPrintPicker(); 
