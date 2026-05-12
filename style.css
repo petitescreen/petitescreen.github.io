@@ -1,0 +1,159 @@
+/* ================= โหลดฟอนต์ทั้งหมด (ห้ามตัดทอน) ================= */
+@font-face { font-family: 'ฟอนต์ไทย1'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/fluffyfriday.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย2'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/sundaeplseditver.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย3'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/HappyMayna.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย4'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/maaja%20ver%201.00.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย5'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Home%20Regular%20ver%201.01.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย7'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/supermarket.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย8'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/upcll.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย9'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Muffin%20Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย10'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Knomphing%20Bold.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย11'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/polareverland.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย12'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ImmageForyou1.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ฟอนต์ไทย14'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/howareyoutoday.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'ฟอนต์อังกฤษ1'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/fluffyfriday.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ2'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/sundaeplseditver.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ3'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/FC%20Home%20Regular%20ver%201.01.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ4'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/upcdb.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ6'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/AniTypewriter.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ7'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Impact.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ8'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/HappyMayna.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ9'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ARIALBD.TTF') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ10'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/CHERI___.TTF') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ11'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Minnie.TTF') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ12'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/VarsityTeam-Bold.otf') format('opentype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ14'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ADELIA.otf') format('opentype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ15'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/BLACK%20BUBBLE.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ16'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Bubblegum.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ17'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Candy%20Beans.otf') format('opentype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ18'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Caramel%20Sweets.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ19'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Cheeky%20Rabbit.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ20'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Subscribe.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ21'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Hoollidday.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ22'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Thank%20you.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ23'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Hilton-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ24'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Cream%20Cake%20Bold.otf') format('opentype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ25'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Amatemora.otf') format('opentype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ26'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Chocolate%20Cookies.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ27'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/polareverland.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ28'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ImmageForyou1.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ29'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/howareyoutoday.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ30'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/CODE%20Bold.otf') format('opentype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ31'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Huggable%20Hedgehogs%20Demo.otf') format('opentype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ32'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Quick%20Love.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ33'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Starborn.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ34'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Milk%20Mango.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ35'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/CHICKEN%20Pie%20Height.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ36'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Chocolate%20Cookies.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ37'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Super%20Peach.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ38'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Stopbuck.ttf') format('truetype'); }
+@font-face { font-family: 'ฟอนต์อังกฤษ39'; src: url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/Vanilla%20Caramel.otf') format('opentype'); }
+
+/* ================= Reset & Global Variables ================= */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    -webkit-tap-highlight-color: transparent; 
+    font-family: 'Sarabun', sans-serif;
+}
+
+:root {
+    --cheese-yellow: #FFD24D;
+    --cheese-bg: #F4F5F7;
+    --text-dark: #333333;
+    --text-brown: #8D5B3E;
+    --card-radius: 20px;
+}
+
+/* ---------------- แก้ไข iOS เลื่อนลื่น ---------------- */
+html, body {
+    background-color: var(--cheese-bg);
+    color: var(--text-dark);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar, .wrapper::-webkit-scrollbar { display: none; }
+
+.wrapper { 
+    -ms-overflow-style: none; scrollbar-width: none;
+    position: relative; 
+    z-index: 1; 
+    max-width: 480px; 
+    margin: 0 auto; 
+    width: 100%; 
+    height: 100%;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 100px 0; 
+}
+
+/* ================= SPA Logic ================= */
+.app-page { display: none; }
+.active-page { display: block; animation: fadeIn 0.3s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ================= UI หน้าแรก ================= */
+.top-yellow-section {
+    background-color: var(--cheese-yellow);
+    padding: calc(20px + env(safe-area-inset-top)) 20px 60px 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    position: relative;
+}
+
+.top-bar { display: flex; justify-content: space-between; align-items: center; }
+.app-logo { font-size: 18px; font-weight: 800; color: var(--text-dark); display: flex; align-items: center; gap: 6px; }
+.top-icons { font-size: 20px; display: flex; gap: 15px; }
+
+.main-content-area { padding: 0 15px; margin-top: -30px; position: relative; z-index: 10; }
+
+.shop-banner-img {
+    width: 100%; height: 250px; 
+    object-fit: cover; object-position: center 70%; 
+    border-radius: var(--card-radius);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    margin-bottom: 15px; background-color: #ffffff; border: 3px solid #ffffff; 
+}
+
+.white-card {
+    background-color: #FFFFFF; border-radius: var(--card-radius);
+    padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); margin-bottom: 15px;
+}
+
+.menu-item { background-color: #F9FAFC; border-radius: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.2s; }
+.menu-item:active { transform: scale(0.96); background-color: #f0f2f5; }
+.menu-icon { border-radius: 12px; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03); flex-shrink: 0; }
+.menu-text { display: flex; flex-direction: column; }
+
+.promo-banner {
+    background: linear-gradient(135deg, #FFF6D9, #FFE8A1); border-radius: var(--card-radius);
+    padding: 15px 20px; display: flex; align-items: center; justify-content: space-between;
+}
+.promo-banner b { font-size: 14px; color: #8D5B3E; }
+.promo-banner span { font-size: 12px; color: #8D5B3E; opacity: 0.8; }
+
+/* ================= แถบเมนูด้านล่าง (Bottom Tab Bar) ================= */
+.bottom-nav {
+    position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px;
+    background: #ffffff; border-radius: 25px 25px 0 0; display: flex; justify-content: space-around; align-items: center;
+    padding: 12px 0 calc(12px + env(safe-area-inset-bottom)); z-index: 1000; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
+}
+.nav-item { display: flex; flex-direction: column; align-items: center; color: #A0A0A0; cursor: pointer; transition: 0.2s; width: 25%; }
+.nav-item.active { color: var(--text-dark); }
+.nav-icon { font-size: 22px; margin-bottom: 4px; transition: 0.2s; }
+.nav-item.active .nav-icon { transform: scale(1.1); }
+.nav-item span { font-size: 11px; font-weight: 800; }
+
+/* ================= Toast Notification ================= */
+#toast { 
+    visibility: hidden; min-width: 200px; background-color: rgba(51, 51, 51, 0.9); color: #ffffff; 
+    text-align: center; border-radius: 30px; padding: 12px 20px; position: fixed; z-index: 9999; 
+    left: 50%; bottom: 90px; transform: translateX(-50%); font-size: 13px; font-weight: bold; 
+    opacity: 0; transition: opacity 0.3s, bottom 0.3s; 
+}
+#toast.show { visibility: visible; opacity: 1; bottom: 100px; }
