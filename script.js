@@ -7,6 +7,11 @@ function MapsTo(pageId) {
     if(targetPage) targetPage.classList.add('active-page');
     const wrapper = document.querySelector('.wrapper');
     if (wrapper) wrapper.scrollTop = 0;
+    
+    // อัปเดตใบสรุปออเดอร์ทุกครั้งที่กดเปิดหน้า summary
+    if(pageId === 'page-summary') {
+        generateOrderSummary();
+    }
 }
 
 function updateNav(element) {
@@ -33,7 +38,6 @@ function clearOrder(summaryId, counterId, type) {
     showToast("🗑️ ล้างข้อมูลเรียบร้อยแล้วค่ะ");
 }
 
-// แยกฟอนต์ไทย-อังกฤษ อัตโนมัติ
 function buildMixedFontHTML(text, thaiFont, engFont) {
     let resultHTML = "", currentType = null, currentChunk = "";
     for (let i = 0; i < text.length; i++) {
@@ -54,7 +58,6 @@ function buildMixedFontHTML(text, thaiFont, engFont) {
     return resultHTML;
 }
 
-// ================= ระบบสี (Color Converter) =================
 function hsvToHex(h, s, v) {
     v /= 100; s /= 100; let f = (n, k = (n + h / 60) % 6) => v * (1 - s * Math.max(Math.min(k, 4 - k, 1), 0));
     let rgb = [f(5), f(3), f(1)].map(x => Math.round(x * 255).toString(16).padStart(2, '0'));
@@ -88,7 +91,9 @@ function updateAllLanyard() {
         fontSize--; sampleText.style.fontSize = fontSize + "px";
     }
 
-    if (color.startsWith('url')) {
+    if (color === "none") {
+        sampleText.style.backgroundImage = "none"; sampleText.style.color = "#000000";
+    } else if (color.startsWith('url')) {
         sampleText.style.color = "transparent"; sampleText.style.backgroundImage = color;
         sampleText.style.backgroundClip = "text"; sampleText.style.webkitBackgroundClip = "text";
     } else { 
@@ -98,10 +103,9 @@ function updateAllLanyard() {
 }
 
 function addToListLanyard() {
-    const rawText = document.getElementById("textInputLan").value.trim(); // ดึงข้อความและตัดช่องว่างซ้ายขวา
+    const rawText = document.getElementById("textInputLan").value.trim(); 
     const bgVal = document.getElementById("bgSelectorLan").value;
 
-    // เช็คการแจ้งเตือน
     if (!rawText) { showToast("⚠️ กรุณาพิมพ์ชื่อที่ต้องการสกรีนด้วยค่ะ"); return; }
     if (bgVal === "none") { showToast("⚠️ กรุณาเลือกสีสายคล้องแมสด้วยค่ะ"); return; }
 
@@ -114,7 +118,7 @@ function addToListLanyard() {
     let fontSummary = /[\u0E00-\u0E7F]/.test(rawText) && /[a-zA-Z0-9]/.test(rawText) ?
     `ฟอนต์ไทย: ${tFont}\nฟอนต์อังกฤษ: ${eFont}` : `ฟอนต์: ${/[\u0E00-\u0E7F]/.test(rawText) ? tFont : eFont}`;
 
-    document.getElementById("orderSummaryLan").value += `สายสกรีนเส้นที่ ${counts.lan}\nการ์ตูน: ${cartoonText}\nพิมพ์ชื่อ: ${rawText}\nสีสาย: ${bgName}\nสีตัวอักษร: ${cName}\n${fontSummary}\n\n`;
+    document.getElementById("orderSummaryLan").value += `สายสกรีนเส้นที่ ${counts.lan}\nการ์ตูน: ${cartoonText}\nพิมพ์ชื่อ: ${rawText}\nสีสาย: ${bgName}\nสีอักษร: ${cName}\n${fontSummary}\n\n`;
     counts.lan++; document.getElementById("btnCounterLan").innerText = counts.lan; showToast("✨ เพิ่มรายการสำเร็จ!");
 }
 
@@ -165,7 +169,8 @@ function updateAllPrint() {
     const outlineEnabled = document.getElementById("toggleOutlinePrint").checked, outlineVal = document.getElementById("outlineColorSelectorPrint").value;
     const sampleText = document.getElementById("sampleTextPrint"), sampleBox = document.getElementById("sampleBoxPrint");
 
-    if (bgVal === "CUSTOM") { sampleBox.style.backgroundImage = "none"; sampleBox.style.backgroundColor = customPrintColors.bg; }
+    if (bgVal === "none") { sampleBox.style.backgroundImage = "none"; sampleBox.style.backgroundColor = "#e0e0e0"; }
+    else if (bgVal === "CUSTOM") { sampleBox.style.backgroundImage = "none"; sampleBox.style.backgroundColor = customPrintColors.bg; }
     else { sampleBox.style.backgroundColor = "transparent"; sampleBox.style.backgroundImage = `url('https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${bgVal}')`; }
     
     const lockedWhiteOutlines = ["BLACK_WHITE", "SKY", "CHASE", "RUBBLE", "ROCKY", "ZUMA", "EVEREST"];
@@ -180,7 +185,8 @@ function updateAllPrint() {
     for (let char of text) {
         if (char === " ") { html += " "; continue; }
         let currentColor = "";
-        if (colorVal === "FUN_COLORS") { currentColor = funColors[colorIndex % funColors.length]; colorIndex++; }
+        if (colorVal === "none") currentColor = "#000000";
+        else if (colorVal === "FUN_COLORS") { currentColor = funColors[colorIndex % funColors.length]; colorIndex++; }
         else if (colorVal === "BLACK_WHITE") currentColor = "#000000";
         else if (colorVal === "SKY") currentColor = "#f04898";
         else if (colorVal === "CHASE") currentColor = "#255dac";
@@ -219,8 +225,6 @@ function setupPrintPicker() {
 
 function addToListPrint() {
     const rawText = document.getElementById("textInputPrint").value.trim();
-    
-    // เช็คการแจ้งเตือน
     if (!rawText) { showToast("⚠️ กรุณาพิมพ์ชื่อที่ต้องการสกรีนด้วยค่ะ"); return; }
 
     const colorSelector = document.getElementById("colorSelectorPrint");
@@ -237,54 +241,6 @@ function addToListPrint() {
     counts.print++; document.getElementById("btnCounterPrint").innerText = counts.print; showToast("✨ เพิ่มรายการสำเร็จ!");
 }
 
-// ฟังก์ชันรวมข้อมูลและแสดงผลในหน้ากระดาษสรุป
-function generateOrderSummary() {
-    const summaryDiv = document.getElementById('summary-content');
-    
-    // ดึงค่าจากหน้าสายพิมพ์ลาย
-    const printText = document.getElementById('nameInputPrint')?.value || '-';
-    const printFont = document.getElementById('fontSelectorPrint')?.value || '-';
-    const printColor = document.getElementById('textColorPrint')?.style.backgroundColor || '-';
-    const hasOutline = document.getElementById('toggleOutlinePrint')?.checked ? 'ใส่ขอบ' : 'ไม่ใส่ขอบ';
-
-    // ดึงค่าจากหน้าเข็มกลัด
-    const badgeText = document.getElementById('nameInputBadge')?.value || '-';
-    const badgeFont = document.getElementById('fontSelectorBadge')?.value || '-';
-    const cartoon = document.getElementById('cartoonSelectorBadge')?.value || '-';
-
-    // จัดรูปแบบข้อความแสดงผล
-    let text = `<b>[ รายละเอียดการสั่งซื้อ ]</b><br><br>`;
-    text += `📍 <b>สายคล้องพิมพ์ลาย:</b><br>`;
-    text += `- ข้อความ: ${printText}<br>`;
-    text += `- ฟอนต์: ${printFont}<br>`;
-    text += `- สีอักษร: ${printColor}<br>`;
-    text += `- ขอบอักษร: ${hasOutline}<br>`;
-    text += `-------------------------<br>`;
-    text += `📍 <b>เข็มกลัดการ์ตูน:</b><br>`;
-    text += `- ชื่อ: ${badgeText}<br>`;
-    text += `- ฟอนต์: ${badgeFont}<br>`;
-    text += `- ลาย: ${cartoon}<br>`;
-
-    summaryDiv.innerHTML = text;
-}
-
-// ฟังก์ชันสำหรับคัดลอกข้อความ
-function copyOrderSummary() {
-    const content = document.getElementById('summary-content').innerText;
-    navigator.clipboard.writeText(content).then(() => {
-        showToast('คัดลอกลง Clipboard แล้วค่ะ! ✨');
-    });
-}
-
-// แก้ไขฟังก์ชัน MapsTo เดิมให้เรียกใช้การสรุปข้อมูลเมื่อกดหน้า summary
-const originalMapsTo = window.MapsTo;
-window.MapsTo = function(pageId) {
-    if(pageId === 'page-summary') {
-        generateOrderSummary();
-    }
-    if(typeof originalMapsTo === 'function') originalMapsTo(pageId);
-};
-
 // ================= 3. ระบบป้ายรองเท้า =================
 function updateShoeTag() {
     const text = document.getElementById("textInputShoe").value || "PUNN";
@@ -292,24 +248,26 @@ function updateShoeTag() {
     const color = document.getElementById("tagColorShoe").value;
     const tagText = document.getElementById("shoeTagText"), tagBg = document.getElementById("shoeTagBg");
     
-    if(color === 'white') tagBg.style.backgroundColor = '#ffffff'; else tagBg.style.backgroundColor = '#1a1a1a';
+    if(color === 'white') tagBg.style.backgroundColor = '#ffffff'; 
+    else if(color === 'black') tagBg.style.backgroundColor = '#1a1a1a';
+    else tagBg.style.backgroundColor = '#e0e0e0';
+
     tagText.innerHTML = buildMixedFontHTML(text, thaiF, engF);
-    
     let fontSize = 40; tagText.style.fontSize = fontSize + "px";
     while (tagText.scrollWidth > tagBg.clientWidth - 50 && fontSize > 10) { fontSize--; tagText.style.fontSize = fontSize + "px"; }
 }
 
 function addToListShoe() {
     const rawText = document.getElementById("textInputShoe").value.trim();
+    const colorVal = document.getElementById("tagColorShoe").value;
 
-    // เช็คการแจ้งเตือน
-    if (!rawText) { showToast("⚠️ กรุณาพิมพ์ชื่อที่ต้องการด้วยค่ะ"); return; }
+    if (!rawText) { showToast("⚠️ กรุณาพิมพ์ชื่อด้วยค่ะ"); return; }
+    if (colorVal === "none") { showToast("⚠️ กรุณาเลือกสีป้ายรองเท้าด้วยค่ะ"); return; }
 
     const thaiFontName = document.getElementById("thaiFontShoe").options[document.getElementById("thaiFontShoe").selectedIndex].text;
     const engFontName = document.getElementById("engFontShoe").options[document.getElementById("engFontShoe").selectedIndex].text;
     const colorName = document.getElementById("tagColorShoe").options[document.getElementById("tagColorShoe").selectedIndex].text;
-    let fontSummary = /[\u0E00-\u0E7F]/.test(rawText) && /[a-zA-Z0-9]/.test(rawText) ?
-    `ฟอนต์ไทย: ${thaiFontName}\nฟอนต์อังกฤษ: ${engFontName}` : `ฟอนต์: ${/[\u0E00-\u0E7F]/.test(rawText) ? thaiFontName : engFontName}`;
+    let fontSummary = /[\u0E00-\u0E7F]/.test(rawText) && /[a-zA-Z0-9]/.test(rawText) ? `ฟอนต์ไทย: ${thaiFontName}\nฟอนต์อังกฤษ: ${engFontName}` : `ฟอนต์: ${/[\u0E00-\u0E7F]/.test(rawText) ? thaiFontName : engFontName}`;
     
     document.getElementById("orderSummaryShoe").value += `ป้ายรองเท้า คู่ที่ ${counts.shoe}\nสีป้าย: ${colorName}\nพิมพ์ชื่อ: ${rawText}\n${fontSummary}\n\n`;
     counts.shoe++; document.getElementById("btnCounterShoe").innerText = counts.shoe; showToast("✨ เพิ่มรายการสำเร็จ!");
@@ -327,12 +285,9 @@ function initBadge() {
     const hueEl = document.getElementById('hueSliderBadge'), svEl = document.getElementById('svMapBadge');
     const handleH = (e) => { const rect = hueEl.getBoundingClientRect(); let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left; x = Math.max(0, Math.min(x, rect.width)); hBadge = (x / rect.width) * 360; document.getElementById('huePointerBadge').style.left = x + 'px'; svEl.style.backgroundColor = `hsl(${hBadge},100%,50%)`; updateColBadge(); };
     const handleSV = (e) => { const rect = svEl.getBoundingClientRect(); let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left, y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top; x = Math.max(0, Math.min(x, rect.width)); y = Math.max(0, Math.min(y, rect.height)); sBadge = (x / rect.width) * 100; vBadge = 100 - (y / rect.height) * 100; document.getElementById('svPointerBadge').style.left = x + 'px'; document.getElementById('svPointerBadge').style.top = y + 'px'; updateColBadge(); };
-    hueEl.addEventListener('mousedown', e => { handleH(e); window.addEventListener('mousemove', handleH); });
-    hueEl.addEventListener('touchstart', e => { handleH(e); window.addEventListener('touchmove', handleH); }, { passive: false });
-    svEl.addEventListener('mousedown', e => { handleSV(e); window.addEventListener('mousemove', handleSV); });
-    svEl.addEventListener('touchstart', e => { handleSV(e); window.addEventListener('touchmove', handleSV); }, { passive: false });
-    window.addEventListener('mouseup', () => { window.removeEventListener('mousemove', handleH); window.removeEventListener('mousemove', handleSV); });
-    window.addEventListener('touchend', () => { window.removeEventListener('touchmove', handleH); window.removeEventListener('touchmove', handleSV); });
+    hueEl.addEventListener('mousedown', e => { handleH(e); window.addEventListener('mousemove', handleH); }); hueEl.addEventListener('touchstart', e => { handleH(e); window.addEventListener('touchmove', handleH); }, { passive: false });
+    svEl.addEventListener('mousedown', e => { handleSV(e); window.addEventListener('mousemove', handleSV); }); svEl.addEventListener('touchstart', e => { handleSV(e); window.addEventListener('touchmove', handleSV); }, { passive: false });
+    window.addEventListener('mouseup', () => { window.removeEventListener('mousemove', handleH); window.removeEventListener('mousemove', handleSV); }); window.addEventListener('touchend', () => { window.removeEventListener('touchmove', handleH); window.removeEventListener('touchmove', handleSV); });
     updateBadge();
 }
 function resetBadgeColors() { document.getElementById('ringBadge').style.backgroundColor = '#f8bbd9'; document.getElementById('bgBadge').style.backgroundColor = '#ffffff'; document.getElementById('badgeText').style.color = '#000000'; updatePickFromElBadge(); showToast("🔄 คืนค่าสีเริ่มต้นแล้ว"); }
@@ -340,15 +295,16 @@ function setTargetBadge(id, btn) { cTargetBadge = id; document.querySelectorAll(
 function applyQCBadge(hex) { let hsv = hexToHsv(hex); hBadge = hsv.h; sBadge = hsv.s; vBadge = hsv.v; document.getElementById('huePointerBadge').style.left = (hBadge / 360) * 100 + '%'; document.getElementById('svPointerBadge').style.left = sBadge + '%'; document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%'; document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; updateColBadge(); }
 function updateColBadge() { const color = hsvToHex(hBadge, sBadge, vBadge); document.getElementById('hexValBadge').textContent = color; const el = document.getElementById(cTargetBadge); if (cTargetBadge === 'badgeText') el.style.color = color; else el.style.backgroundColor = color; }
 function updatePickFromElBadge() { const el = document.getElementById(cTargetBadge); const color = cTargetBadge === 'badgeText' ? el.style.color : el.style.backgroundColor; const hsv = hexToHsv(rgbToHex(color)); hBadge = hsv.h; sBadge = hsv.s; vBadge = hsv.v; document.getElementById('huePointerBadge').style.left = (hBadge / 360 * 100) + '%'; document.getElementById('svPointerBadge').style.left = sBadge + '%'; document.getElementById('svPointerBadge').style.top = (100 - vBadge) + '%'; document.getElementById('svMapBadge').style.backgroundColor = `hsl(${hBadge}, 100%, 50%)`; document.getElementById('hexValBadge').textContent = hsvToHex(hBadge, sBadge, vBadge); }
-function updateBadge() { document.getElementById("badgeCartoon").src = `https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${document.getElementById("cartoonSelectorBadge").value}.png`; const displayText = document.getElementById("textInputBadge").value || "NAME"; document.getElementById("badgeText").innerHTML = buildMixedFontHTML(displayText, document.getElementById("thaiFontSelectorBadge").value, document.getElementById("engFontSelectorBadge").value); }
+function updateBadge() { 
+    let cartoonImg = document.getElementById("cartoonSelectorBadge").value;
+    document.getElementById("badgeCartoon").src = `https://raw.githubusercontent.com/sakulkarn93/petitefont/main/${cartoonImg}.png`; 
+    const displayText = document.getElementById("textInputBadge").value || "NAME"; 
+    document.getElementById("badgeText").innerHTML = buildMixedFontHTML(displayText, document.getElementById("thaiFontSelectorBadge").value, document.getElementById("engFontSelectorBadge").value); 
+}
 
 function addToListBadge() {
     const rawText = document.getElementById("textInputBadge").value.trim();
-
-    
-
-    // เช็คการแจ้งเตือน
-    if (!rawText) { showToast("⚠️ กรุณาพิมพ์ชื่อที่ต้องการด้วยค่ะ"); return; }
+    if (!rawText) { showToast("⚠️ กรุณาพิมพ์ชื่อด้วยค่ะ"); return; }
 
     const ringColor = rgbToHex(document.getElementById('ringBadge').style.backgroundColor || 'rgb(248, 187, 217)');
     const bgColor = rgbToHex(document.getElementById('bgBadge').style.backgroundColor || 'rgb(255, 255, 255)');
@@ -359,15 +315,94 @@ function addToListBadge() {
     counts.badge++; document.getElementById("btnCounterBadge").innerText = counts.badge; showToast("✨ เพิ่มรายการสำเร็จ!");
 }
 
-// โหลดครั้งแรกตอนเปิดหน้าเว็บ
-window.onload = function() { setupPrintPicker(); resetAllPrintColors(); updateShoeTag(); updateAllLanyard(); initBadge(); };
+// ================= 5. ใบสรุปออเดอร์ =================
+function generateOrderSummary() {
+    const summaryBox = document.getElementById('summary-content');
+    if(!summaryBox) return;
 
-// Fix iOS เลื่อนทะลุ (ป้องกัน Color Picker ขัดจังหวะการเลื่อนจอ)
+    let allOrders = "";
+    
+    // ดึงข้อมูลจากกล่อง Textarea ที่ลูกค้ายืนยันมาแล้ว
+    const lan = document.getElementById('orderSummaryLan')?.value.trim() || "";
+    const print = document.getElementById('orderSummaryPrint')?.value.trim() || "";
+    const shoe = document.getElementById('orderSummaryShoe')?.value.trim() || "";
+    const badge = document.getElementById('orderSummaryBadge')?.value.trim() || "";
+
+    // นำมาต่อกันด้วยข้อความธรรมดา เพื่อให้แก้ไขและก๊อปปี้ลง LINE ได้สวยๆ
+    if(lan) allOrders += "--- [ สายคล้องแมสสกรีนชื่อ ] ---\n" + lan + "\n";
+    if(print) allOrders += "--- [ สายพิมพ์ลาย ] ---\n" + print + "\n";
+    if(shoe) allOrders += "--- [ ป้ายรองเท้า ] ---\n" + shoe + "\n";
+    if(badge) allOrders += "--- [ เข็มกลัด ] ---\n" + badge + "\n";
+
+    if(allOrders === "") {
+        summaryBox.value = "ยังไม่มีรายการสั่งทำค่ะ\nกรุณาเลือกสินค้าและกดปุ่ม 'ยืนยันแบบ' ก่อนนะคะ";
+    } else {
+        summaryBox.value = allOrders;
+    }
+}
+
+function copyOrderSummary() {
+    const summaryBox = document.getElementById('summary-content');
+    if (!summaryBox || summaryBox.value.includes('ยังไม่มีรายการสั่งทำ')) {
+        showToast('⚠️ ไม่มีข้อมูลให้คัดลอกค่ะ');
+        return;
+    }
+    
+    // ระบบก๊อปปี้ข้อมูลสำหรับกล่อง Textarea
+    summaryBox.select(); 
+    summaryBox.setSelectionRange(0, 99999);
+    try { 
+        document.execCommand("copy"); 
+        showToast('📋 คัดลอกใบสรุปลง Clipboard แล้วค่ะ!'); 
+    } catch(e) { 
+        showToast("⚠️ กดค้างที่ข้อความเพื่อก๊อปปี้แทนนะคะ"); 
+    }
+}
+
+// ================= ระบบสไลเดอร์เลื่อนอัตโนมัติ =================
+function initBannerSlider() {
+    const slider = document.getElementById('homeBannerSlider');
+    const dots = document.querySelectorAll('#homeSliderDots .dot');
+    if(!slider) return;
+
+    let currentIndex = 0;
+    const totalSlides = dots.length;
+
+    // ระบบจุด (Dots) เปลี่ยนสีตามภาพที่ลูกค้าปัด
+    slider.addEventListener('scroll', () => {
+        let index = Math.round(slider.scrollLeft / slider.clientWidth);
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentIndex = index;
+    });
+
+    // เลื่อนอัตโนมัติทุกๆ 3 วินาที (3000 มิลลิวินาที)
+    setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        }
+        slider.scrollTo({
+            left: currentIndex * slider.clientWidth,
+            behavior: 'smooth'
+        });
+    }, 3000); 
+}
+
+// ================= โหลดครั้งแรกตอนเปิดหน้าเว็บ =================
+window.onload = function() { 
+    setupPrintPicker(); 
+    resetAllPrintColors(); 
+    updateShoeTag(); 
+    updateAllLanyard(); 
+    initBadge(); 
+    initBannerSlider(); // <--- สั่งให้สไลเดอร์เริ่มทำงานตรงนี้
+};
+
+// Fix iOS เลื่อนทะลุ
 (function() {
     var pickerSelectors = ['.sv-map', '.hue-slider']; var isDraggingPicker = false;
-    document.addEventListener('touchstart', function(e) {
-        var el = e.target; isDraggingPicker = pickerSelectors.some(function(sel) { return el.closest ? el.closest(sel) : false; });
-    }, { passive: true });
+    document.addEventListener('touchstart', function(e) { var el = e.target; isDraggingPicker = pickerSelectors.some(function(sel) { return el.closest ? el.closest(sel) : false; }); }, { passive: true });
     document.addEventListener('touchmove', function(e) { if (!isDraggingPicker) return; }, { passive: true });
 })();
-
