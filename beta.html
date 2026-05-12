@@ -72,25 +72,111 @@
     </div>
 
     <div id="page-lanyard" class="app-page">
-        <div style="padding: 50px 20px; text-align: center;">
-            <h2>หน้าออกแบบสายคล้องแมส</h2>
-            <p style="margin-top: 10px; color: #888;">(รอ Dev Petite นำโค้ดมาใส่ในขั้นตอนต่อไปครับ)</p>
-            <button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button>
+        <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
+            <button class="back-btn" onclick="MapsTo('page-home')" style="background: #fff; border: 1.5px solid #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px;">◁ กลับหน้าแรก</button>
+            <h2 style="text-align: center;">สายคล้องแมสสกรีนชื่อ</h2>
+        </div>
+
+        <div class="main-content-area" style="margin-top: 20px;">
+            
+            <div class="preview-container" id="sampleBoxLan">
+                <p id="sampleTextLan">น้องปั้นหยา Panyah</p>
+            </div>
+
+            <div class="white-card">
+                <div class="form-row">
+                    <label class="form-label" style="font-weight: bold; font-size: 14px;">พิมพ์ชื่อที่ต้องการ ♥</label>
+                    <input type="text" id="textInputLan" class="form-input" placeholder="เช่น น้องปั้นหยา Panyah" oninput="updateAllLanyard()" style="width: 100%; padding: 12px; border: 1.5px solid #000; border-radius: 10px; margin-top: 5px;">
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px;">
+                    <div class="form-row">
+                        <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์ไทย</label>
+                        <select id="thaiFontLan" class="form-input" onchange="updateAllLanyard()" style="width: 100%; padding: 10px; border: 1.5px solid #000; border-radius: 10px;">
+                            <option value="'ฟอนต์ไทย1'" selected>ฟอนต์ไทย 1</option>
+                            <option value="'ฟอนต์ไทย2'">ฟอนต์ไทย 2</option>
+                            <option value="'ฟอนต์ไทย3'">ฟอนต์ไทย 3</option>
+                            <option value="'ฟอนต์ไทย4'">ฟอนต์ไทย 4</option>
+                            <option value="'ฟอนต์ไทย5'">ฟอนต์ไทย 5</option>
+                            <option value="'ฟอนต์ไทย7'">ฟอนต์ไทย 7</option>
+                            <option value="'ฟอนต์ไทย8'">ฟอนต์ไทย 8</option>
+                            <option value="'ฟอนต์ไทย9'">ฟอนต์ไทย 9</option>
+                            <option value="'ฟอนต์ไทย10'">ฟอนต์ไทย 10</option>
+                            <option value="'ฟอนต์ไทย11'">ฟอนต์ไทย 11</option>
+                            <option value="'ฟอนต์ไทย12'">ฟอนต์ไทย 12</option>
+                            <option value="'ฟอนต์ไทย14'">ฟอนต์ไทย 14</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" style="font-weight: bold; font-size: 12px;">ฟอนต์อังกฤษ</label>
+                        <select id="engFontLan" class="form-input" onchange="updateAllLanyard()" style="width: 100%; padding: 10px; border: 1.5px solid #000; border-radius: 10px;">
+                            <option value="'ฟอนต์อังกฤษ1', sans-serif" selected>ฟอนต์อังกฤษ 1</option>
+                            <option value="'ฟอนต์อังกฤษ2', cursive">ฟอนต์อังกฤษ 2</option>
+                            <option value="'ฟอนต์อังกฤษ3', cursive">ฟอนต์อังกฤษ 3</option>
+                            <option value="'ฟอนต์อังกฤษ4', cursive">ฟอนต์อังกฤษ 4</option>
+                            <option value="'ฟอนต์อังกฤษ6', cursive">ฟอนต์อังกฤษ 6</option>
+                            <option value="'ฟอนต์อังกฤษ7', sans-serif">ฟอนต์อังกฤษ 7</option>
+                            <option value="'ฟอนต์อังกฤษ8', cursive">ฟอนต์อังกฤษ 8</option>
+                            <option value="'ฟอนต์อังกฤษ9', cursive">ฟอนต์อังกฤษ 9</option>
+                            <option value="'ฟอนต์อังกฤษ10', cursive">ฟอนต์อังกฤษ 10</option>
+                            <option value="'ฟอนต์อังกฤษ11', cursive">ฟอนต์อังกฤษ 11</option>
+                            <option value="'ฟอนต์อังกฤษ12', sans-serif">ฟอนต์อังกฤษ 12</option>
+                            <option value="'ฟอนต์อังกฤษ14', cursive">ฟอนต์อังกฤษ 14</option>
+                            <option value="'ฟอนต์อังกฤษ15', cursive">ฟอนต์อังกฤษ 15</option>
+                            <option value="'ฟอนต์อังกฤษ16', cursive">ฟอนต์อังกฤษ 16</option>
+                            <option value="'ฟอนต์อังกฤษ17', sans-serif">ฟอนต์อังกฤษ 17</option>
+                            <option value="'ฟอนต์อังกฤษ18', cursive">ฟอนต์อังกฤษ 18</option>
+                            <option value="'ฟอนต์อังกฤษ19', cursive">ฟอนต์อังกฤษ 19</option>
+                            <option value="'ฟอนต์อังกฤษ20', cursive">ฟอนต์อังกฤษ 20</option>
+                            <option value="'ฟอนต์อังกฤษ21', cursive">ฟอนต์อังกฤษ 21</option>
+                            <option value="'ฟอนต์อังกฤษ22', sans-serif">ฟอนต์อังกฤษ 22</option>
+                            <option value="'ฟอนต์อังกฤษ23', cursive">ฟอนต์อังกฤษ 23</option>
+                            <option value="'ฟอนต์อังกฤษ24', cursive">ฟอนต์อังกฤษ 24</option>
+                            <option value="'ฟอนต์อังกฤษ25', cursive">ฟอนต์อังกฤษ 25</option>
+                            <option value="'ฟอนต์อังกฤษ26', cursive">ฟอนต์อังกฤษ 26</option>
+                            <option value="'ฟอนต์อังกฤษ27', sans-serif">ฟอนต์อังกฤษ 27</option>
+                            <option value="'ฟอนต์อังกฤษ28', cursive">ฟอนต์อังกฤษ 28</option>
+                            <option value="'ฟอนต์อังกฤษ29', cursive">ฟอนต์อังกฤษ 29</option>
+                            <option value="'ฟอนต์อังกฤษ30', cursive">ฟอนต์อังกฤษ 30</option>
+                            <option value="'ฟอนต์อังกฤษ31', cursive">ฟอนต์อังกฤษ 31</option>
+                            <option value="'ฟอนต์อังกฤษ32', cursive">ฟอนต์อังกฤษ 32</option>
+                            <option value="'ฟอนต์อังกฤษ33', sans-serif">ฟอนต์อังกฤษ 33</option>
+                            <option value="'ฟอนต์อังกฤษ34', cursive">ฟอนต์อังกฤษ 34</option>
+                            <option value="'ฟอนต์อังกฤษ35', cursive">ฟอนต์อังกฤษ 35</option>
+                            <option value="'ฟอนต์อังกฤษ36', cursive">ฟอนต์อังกฤษ 36</option>
+                            <option value="'ฟอนต์อังกฤษ37', cursive">ฟอนต์อังกฤษ 37</option>
+                            <option value="'ฟอนต์อังกฤษ38', sans-serif">ฟอนต์อังกฤษ 38</option>
+                            <option value="'ฟอนต์อังกฤษ39', cursive">ฟอนต์อังกฤษ 39</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="white-card">
+                <button class="btn-add" onclick="addToListLanyard()" style="background: #000; color: #fff; border:none; width:100%; padding:15px; border-radius:15px; font-weight:800; cursor: pointer;">
+                    ✅ ยืนยันแบบ (เส้นที่ <span id="btnCounterLan">1</span>)
+                </button>
+                <textarea id="orderSummaryLan" style="margin-top:10px; width:100%; min-height: 100px; padding: 10px; border: 1.5px solid #000; border-radius: 10px;" placeholder="รายการที่คุณกดยืนยันจะมาขึ้นตรงนี้..."></textarea>
+                <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryLan')" style="margin-top:10px; width:100%; border:1.5px solid #000; background:#fff; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">
+                    📋 คัดลอกข้อความทั้งหมด
+                </button>
+            </div>
+            
         </div>
     </div>
-    
-    <div id="page-print" class="app-page">
-        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าสายพิมพ์ลาย</h2><button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button></div>
-    </div>
 
-    <div id="page-shoe" class="app-page">
-        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าป้ายรองเท้า</h2><button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button></div>
+            <div class="white-card">
+                <button class="btn-add" onclick="addToListLanyard()" style="background: #000; color: #fff; border:none; width:100%; padding:15px; border-radius:15px; font-weight:800; cursor: pointer;">
+                    ✅ ยืนยันแบบ (เส้นที่ <span id="btnCounterLan">1</span>)
+                </button>
+                <textarea id="orderSummaryLan" style="margin-top:10px; width:100%; min-height: 100px; padding: 10px; border: 1.5px solid #000; border-radius: 10px;" placeholder="รายการที่คุณกดยืนยันจะมาขึ้นตรงนี้..."></textarea>
+                <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryLan')" style="margin-top:10px; width:100%; border:1.5px solid #000; background:#fff; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">
+                    📋 คัดลอกข้อความทั้งหมด
+                </button>
+            </div>
+            
+        </div>
     </div>
-
-    <div id="page-badge" class="app-page">
-        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าเข็มกลัด</h2><button onclick="MapsTo('page-home')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าแรก</button></div>
-    </div>
-
 </div>
 
 <div class="bottom-nav">
