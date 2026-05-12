@@ -13,12 +13,9 @@
 <div class="wrapper">
 
     <div id="page-home" class="app-page active-page">
-        
         <div class="top-yellow-section">
             <div class="top-bar">
-                <div class="app-logo">
-                    🧀 Petite.Screen
-                </div>
+                <div class="app-logo">🧀 Petite.Screen</div>
                 <div class="top-icons">
                     <span>📅</span>
                     <span>⚙️</span>
@@ -27,15 +24,13 @@
         </div>
 
         <div class="main-content-area">
-            
             <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ChatGPT Image May 12, 2026, 03_41_01 PM.png" class="shop-banner-img" alt="Shop Banner" onerror="this.src='https://raw.githubusercontent.com/sakulkarn93/petitefont/main/14.png'; this.style.objectFit='contain';">
             
             <div class="white-card">
                 <div style="font-size: 14px; font-weight: 800; margin-bottom: 15px;">หมวดหมู่สินค้า</div>
-                
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     
-                    <div class="menu-item" style="flex-direction: column; text-align: center; padding: 25px 10px;" onclick="MapsTo('page-lanyard')">
+                    <div class="menu-item" style="flex-direction: column; text-align: center; padding: 25px 10px;" onclick="MapsTo('page-products')">
                         <div class="menu-icon" style="margin-bottom: 10px; width: 55px; height: 55px; background: #FFF9E9;">
                             <span style="font-size: 26px;">🎨</span>
                         </div>
@@ -45,13 +40,13 @@
                         </div>
                     </div>
 
-                   <div class="menu-item" style="flex-direction: column; text-align: center; padding: 25px 10px;" onclick="MapsTo('page-products')">
+                    <div class="menu-item" style="flex-direction: column; text-align: center; padding: 25px 10px;" onclick="showToast('กำลังทำหน้ารวมฟอนต์ครับ')">
                         <div class="menu-icon" style="margin-bottom: 10px; width: 55px; height: 55px; background: #F4F8FF;">
                             <span style="font-size: 26px;">Aa</span>
                         </div>
                         <div class="menu-text">
                             <b style="font-size: 15px;">ดูตัวอย่างฟอนต์</b>
-                             <span style="font-size: 12px; color: var(--text-brown); margin-top: 6px; font-weight: bold;">👇 จิ้มเลย!</span>
+                            <span style="font-size: 12px; color: var(--text-brown); margin-top: 6px; font-weight: bold;">👇 จิ้มเลย!</span>
                             <span style="font-size: 12px; color: #666; margin-top: 6px;">ทั้งหมด</span>
                         </div>
                     </div>
@@ -66,9 +61,10 @@
                 </div>
                 <div style="font-size: 20px;">👉</div>
             </div>
-
         </div>
-<div id="page-products" class="app-page">
+    </div>
+
+    <div id="page-products" class="app-page">
         <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
             <button class="back-btn" onclick="MapsTo('page-home')" style="background: #fff; border: 1.5px solid #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px;">◁ กลับหน้าแรก</button>
             <h2 style="text-align: center;">เลือกสินค้าที่ต้องการ</h2>
@@ -76,19 +72,15 @@
 
         <div class="main-content-area" style="margin-top: 20px;">
             <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/สายคล้องแมส.png" onclick="MapsTo('page-lanyard')" alt="สายคล้องแมส" style="width: 100%; border-radius: 20px; margin-bottom: 15px; border: 1.5px solid #000; cursor: pointer;">
-            
             <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/สายคล้องแมสพิมพ์ลาย.png" onclick="MapsTo('page-print')" alt="สายคล้องแมสพิมพ์ลาย" style="width: 100%; border-radius: 20px; margin-bottom: 15px; border: 1.5px solid #000; cursor: pointer;">
-            
             <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/ป้ายรองเท้า.png" onclick="MapsTo('page-shoe')" alt="ป้ายรองเท้า" style="width: 100%; border-radius: 20px; margin-bottom: 15px; border: 1.5px solid #000; cursor: pointer;">
-            
             <img src="https://raw.githubusercontent.com/sakulkarn93/petitefont/main/เข็มกลัด.png" onclick="MapsTo('page-badge')" alt="เข็มกลัด" style="width: 100%; border-radius: 20px; margin-bottom: 15px; border: 1.5px solid #000; cursor: pointer;">
         </div>
-    </div>
     </div>
 
     <div id="page-lanyard" class="app-page">
         <div class="top-yellow-section" style="padding-bottom: 30px; border-radius: 0 0 30px 30px;">
-            <button class="back-btn" onclick="MapsTo('page-home')" style="background: #fff; border: 1.5px solid #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px;">◁ กลับหน้าแรก</button>
+            <button class="back-btn" onclick="MapsTo('page-products')" style="background: #fff; border: 1.5px solid #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px;">◁ กลับหน้าเลือกสินค้า</button>
             <h2 style="text-align: center;">สายคล้องแมสสกรีนชื่อ</h2>
         </div>
 
@@ -180,19 +172,17 @@
         </div>
     </div>
 
-            <div class="white-card">
-                <button class="btn-add" onclick="addToListLanyard()" style="background: #000; color: #fff; border:none; width:100%; padding:15px; border-radius:15px; font-weight:800; cursor: pointer;">
-                    ✅ ยืนยันแบบ (เส้นที่ <span id="btnCounterLan">1</span>)
-                </button>
-                <textarea id="orderSummaryLan" style="margin-top:10px; width:100%; min-height: 100px; padding: 10px; border: 1.5px solid #000; border-radius: 10px;" placeholder="รายการที่คุณกดยืนยันจะมาขึ้นตรงนี้..."></textarea>
-                <button class="btn-action btn-copy" onclick="copyOrder('orderSummaryLan')" style="margin-top:10px; width:100%; border:1.5px solid #000; background:#fff; padding:12px; border-radius:12px; font-weight:bold; cursor: pointer;">
-                    📋 คัดลอกข้อความทั้งหมด
-                </button>
-            </div>
-            
-        </div>
+    <div id="page-print" class="app-page">
+        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าสายพิมพ์ลาย</h2><button onclick="MapsTo('page-products')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าเลือกสินค้า</button></div>
     </div>
-</div>
+    <div id="page-shoe" class="app-page">
+        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าป้ายรองเท้า</h2><button onclick="MapsTo('page-products')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าเลือกสินค้า</button></div>
+    </div>
+    <div id="page-badge" class="app-page">
+        <div style="padding: 50px 20px; text-align: center;"><h2>หน้าเข็มกลัด</h2><button onclick="MapsTo('page-products')" style="margin-top: 20px; padding: 10px 20px; border-radius: 20px; border: none; background: var(--cheese-yellow); font-weight: bold;">กลับหน้าเลือกสินค้า</button></div>
+    </div>
+
+</div> ```
 
 <div class="bottom-nav">
     <div class="nav-item active" onclick="MapsTo('page-home'); updateNav(this);">
