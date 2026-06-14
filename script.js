@@ -5,11 +5,6 @@ function MapsTo(pageId) {
     document.querySelectorAll('.app-page').forEach(page => page.classList.remove('active-page'));
     const targetPage = document.getElementById(pageId);
     if(targetPage) targetPage.classList.add('active-page');
-    
-    // เลื่อนกลับขึ้นบน — รองรับทั้ง Shopee WebView (window scroll) และ wrapper scroll
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
     const wrapper = document.querySelector('.wrapper');
     if (wrapper) wrapper.scrollTop = 0;
     
@@ -426,22 +421,9 @@ window.onload = function() {
     initBannerSlider(); // <--- สั่งให้สไลเดอร์เริ่มทำงานตรงนี้
 };
 
-// Fix color picker drag บน Shopee WebView (iOS & Android)
+// Fix iOS เลื่อนทะลุ
 (function() {
-    var pickerSelectors = ['.sv-map', '.hue-slider'];
-    var isDraggingPicker = false;
-
-    document.addEventListener('touchstart', function(e) {
-        var el = e.target;
-        isDraggingPicker = pickerSelectors.some(function(sel) {
-            return el.closest ? el.closest(sel) : false;
-        });
-    }, { passive: true });
-
-    // ป้องกันหน้าเลื่อนขณะลาก color picker เท่านั้น
-    document.addEventListener('touchmove', function(e) {
-        if (isDraggingPicker) {
-            e.preventDefault();
-        }
-    }, { passive: false });
+    var pickerSelectors = ['.sv-map', '.hue-slider']; var isDraggingPicker = false;
+    document.addEventListener('touchstart', function(e) { var el = e.target; isDraggingPicker = pickerSelectors.some(function(sel) { return el.closest ? el.closest(sel) : false; }); }, { passive: true });
+    document.addEventListener('touchmove', function(e) { if (!isDraggingPicker) return; }, { passive: true });
 })();
