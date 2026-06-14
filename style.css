@@ -55,13 +55,20 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Muekkrob', 'Sarabun', sans-serif; }
 :root { --cheese-yellow: #ffd24d; --cheese-bg: #F4F5F7; --text-dark: #333333; --text-brown: #8D5B3E; --card-radius: 20px; }
 
-html, body { background-color: var(--cheese-bg); color: var(--text-dark); width: 100%; height: 100%; overflow: hidden; }
+html, body { 
+    background-color: var(--cheese-bg); color: var(--text-dark); 
+    width: 100%; min-height: 100%;
+    /* ไม่ใช้ overflow:hidden เพราะ Shopee WebView จะทำให้เลื่อนไม่ได้ */
+}
 html::-webkit-scrollbar, body::-webkit-scrollbar, .wrapper::-webkit-scrollbar { display: none; }
 
 .wrapper { 
-    -ms-overflow-style: none; scrollbar-width: none; position: relative; z-index: 1; max-width: 480px; 
-    margin: 0 auto; width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; 
-    -webkit-overflow-scrolling: touch; padding: 0 0 100px 0; 
+    -ms-overflow-style: none; scrollbar-width: none; 
+    position: relative; z-index: 1; max-width: 480px; 
+    margin: 0 auto; width: 100%; 
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 0 0 100px 0; 
 }
 
 /* ================= SPA Logic (สลับหน้า) ================= */
